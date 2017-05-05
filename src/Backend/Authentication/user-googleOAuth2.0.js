@@ -27,6 +27,7 @@ module.exports.googleauth = () =>{
                     newUser.userName = profile.displayName;
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
+                    newUser.role = "User";
 
                     if(newUser.emailID.includes('@tothenew.com')){
                         newUser.save((err) => {

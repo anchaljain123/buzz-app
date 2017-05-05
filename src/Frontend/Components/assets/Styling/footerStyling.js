@@ -9,7 +9,7 @@ export default{
         overflow:'hidden',
     },
     marginSet:{
-        marginTop:'25px',
+        marginTop:'10px',
 
     },
 

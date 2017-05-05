@@ -5,6 +5,7 @@ const googleAuth = require('../Authentication/user-googleOAuth2.0');
 const session = require('express-session');
 const routing = require('./Route');
 const userRoute = routing.userRoute;
+const buzzRoute = routing.buzzRoute;
 
 
 module.exports.appStarted=(app)=>{
@@ -13,6 +14,7 @@ module.exports.appStarted=(app)=>{
     app.use(bodyParser());
     googleAuth.googleauth();
     userRoute(app);
+    buzzRoute(app);
 
 };
 

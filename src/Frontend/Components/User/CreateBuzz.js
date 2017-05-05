@@ -1,40 +1,48 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+import { asyncSavePost } from '../../actions'
 
 class CreateBuzz extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            content:"",
+            content: "",
+            category: "select",
         }
     }
-    handleChange = (event) =>{
+    handleChange = (event, key) =>{
         this.setState({
-            content:event.target.value,
+            [key]: event.target.value,
         })
-    }
+    };
+    savePost = () => {
+        this.props.dispatch(asyncSavePost(this.state));
+    };
 
     render(){
         return(
             <div className="container">
                 <div>
-                    <textarea value={this.state.content} onChange={(event)=>this.handleChange} />
-                    <div className="dropdown"
-                    >
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                            Category<span className="caret"></span>
-                        </button>
-                        <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li><a  tabindex="-1" href="#">Activity</a></li>
-                            <li ><a  tabindex="-1" href="#">LostnFound</a></li>
-                        </ul>
+                    <textarea value={this.state.content} name="content" onChange={(e)=>this.handleChange(e,'content')} />
+                    <div className="dropdown">
+                        <select
+                            name="dropdownValue"
+                            value={this.state.category}
+                            onChange={(e) => this.handleChange(e, 'category')}>
 
+                            <option value="select">Select</option>
+                            <option value="activity">Activity</option>
+                            <option value="lostnfound">LostnFound</option>
+                        </select>
                     </div>
-                    <button value="submit">Post</button>
+                    <button value="submit" onClick={(event) => this.savePost}>Post</button>
                 </div>
             </div>
         )
     }
 }
 
-export default CreateBuzz;
+const maptoState =  state => state;
+const CreateBuzzContainer =  connect(maptoState)(CreateBuzz);
+
+export default CreateBuzzContainer;

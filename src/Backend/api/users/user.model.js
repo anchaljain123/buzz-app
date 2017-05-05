@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const productSchema = new  mongoose.Schema({
+const userScheme = new  mongoose.Schema({
     id:{
        type:String,
         required:true,
@@ -13,7 +13,10 @@ const productSchema = new  mongoose.Schema({
         type:String,
         required:true,
     },
+    role:{
+        type:String,
+    },
     profile:{}
 });
 
-module.exports = mongoose.model('User',productSchema);
+module.exports = mongoose.model('User',userScheme);

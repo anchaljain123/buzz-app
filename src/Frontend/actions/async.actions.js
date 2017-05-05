@@ -2,11 +2,13 @@ import {
     asyncFetchSuccess,
     asyncFetchFailed,
     asyncCurrentUserSuccess,
-    asyncCurrentUserFailed
+    asyncCurrentUserFailed,
+    asyncSaveSuccess,
+    asyncSaveFailed,
 
 } from './actions'
 
-import { fetchURI , fetchCurrentUserURI } from '../config/constants'
+import { fetchURI , fetchCurrentUserURI,savePostURI } from '../config/constants'
 import fetch from 'isomorphic-fetch'
 
 export const asyncAction = () => {
@@ -21,7 +23,6 @@ export const asyncAction = () => {
             });
     }
 };
-
 
 export  const asyncgetCurrentUser =() =>{
     return(dispatch) =>{
@@ -40,5 +41,25 @@ export  const asyncgetCurrentUser =() =>{
                         dispatch(asyncCurrentUserFailed(err))
                     })
 
+    }
+}
+
+export const asyncSavePost = (postDetails) =>{
+    return(dispatch) =>{
+        fetch(savePostURI,{
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(postDetails),
+        })
+            .then(res=>res.json())
+            .then(data => {
+                dispatch(asyncSaveSuccess(data));
+            })
+            .catch(err => {
+                dispatch(asyncSaveFailed(err));
+            })
     }
 }

@@ -3,7 +3,7 @@
 
  input[type="submit"]
 {
-    width: 30%;
+    width: 100%;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 500;
@@ -12,6 +12,11 @@
     cursor: pointer;
     letter-spacing: 1px;
 }
+ .login
+ {
+     width: 30%;
+     margin-left: 35%;
+ }
 
 form.login input[type="submit"]:hover
 {

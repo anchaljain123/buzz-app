@@ -1,3 +1,5 @@
 export {
-    asyncAction,asyncgetCurrentUser
+    asyncAction,
+    asyncgetCurrentUser,
+    asyncSavePost,
 } from './async.actions'
