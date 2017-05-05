@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import headerStyling from './assets/Styling/headerStyling'
+import headerStyling from '../assets/Styling/headerStyling'
 
 const Header = () =>{
     return(
@@ -7,14 +7,13 @@ const Header = () =>{
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                            <div className="intro-text">
-                                <span className="name">TTN Buzz</span>
-                            </div>
+                        <div className="intro-text">
+                            <span className="name">TTN Buzz</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
-
     )
 }
 

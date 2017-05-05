@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
-import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { browserHistory } from 'react-router';
+import App from './App'
+import './assets/Styling/frontpg.css'
 
 
 const Container = () =>{

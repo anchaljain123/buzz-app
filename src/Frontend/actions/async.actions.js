@@ -33,11 +33,12 @@ export  const asyncgetCurrentUser =() =>{
             },
         })
             .then(res=>res.json())
-            .then(data=>{
+            .then(data=> {
                 dispatch(asyncCurrentUserSuccess(data))
+            })
                     .catch(err=>{
                         dispatch(asyncCurrentUserFailed(err))
                     })
-            })
+
     }
 }

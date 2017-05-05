@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import footerStyling from './assets/Styling/footerStyling'
+import footerStyling from '../assets/Styling/footerStyling'
 
 const Footer = () =>{
     return(
@@ -13,6 +13,6 @@ const Footer = () =>{
         </footer>
 
     )
-    }
+}
 
-    export default Footer;
+export default Footer;

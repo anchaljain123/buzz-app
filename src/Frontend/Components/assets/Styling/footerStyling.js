@@ -6,8 +6,7 @@ export default{
         marginTop:'100px',
         width:'100%',
         bottom:'0',
-
-
+        overflow:'hidden',
     },
     marginSet:{
         marginTop:'25px',
