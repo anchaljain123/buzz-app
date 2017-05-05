@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
-import { asyncAction } from '../actions'
+import { asyncgetCurrentUser } from '../actions'
 
 class Profile extends Component{
 
@@ -10,15 +10,20 @@ class Profile extends Component{
 
 
     componentWillMount(){
-        this.props.dispatch(asyncAction())
+        this.props.dispatch(asyncgetCurrentUser())
     }
     render() {
 
-        let userDetails = this.props.userData;
-        console.log(this.props,"--------profile")
+        let userDetails = this.props.users;
+
         return (
             <div>
-             hello
+                {
+                    userDetails.map((item)=>{
+                        return <div>{item.userName}</div>
+                    })
+                }
+
             </div>
         )
     }

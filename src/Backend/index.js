@@ -1,6 +1,8 @@
 const passport = require('passport');
 const express = require('express');
+var cors=require('cors');
 const constants  = require('./config/constant');
+var cookieParser = require('cookie-parser');
 const appConfig = require('./config/app');
 const PORT =  constants.PORT ;
 const allowCrossDomain = function(req, res, next) {
@@ -11,7 +13,9 @@ const allowCrossDomain = function(req, res, next) {
 };
 
 const app = express();
+app.use(cookieParser());
 app.use(allowCrossDomain);
+app.use(cors({origin:true,credentials: true}));
 appConfig.appStarted(app);
 
 app.listen(PORT,()=>{

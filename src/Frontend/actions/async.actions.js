@@ -1,9 +1,12 @@
 import {
     asyncFetchSuccess,
     asyncFetchFailed,
+    asyncCurrentUserSuccess,
+    asyncCurrentUserFailed
+
 } from './actions'
 
-import { fetchURI } from '../config/constants'
+import { fetchURI , fetchCurrentUserURI } from '../config/constants'
 import fetch from 'isomorphic-fetch'
 
 export const asyncAction = () => {
@@ -18,3 +21,23 @@ export const asyncAction = () => {
             });
     }
 };
+
+
+export  const asyncgetCurrentUser =() =>{
+    return(dispatch) =>{
+        fetch(fetchCurrentUserURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncCurrentUserSuccess(data))
+                    .catch(err=>{
+                        dispatch(asyncCurrentUserFailed(err))
+                    })
+            })
+    }
+}

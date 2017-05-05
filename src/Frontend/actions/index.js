@@ -1,3 +1,3 @@
 export {
-    asyncAction,
+    asyncAction,asyncgetCurrentUser
 } from './async.actions'

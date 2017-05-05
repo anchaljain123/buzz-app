@@ -10,8 +10,8 @@ const userRoute = routing.userRoute;
 module.exports.appStarted=(app)=>{
 
     app.use(session({secret:'6786476467'}),passport.initialize(),passport.session());
-    googleAuth.googleauth();
     app.use(bodyParser());
+    googleAuth.googleauth();
     userRoute(app);
 
 };

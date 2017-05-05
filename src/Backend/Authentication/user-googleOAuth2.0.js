@@ -5,6 +5,7 @@ const Constants = require('../config/constant');
 const GOOGLE_CLIENT_ID = Constants.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = Constants.GOOGLE_CLIENT_SECRET;
 const GOOGLE_CALLBACK_URL = Constants.GOOGLE_CALLBACK_URL;
+const jwt = require('jsonwebtoken');
 
 module.exports.googleauth = () =>{
     passport.use(new GoogleStrategy({
@@ -18,7 +19,7 @@ module.exports.googleauth = () =>{
                     done(err);
                 }
                 if(user) {
-                    return done(null,user);
+                    return done(null,user.id);
                 }
                 else{
                     let newUser = new User();
@@ -27,12 +28,19 @@ module.exports.googleauth = () =>{
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
 
-                    newUser.save((err) => {
-                        if (err){
-                            return done(err);
-                        }
-                        return done(null, newUser);
-                    });
+                    if(newUser.emailID.includes('@tothenew.com')){
+                        newUser.save((err) => {
+                            if (err){
+                                return done(err);
+                            }
+                            return done(null, newUser.id);
+                        });
+                    }
+
+                    else
+                    {
+                        return done(err)
+                    }
                 }
             })
         }
@@ -44,6 +52,8 @@ module.exports.googleauth = () =>{
     });
 
     passport.deserializeUser(function(obj, done) {
-        done(null, obj);
+        done(null,obj);
     });
 }
+
+

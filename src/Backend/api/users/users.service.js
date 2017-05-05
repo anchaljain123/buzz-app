@@ -11,6 +11,21 @@ exports.getUser = function (res) {
 
 }
 
+exports.getCurrentUser = function (userId,res) {
+
+    const userID = {id:userId};
+
+    User.find(userID,(err,user)=>{
+        if(err){
+            res.send({msg:err});
+        }
+        else
+        {
+            res.send(user);
+        }
+    })
+}
+
 
 
 

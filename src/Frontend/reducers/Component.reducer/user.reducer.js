@@ -1,6 +1,8 @@
 import {
     FETCH_USERS_SUCCESS,
     FETCH_USERS_FAILED,
+    FETCH_USER_SUCCESS,
+    FETCH_USER_FAILED,
 }from '../../config/constants'
 
 const initialState ={
@@ -13,7 +15,7 @@ export const userReducers = (state=initialState,action) =>{
     switch(action.type){
 
         case  FETCH_USERS_SUCCESS:{
-            console.log(action.data,"===")
+
             const users = state.users.concat(action.data);
           return{
               ...state,
@@ -27,6 +29,20 @@ export const userReducers = (state=initialState,action) =>{
             }
         }
 
+        case FETCH_USER_SUCCESS:{
+            const users = action.data;
+            console.log(action.data,"----in reducer");
+            return{
+                ...state,
+                users:users,
+            }
+        }
+        case FETCH_USER_FAILED:{
+            return{
+                ...state,
+                err:action.err,
+            }
+        }
 
     }
     return state;
