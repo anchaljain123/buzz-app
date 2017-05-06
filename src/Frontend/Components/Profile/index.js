@@ -15,7 +15,7 @@ class Profile extends Component{
         this.props.dispatch(asyncgetCurrentUser())
     }
     render() {
-        let userDetails = this.props.users;
+        let userDetails = this.props.userReducers.users;
         const { match } = this.props;
         return (
             <div>
@@ -24,8 +24,13 @@ class Profile extends Component{
                         return <div>{item.userName}</div>
                     })
                 }
-                <Navbar userprofile = {this.props.users} />
-                <Route exact path={`${match.url}/activity`} component={Activity}/>
+                <Navbar userprofile = {userDetails} />
+                <Route exact
+                       path={`${match.url}/activity`}
+                       render={props => <Activity {...props}
+                       userDetails={userDetails}/>}
+                />
+
                 <Route exact path="/profile/lostnfound" component={LostnFound}/>
                 <Route exact path="/profile/complaint" component={Complaints}/>
             </div>

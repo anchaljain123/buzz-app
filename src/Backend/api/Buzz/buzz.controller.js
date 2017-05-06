@@ -5,3 +5,7 @@ exports.saveBuzz = function (req,res,next) {
     buzzDetails.postCreated = new Date();
     buzzService.saveBuzz(buzzDetails,res);
 }
+
+exports.getBuzz = function (req,res,next) {
+    buzzService.getBuzz(res);
+}

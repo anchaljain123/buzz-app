@@ -2,6 +2,8 @@
 import {
     SAVE_BUZZ_SUCCESS,
     SAVE_BUZZ_FAILED,
+    FETCH_BUZZ_SUCCESS,
+    FETCH_BUZZ_FAILED,
 } from '../../config/constants'
 
 const initialState = {
@@ -20,7 +22,24 @@ export const buzzReducer = (state=initialState,action) =>{
             return{
             ...state,err:action.err
         }
+
+        case FETCH_BUZZ_SUCCESS:{
+
+            const buzz = state.buzz.concat(action.data);
+            return{
+                ...state,
+                buzz:buzz,
+            }
+        }
+
+        case FETCH_BUZZ_FAILED:{
+            return{
+                ...state,
+                err:action.err
+            }
+        }
     }
+
 
 return state
 }

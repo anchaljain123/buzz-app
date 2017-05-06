@@ -16,7 +16,18 @@ class CreateBuzz extends React.Component{
         })
     };
     savePost = () => {
-        this.props.dispatch(asyncSavePost(this.state));
+        let { userDetails } = this.props;
+
+        let postInfo = {
+            content: this.state.content,
+            category:this.state.category,
+            userDetails:userDetails,
+        };
+        this.props.dispatch(asyncSavePost(postInfo));
+        this.setState({
+            content:"",
+            category:"select",
+        })
     };
 
     render(){
@@ -29,13 +40,12 @@ class CreateBuzz extends React.Component{
                             name="dropdownValue"
                             value={this.state.category}
                             onChange={(e) => this.handleChange(e, 'category')}>
-
                             <option value="select">Select</option>
                             <option value="activity">Activity</option>
                             <option value="lostnfound">LostnFound</option>
                         </select>
                     </div>
-                    <button value="submit" onClick={(event) => this.savePost}>Post</button>
+                    <button value="submit" onClick={this.savePost}>Post</button>
                 </div>
             </div>
         )

@@ -5,10 +5,12 @@ import {
     asyncCurrentUserFailed,
     asyncSaveSuccess,
     asyncSaveFailed,
+    asyncBuzzSuccess,
+    asyncBuzzFailed,
 
 } from './actions'
 
-import { fetchURI , fetchCurrentUserURI,savePostURI } from '../config/constants'
+import { fetchURI , fetchCurrentUserURI,savePostURI,fetchBuzzURI,fetchLostURI} from '../config/constants'
 import fetch from 'isomorphic-fetch'
 
 export const asyncAction = () => {
@@ -37,10 +39,9 @@ export  const asyncgetCurrentUser =() =>{
             .then(data=> {
                 dispatch(asyncCurrentUserSuccess(data))
             })
-                    .catch(err=>{
-                        dispatch(asyncCurrentUserFailed(err))
-                    })
-
+            .catch(err=>{
+                dispatch(asyncCurrentUserFailed(err))
+            })
     }
 }
 
@@ -54,7 +55,7 @@ export const asyncSavePost = (postDetails) =>{
             },
             body:JSON.stringify(postDetails),
         })
-            .then(res=>res.json())
+            .then(res => res.json())
             .then(data => {
                 dispatch(asyncSaveSuccess(data));
             })
@@ -63,3 +64,23 @@ export const asyncSavePost = (postDetails) =>{
             })
     }
 }
+
+export  const asyncgetBuzz =() =>{
+    return(dispatch) =>{
+        fetch(fetchBuzzURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=> {
+                dispatch(asyncBuzzSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncBuzzFailed(err))
+            })
+    }
+}
+

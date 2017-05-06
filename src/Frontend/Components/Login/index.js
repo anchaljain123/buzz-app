@@ -11,7 +11,8 @@ class Login extends Component{
         this.props.dispatch(asyncAction());
     }
     render(){
-        let users = this.props.users;
+        let users = this.props.userReducers.users;
+        console.log(users)
         return (
             <div>
                 hello from login

@@ -1,16 +1,35 @@
-import React,{ Component } from 'react'
+import React , { Component } from 'react';
+import { connect } from 'react-redux'
+import { asyncgetBuzz } from '../../../../actions'
 
 class LostnFound extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
     }
+    componentWillMount(){
+        this.props.dispatch(asyncgetBuzz())
+    }
+
     render(){
+
+        let { buzz } = this.props.buzzReducer;
+        console.log(buzz.category,"----------------")
         return(
             <div>
-                lostnfound
+                {
+                    buzz.map(item =>{
+                        if(item.category == "lostnfound")
+                        return <div>{item.content}</div>
+                    })
+                }
             </div>
         )
     }
 }
 
-export default LostnFound;
+
+
+const mapToState = state => state;
+const LostnFoundbuzzContainer = connect(mapToState)(LostnFound);
+
+export default LostnFoundbuzzContainer;

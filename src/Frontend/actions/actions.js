@@ -5,6 +5,8 @@ FETCH_USERS_SUCCESS,
     FETCH_USER_FAILED,
     SAVE_BUZZ_FAILED,
     SAVE_BUZZ_SUCCESS,
+    FETCH_BUZZ_FAILED,
+   FETCH_BUZZ_SUCCESS,
 
 } from '../config/constants'
 
@@ -40,5 +42,17 @@ export const asyncSaveFailed = (err) =>{
 export const  asyncSaveSuccess = (data) =>{
     return{
         type:SAVE_BUZZ_SUCCESS,data
+    }
+}
+
+export const asyncBuzzFailed = (err) =>{
+    return{
+        type:FETCH_BUZZ_FAILED,err
+    }
+}
+
+export const asyncBuzzSuccess = (data) =>{
+    return{
+          type:  FETCH_BUZZ_SUCCESS,data
     }
 }

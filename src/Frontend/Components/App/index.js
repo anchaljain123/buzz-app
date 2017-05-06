@@ -13,7 +13,7 @@ const App = () => {
             <div>
                 <Header/>
                 <Route exact path="/" component={LandingPage}/>
-                <Route path="/login" render={ props => (<Login {...props}/>)}/>
+                <Route path="/login" component={Login}/>
                 <Route path="/profile" component={Profile}/>
                 <Footer/>
             </div>
