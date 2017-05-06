@@ -2,14 +2,12 @@ export default{
     bglightgray: {
         backgroundColor:'LightGray',
         position:'absolute',
-        height:'70px',
-        marginTop:'100px',
         width:'100%',
         bottom:'0',
         overflow:'hidden',
     },
     marginSet:{
-        marginTop:'10px',
+        margin:'5px',
 
     },
 

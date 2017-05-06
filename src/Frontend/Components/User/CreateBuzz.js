@@ -32,7 +32,7 @@ class CreateBuzz extends React.Component{
 
     render(){
         return(
-            <div className="container">
+            <div className="container" >
                 <div>
                     <textarea value={this.state.content} name="content" onChange={(e)=>this.handleChange(e,'content')} />
                     <div className="dropdown">

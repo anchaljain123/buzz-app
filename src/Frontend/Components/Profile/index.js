@@ -1,11 +1,12 @@
-import React,{ Component} from 'react'
-import { connect } from 'react-redux'
+import React,{ Component} from 'react';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Activity from '../User/Category/Buzz/Activity';
 import LostnFound from '../User/Category/Buzz/LostnFound';
-import Complaints from '../User/Category/Complaints/Complaints'
-import { asyncgetCurrentUser } from '../../actions'
+import Complaints from '../User/Category/Complaints';
+import { asyncgetCurrentUser } from '../../actions';
 import Navbar from './Navbar'
+import '../assets/Styling/main.css'
 
 class Profile extends Component{
     constructor(props){
@@ -25,14 +26,14 @@ class Profile extends Component{
                     })
                 }
                 <Navbar userprofile = {userDetails} />
-                <Route exact
-                       path={`${match.url}/activity`}
-                       render={props => <Activity {...props}
-                       userDetails={userDetails}/>}
-                />
-
-                <Route exact path="/profile/lostnfound" component={LostnFound}/>
-                <Route exact path="/profile/complaint" component={Complaints}/>
+                <div >
+                    <Route exact
+                           path={`${match.url}/activity`}
+                           render={props => <Activity {...props} userDetails={userDetails}/>}
+                    />
+                    <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
+                    <Route exact path="/profile/complaint" component={Complaints}/>
+                </div>
             </div>
         )
     }

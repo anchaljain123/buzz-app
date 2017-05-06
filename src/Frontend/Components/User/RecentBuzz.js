@@ -8,13 +8,14 @@ class RecentBuzz extends Component{
         super(props);
     }
     componentWillMount(){
-        this.props.dispatch(asyncgetBuzz())
+        this.props.dispatch(asyncgetBuzz());
     }
     render(){
 
         let { buzz } = this.props.buzzReducer;
+
         return(
-            <div>
+            <div  className="container">
                 {
                     buzz.map(item =>{
                         return <div>{item.content}</div>

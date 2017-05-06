@@ -25,10 +25,9 @@ export const buzzReducer = (state=initialState,action) =>{
 
         case FETCH_BUZZ_SUCCESS:{
 
-            const buzz = state.buzz.concat(action.data);
             return{
                 ...state,
-                buzz:buzz,
+                buzz:action.data,
             }
         }
 

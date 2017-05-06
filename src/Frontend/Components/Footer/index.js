@@ -6,9 +6,8 @@ const Footer = () =>{
         <footer className="container-fluid text-center " style={footerStyling.bglightgray}>
 
             <div className="copyrights" style={footerStyling.marginSet}>
-                <p>To The New© 2017, All Rights Reserved
-                    <br/><span>Web Design By: Anchal Jain</span>
-                </p>
+                <span>To The New© 2017, All Rights Reserved</span>
+                <span>Web Design By: Anchal Jain</span>
             </div>
         </footer>
 

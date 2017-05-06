@@ -7,15 +7,14 @@ class LostnFound extends Component{
         super(props)
     }
     componentWillMount(){
-        this.props.dispatch(asyncgetBuzz())
+        this.props.dispatch(asyncgetBuzz());
     }
 
     render(){
 
         let { buzz } = this.props.buzzReducer;
-        console.log(buzz.category,"----------------")
         return(
-            <div>
+            <div style={{marginLeft:'250px'}}>
                 {
                     buzz.map(item =>{
                         if(item.category == "lostnfound")
