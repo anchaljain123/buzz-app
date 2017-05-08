@@ -3,19 +3,22 @@ import {Route} from 'react-router-dom'
 import LandingPage from '../LandingPg'
 import Header from '../Header'
 import Footer from '../Footer'
+import '../assets/Styling/app.css'
 import Login from '../Login'
 import Profile from  '../Profile'
-
+import footerStyling from '../assets/Styling/footerStyling'
 
 const App = () => {
     return (
-        <div>
+        <div id="wrap">
             <div>
 
                 <Route exact path="/" component={LandingPage}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/profile" component={Profile}/>
-                <Footer/>
+                {/*<footer className="container-fluid text-center" style={footerStyling.bglightgray} >*/}
+                {/*<Footer/>*/}
+                {/*</footer>*/}
             </div>
         </div>
     )

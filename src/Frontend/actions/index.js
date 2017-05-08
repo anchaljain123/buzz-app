@@ -6,5 +6,6 @@ export {
     asyncgetLostnFoundBuzz,
     asyncSaveComplaint,
     asyncgetComplaints,
+    asyncdeletePost,
 
 } from './async.actions'

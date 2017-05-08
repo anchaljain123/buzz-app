@@ -8,7 +8,6 @@ import Complaints from '../User/Category/Complaints';
 import { asyncgetCurrentUser } from '../../actions';
 import Navbar from './Navbar'
 import headerimg from '../assets/images/newpic.jpeg';
-import '../assets/Styling/main.css'
 
 class Profile extends Component{
     constructor(props){
@@ -21,6 +20,13 @@ class Profile extends Component{
         this.props.dispatch(asyncgetCurrentUser());
     }
 
+    /*  componentWillUpdate(){
+     const { match } = this.props;
+     if(match.url == '/profile'){
+     this.props.history.push('/profile/activity');
+     }
+     }*/
+
     logout =() =>{
         this.setState({
             islogout:false,
@@ -31,32 +37,43 @@ class Profile extends Component{
         const { match } = this.props;
         return (
             <div>
-                {
-                    userDetails.map((item)=>{
-                        return <div>{item.userName}</div>
-                    })
-                }
-                {/*<img src={headerimg} style={{marginLeft:'260px'}}/>*/}
-                <Navbar userprofile = {userDetails} />
-                <div >
-                    <Route exact
-                           path={`${match.url}/activity`}
-                           render={props => <Activity {...props} userDetails={userDetails}/>}
-                    />
-                    <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
-                    <Route exact path={`${match.url}/complaint`} render={props =>
-                        <Complaints {...props} userDetails={userDetails}/>}
-                    />
-                </div>
 
-                <button
-                    style={{ position: 'absolute', top: '0px', right: '0px',}}
-                    onClick={(e) => this.setState({islogout:true})}>
-                    Logout</button>
-                {
-                    this.state.islogout?
-                        <Logout logout={this.logout}/> :""
-                }
+                <nav className="navbar navbar-inverse">
+                    <div className="container-fluid">
+                        <div className="navbar-header">
+                            LOGO
+                        </div>
+                        <div className="collapse navbar-collapse" id="myNavbar">
+                            <ul className="nav navbar-nav navbar-right">
+                                <li><a
+                                    style={{cursor:'pointer'}}
+                                    onClick={(e) => this.setState({islogout:true})}>
+                                    <span className="glyphicon glyphicon-log-out"></span>Logout</a>
+                                    {
+                                        this.state.islogout?
+                                            <Logout logout={this.logout}/> :""
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div className="container-fluid">
+                    <div className="row content">
+                        <Navbar userprofile = {userDetails} />
+
+                        <div className="col-sm-9">
+                            <Route exact
+                                   path={`${match.url}/activity`}
+                                   render={props => <Activity {...props} userDetails={userDetails}/>}
+                            />
+                            <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
+                            <Route exact path={`${match.url}/complaint`} render={props =>
+                                <Complaints {...props} userDetails={userDetails}/>}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

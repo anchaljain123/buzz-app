@@ -1,16 +1,22 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux'
-import { asyncgetBuzz } from '../../actions'
-import ReactBuzzRow from './RecentBuzzRow'
+import { asyncgetBuzz , asyncdeletePost } from '../../actions'
+import RecentBuzzRow from './RecentBuzzRow'
 
 class RecentBuzz extends Component{
 
     constructor(props){
         super(props);
     }
+
     componentWillMount(){
         this.props.dispatch(asyncgetBuzz());
     }
+
+    deleteBuzz = (postDetails) => {
+        this.props.dispatch(asyncdeletePost(postDetails));
+    }
+
     render(){
 
         let { buzz } = this.props.buzzReducer;
@@ -18,13 +24,12 @@ class RecentBuzz extends Component{
         for (let j = buzz.length-1; j >= 0; j--){
             tempArray.push(buzz[j])
         }
-
         return(
 
-            <div  className="container">
+            <div className="row">
                 {
                    tempArray.map(item => (
-                       <div key={item._id}><ReactBuzzRow item={item}/></div>
+                       <div  className="well" key={item._id}><RecentBuzzRow buzzData={item} deleteBuzz={this.deleteBuzz} /></div>
                    ))
                 }
             </div>

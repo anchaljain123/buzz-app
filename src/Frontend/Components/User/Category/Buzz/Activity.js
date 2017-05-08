@@ -9,9 +9,13 @@ class Activity extends Component{
 
     render(){
         return(
-            <div style={{marginLeft:'250px',marginTop:'-110px'}}>
-                <CreateBuzz userDetails={this.props.userDetails}/>
-                <RecentBuzz />
+            <div>
+                <div className="well">
+                    <CreateBuzz userDetails={this.props.userDetails}/>
+                </div>
+                <div className="well">
+                    <RecentBuzz/>
+                </div>
             </div>
         )
     }

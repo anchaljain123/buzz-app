@@ -11,8 +11,8 @@ import {
     SAVE_COMPLAINT_FAILED,
     FETCH_COMPLAINT_SUCCESS,
     FETCH_COMPLAINT_FAILED,
-
-
+    DELETE_BUZZ_FAILED,
+    DELETE_BUZZ_SUCCESS,
 } from '../config/constants'
 
 export const asyncFetchSuccess = (data) =>{
@@ -20,6 +20,7 @@ export const asyncFetchSuccess = (data) =>{
         type:FETCH_USERS_SUCCESS,data,
     }
 }
+
 export const asyncFetchFailed =(err) =>{
     return{
         type:FETCH_USERS_FAILED,err,
@@ -83,5 +84,17 @@ export const asyncComplaintsFailed = (err) =>{
 export const asyncComplaintsSuccess = (data) =>{
     return{
         type: FETCH_COMPLAINT_SUCCESS,data
+    }
+}
+
+export const asyncDeleteFailed = (err) =>{
+    return{
+        type:DELETE_BUZZ_FAILED,err
+    }
+}
+
+export const asyncDeleteSuccess = (data) => {
+    return{
+        type:DELETE_BUZZ_SUCCESS,data
     }
 }

@@ -9,3 +9,11 @@ exports.saveBuzz = function (req,res,next) {
 exports.getBuzz = function (req,res,next) {
     buzzService.getBuzz(res);
 }
+
+exports.deleteBuzz = function (req,res,next) {
+
+    const buzzDetails = req.body;
+
+    console.log("kdjasdkla;lls",buzzDetails._id);
+    buzzService.deleteBuzz(buzzDetails,res);
+}

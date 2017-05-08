@@ -19,3 +19,24 @@ exports.getBuzz = function (res) {
         }
     })
 }
+
+exports.deleteBuzz = function (buzzDetails,res) {
+
+    const buzzId = buzzDetails._id;
+    Buzz.remove({'_id':buzzId},(err,data) =>{
+
+        if(err) console.log(err);
+
+        else{
+           Buzz.find({},(err,data) =>{
+               if(err) console.log(err);
+               else
+               {
+                   res.send(data);
+               }
+
+           })
+        }
+
+    })
+}

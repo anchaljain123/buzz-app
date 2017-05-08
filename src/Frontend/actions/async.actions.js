@@ -11,10 +11,21 @@ import {
     asyncSaveComplaintFailed,
     asyncComplaintsSuccess,
     asyncComplaintsFailed,
+    asyncDeleteSuccess,
+    asyncDeleteFailed,
 
 } from './actions'
 
-import { fetchURI , fetchCurrentUserURI,savePostURI,fetchBuzzURI,saveComplainURI ,fetchComplaintsURI} from '../config/constants'
+import {
+    fetchURI ,
+    fetchCurrentUserURI,
+    savePostURI,
+    fetchBuzzURI,
+    saveComplainURI ,
+    fetchComplaintsURI,
+    deletePostURI,
+} from '../config/constants'
+
 import fetch from 'isomorphic-fetch'
 
 export const asyncAction = () => {
@@ -123,6 +134,26 @@ export  const asyncgetComplaints =() =>{
             })
             .catch(err=>{
                 dispatch(asyncComplaintsFailed(err))
+            })
+    }
+}
+
+export const asyncdeletePost = (postDetails) => {
+    return(dispatch) =>{
+        fetch(deletePostURI,{
+            method:'delete',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(postDetails),
+        })
+            .then(res => res.json())
+            .then(data => {
+                dispatch(asyncDeleteSuccess(data));
+            })
+            .catch(err => {
+                dispatch(asyncDeleteFailed(err));
             })
     }
 }

@@ -11,34 +11,49 @@ export default class ImageUploader extends Component{
         };
     }
 
-    handleSubmit(e) {
+    saveImage = () => {
 
-        this.props.savePost(this.state.file);
-        e.preventDefault();
-
-        console.log(this.state.file,"===============file");
+        console.log(file)
     }
-
-
-    handleImageChange(e) {
-        e.preventDefault();
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        reader.onloadend = () => {
-            this.setState({ file: file, });
-        };
-        reader.readAsDataURL(file)
-    }
-
 
     render(){
         return(
             <div>
-                <form encType="multipart/form-data">
-                    <input type = "file" onChange={(e)=>this.handleImageChange(e)} />
-                    <button type="submit" onClick={this.handleSubmit}>UploadImage</button>
-                </form>
+                <input type="file" accept="image/*"/>
+                <button onClick={this.saveImage}>UploadImage</button>
             </div>
         )
     }
+
+
+    /* handleSubmit(e) {
+
+     this.props.savePost(this.state.file);
+     e.preventDefault();
+
+     console.log(this.state.file,"===============file");
+     }
+
+
+     handleImageChange(e) {
+     e.preventDefault();
+     let reader = new FileReader();
+     let file = e.target.files[0];
+     reader.onloadend = () => {
+     this.setState({ file: file, });
+     };
+     reader.readAsDataURL(file)
+     }
+
+
+     render(){
+     return(
+     <div>
+     <form encType="multipart/form-data">
+     <input type = "file" onChange={(e)=>this.handleImageChange(e)} />
+     <button type="submit" onClick={this.handleSubmit}>UploadImage</button>
+     </form>
+     </div>
+     )
+     }*/
 }

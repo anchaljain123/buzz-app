@@ -11,7 +11,7 @@ class Complaint extends  Component {
     }
     render(){
         return(
-            <div style={{marginLeft:'250px',position: 'absolute', top: '0px'}}>
+            <div style={{marginLeft:'250px',position: 'absolute'}}>
                 <button onClick={(e)=>this.setState({newComplaint:true, })}>Form</button>
                 <button onClick={(e)=>this.setState({newComplaint:false, })}>Complaints</button>
                 {

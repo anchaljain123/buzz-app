@@ -12,21 +12,19 @@ class Login extends Component{
     }
     render(){
         let users = this.props.userReducers.users;
-        console.log(users)
         return (
             <div>
-                hello from login
                 {
                     users.map((item,i) => {
                         const str = item.emailID;
                         if (str.includes('@tothenew.com'))
-                            this.props.history.push('/profile');
+                            this.props.history.push('/profile/activity');
                         else{
                             this.props.history.push('/');
                         }
                     })
                 }
-             </div>
+            </div>
         )
     }
 }
