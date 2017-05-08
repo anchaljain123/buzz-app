@@ -33,9 +33,9 @@ class Navbar extends Component{
             <div>
                 {userName}
                 <ul>
-                    <li><Link to="/profile/activity">Activity</Link></li>
-                    <li><Link to="/profile/lostnfound">LostnFound</Link></li>
-                    <li><Link to="/profile/complaint">Complaint</Link></li>
+                    <li key={Math.random()*10000}><Link to="/profile/activity">Activity</Link></li>
+                    <li key={Math.random()*100000}><Link to="/profile/lostnfound">LostnFound</Link></li>
+                    <li key={Math.random()*1000000}><Link to="/profile/complaint">Complaint</Link></li>
                 </ul>
             </div>
         )

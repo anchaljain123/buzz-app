@@ -4,6 +4,8 @@ import {
     SAVE_BUZZ_FAILED,
     FETCH_BUZZ_SUCCESS,
     FETCH_BUZZ_FAILED,
+    SAVE_COMPLAINT_SUCCESS,
+    SAVE_COMPLAINT_FAILED,
 } from '../../config/constants'
 
 const initialState = {
@@ -37,6 +39,7 @@ export const buzzReducer = (state=initialState,action) =>{
                 err:action.err
             }
         }
+
     }
 
 

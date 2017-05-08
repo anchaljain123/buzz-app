@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux'
 import { asyncgetBuzz } from '../../actions'
+import ReactBuzzRow from './RecentBuzzRow'
 
 class RecentBuzz extends Component{
 
@@ -13,13 +14,18 @@ class RecentBuzz extends Component{
     render(){
 
         let { buzz } = this.props.buzzReducer;
+        let tempArray =[];
+        for (let j = buzz.length-1; j >= 0; j--){
+            tempArray.push(buzz[j])
+        }
 
         return(
+
             <div  className="container">
                 {
-                    buzz.map(item =>{
-                        return <div>{item.content}</div>
-                    })
+                   tempArray.map(item => (
+                       <div key={item._id}><ReactBuzzRow item={item}/></div>
+                   ))
                 }
             </div>
         )

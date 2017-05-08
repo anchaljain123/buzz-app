@@ -7,10 +7,14 @@ import {
     asyncSaveFailed,
     asyncBuzzSuccess,
     asyncBuzzFailed,
+    asyncSaveComplaintSuccess,
+    asyncSaveComplaintFailed,
+    asyncComplaintsSuccess,
+    asyncComplaintsFailed,
 
 } from './actions'
 
-import { fetchURI , fetchCurrentUserURI,savePostURI,fetchBuzzURI,fetchLostURI} from '../config/constants'
+import { fetchURI , fetchCurrentUserURI,savePostURI,fetchBuzzURI,saveComplainURI ,fetchComplaintsURI} from '../config/constants'
 import fetch from 'isomorphic-fetch'
 
 export const asyncAction = () => {
@@ -84,3 +88,41 @@ export  const asyncgetBuzz =() =>{
     }
 }
 
+export const asyncSaveComplaint = (complainDetails) => {
+    return(dispatch) => {
+        fetch(saveComplainURI,{
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(complainDetails)
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncSaveComplaintSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncSaveComplaintFailed(err))
+            })
+    }
+}
+
+export  const asyncgetComplaints =() =>{
+    return(dispatch) =>{
+        fetch(fetchComplaintsURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=> {
+                dispatch(asyncComplaintsSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncComplaintsFailed(err))
+            })
+    }
+}

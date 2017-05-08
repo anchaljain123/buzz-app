@@ -13,12 +13,16 @@ class LostnFound extends Component{
     render(){
 
         let { buzz } = this.props.buzzReducer;
+        let tempArray = [];
+        for (let j = buzz.length-1; j >= 0; j--){
+            tempArray.push(buzz[j])
+        }
         return(
             <div style={{marginLeft:'250px'}}>
                 {
-                    buzz.map(item =>{
+                    tempArray.map(item =>{
                         if(item.category == "lostnfound")
-                        return <div>{item.content}</div>
+                        return <div key={item._id}>{item.content}</div>
                     })
                 }
             </div>

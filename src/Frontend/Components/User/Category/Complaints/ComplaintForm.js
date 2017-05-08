@@ -1,15 +1,38 @@
 import React,{ Component } from 'react'
 import '../../../assets/Styling/formStyling.css'
+import { asyncSaveComplaint } from '../../../../actions'
+import { connect } from 'react-redux'
 
 class ComplaintForm extends  Component{
     constructor(props){
         super(props);
+        this.state ={
+            description:'',
+            category:'select',
+            title:'',
+        }
     }
-
-    saveComplaint = () =>{
-        console.log("hi")
-    }
-
+    handleChange = (event, key) =>{
+        this.setState({
+            [key]: event.target.value,
+        })
+    };
+    saveComplaint = () => {
+        let { userDetails } = this.props;
+        let ComplainInfo = {
+            description: this.state.description,
+            category: this.state.category,
+            title: this.state.title,
+            userDetails:userDetails,
+            // img:imageState,
+        };
+        this.props.dispatch(asyncSaveComplaint(ComplainInfo));
+        this.setState({
+            description:"",
+            category:"select",
+            title:'',
+        })
+    };
     render(){
         return(
             <section id="contact" className="content-section text-center">
@@ -20,22 +43,35 @@ class ComplaintForm extends  Component{
                             <div className="col-md-8 col-md-offset-2">
                                 <form className="form-horizontal">
                                     <div className="form-group">
-                                        <label for="exampleInputName2">Name</label>
-                                        <input type="text" className="form-control" id="exampleInputName2" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label for="exampleInputEmail2">Email</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail2" />
+                                        <label>Title</label>
+                                        <input type="text"
+                                               value={this.state.title}
+                                               className="form-control"
+                                               id="exampleInputName2"
+                                               onChange={(event) => this.handleChange(event,'title')}
+                                        />
                                     </div>
                                     <div className="form-group ">
-                                        <label for="exampleInputText">Your Message</label>
-                                        <textarea  className="form-control"></textarea>
+                                        <label>Description</label>
+                                        <textarea  className="form-control"
+                                                   value={this.state.description}
+                                                   name="description"
+                                                   onChange={(e)=>this.handleChange(e,'description')}>
+                                        </textarea>
                                     </div>
+                                    <select name="complaintValue"
+                                            value={this.state.category}
+                                            onChange={(e) => this.handleChange(e, 'category')}>
+                                        <option value="select">Select</option>
+                                        <option value="hardware">Hardware</option>
+                                        <option value="software">Software</option>
+                                        <option value="others">Other</option>
+                                    </select>
                                     <button
-                                        type="submit"
-                                            className="btn btn-default"
+                                        value="submit"
+                                         className="btn btn-default"
                                         onClick={this.saveComplaint}>
-                                        Send Complain
+                                        Submit
                                     </button>
                                 </form>
                             </div>
@@ -47,4 +83,7 @@ class ComplaintForm extends  Component{
     }
 }
 
-export default ComplaintForm;
+const maptoState = state => state;
+const ComplaintFormContainer = connect(maptoState)(ComplaintForm)
+
+export default ComplaintFormContainer;

@@ -11,11 +11,13 @@ class Complaint extends  Component {
     }
     render(){
         return(
-            <div style={{marginLeft:'250px'}}>
+            <div style={{marginLeft:'250px',position: 'absolute', top: '0px'}}>
                 <button onClick={(e)=>this.setState({newComplaint:true, })}>Form</button>
                 <button onClick={(e)=>this.setState({newComplaint:false, })}>Complaints</button>
                 {
-                    this.state.newComplaint? <ComplaintForm/> : <ComplaintsTable/>
+                    this.state.newComplaint?
+                        <ComplaintForm userDetails={this.props.userDetails}/>
+                        : <ComplaintsTable/>
                 }
 
             </div>

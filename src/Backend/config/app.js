@@ -6,6 +6,7 @@ const session = require('express-session');
 const routing = require('./Route');
 const userRoute = routing.userRoute;
 const buzzRoute = routing.buzzRoute;
+const complainRoute = routing.complainRoute;
 
 
 module.exports.appStarted=(app)=>{
@@ -15,6 +16,7 @@ module.exports.appStarted=(app)=>{
     googleAuth.googleauth();
     userRoute(app);
     buzzRoute(app);
+    complainRoute(app);
 
 };
 

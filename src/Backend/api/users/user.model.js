@@ -16,7 +16,10 @@ const userScheme = new  mongoose.Schema({
     role:{
         type:String,
     },
-    profile:{}
+    profile:{},
+    category:{
+
+    }
 });
 
 module.exports = mongoose.model('User',userScheme);

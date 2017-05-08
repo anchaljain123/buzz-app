@@ -4,4 +4,7 @@ export {
     asyncSavePost,
     asyncgetBuzz,
     asyncgetLostnFoundBuzz,
+    asyncSaveComplaint,
+    asyncgetComplaints,
+
 } from './async.actions'

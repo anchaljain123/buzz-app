@@ -1,12 +1,17 @@
 import {
-FETCH_USERS_SUCCESS,
+    FETCH_USERS_SUCCESS,
     FETCH_USERS_FAILED,
     FETCH_USER_SUCCESS,
     FETCH_USER_FAILED,
     SAVE_BUZZ_FAILED,
     SAVE_BUZZ_SUCCESS,
     FETCH_BUZZ_FAILED,
-   FETCH_BUZZ_SUCCESS,
+    FETCH_BUZZ_SUCCESS,
+    SAVE_COMPLAINT_SUCCESS,
+    SAVE_COMPLAINT_FAILED,
+    FETCH_COMPLAINT_SUCCESS,
+    FETCH_COMPLAINT_FAILED,
+
 
 } from '../config/constants'
 
@@ -53,6 +58,30 @@ export const asyncBuzzFailed = (err) =>{
 
 export const asyncBuzzSuccess = (data) =>{
     return{
-          type:  FETCH_BUZZ_SUCCESS,data
+        type:  FETCH_BUZZ_SUCCESS,data
+    }
+}
+
+export const asyncSaveComplaintSuccess = (data) =>{
+    return{
+        type:SAVE_COMPLAINT_SUCCESS,data
+    }
+}
+
+export const asyncSaveComplaintFailed = (err) =>{
+    return{
+        type:SAVE_COMPLAINT_FAILED,err
+    }
+}
+
+export const asyncComplaintsFailed = (err) =>{
+    return{
+        type:FETCH_COMPLAINT_FAILED,err
+    }
+}
+
+export const asyncComplaintsSuccess = (data) =>{
+    return{
+        type: FETCH_COMPLAINT_SUCCESS,data
     }
 }
