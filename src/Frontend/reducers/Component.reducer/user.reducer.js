@@ -16,7 +16,8 @@ export const userReducers = (state=initialState,action) =>{
 
         case  FETCH_USERS_SUCCESS:{
 
-            const users = state.users.concat(action.data);
+            const users = (action.data);
+
           return{
               ...state,
               users:users,
@@ -31,6 +32,7 @@ export const userReducers = (state=initialState,action) =>{
 
         case FETCH_USER_SUCCESS:{
             const users = action.data;
+            console.log(users,"--------------currentuser")
             return{
                 ...state,
                 users:users,

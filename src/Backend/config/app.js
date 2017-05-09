@@ -9,8 +9,8 @@ const buzzRoute = routing.buzzRoute;
 const complainRoute = routing.complainRoute;
 
 
-module.exports.appStarted=(app)=>{
 
+module.exports.appStarted=(app)=>{
     app.use(session({secret:'6786476467'}),passport.initialize(),passport.session());
     app.use(bodyParser());
     googleAuth.googleauth();

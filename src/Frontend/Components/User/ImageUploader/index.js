@@ -13,7 +13,7 @@ export default class ImageUploader extends Component{
 
     saveImage = () => {
 
-        console.log(file)
+        console.log(photo,"============img")
     }
 
     render(){

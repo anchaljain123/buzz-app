@@ -9,11 +9,13 @@ class Navbar extends Component{
     }
 
     render(){
-        const userName = this.props.userprofile.userName;
+        //const userName = this.props.userprofile[0].userName;
+        console.log(this.props.userprofile[0],"=====username====")
         return(
             <div>
+
                 <div className="col-sm-3 sidenav hidden-xs">
-                    <h2>{userName}</h2>
+
                     <ul className="nav nav-pills nav-stacked">
                         <li key={Math.random()*10000} ><Link to="/profile/activity">Activity</Link></li>
                         <li key={Math.random()*100000}><Link to="/profile/lostnfound">LostnFound</Link></li>

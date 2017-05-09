@@ -64,11 +64,7 @@ export const asyncSavePost = (postDetails) =>{
     return(dispatch) =>{
         fetch(savePostURI,{
             method:'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify(postDetails),
+            body:postDetails,
         })
             .then(res => res.json())
             .then(data => {

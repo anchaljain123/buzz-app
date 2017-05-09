@@ -18,9 +18,18 @@ class RecentBuzzRow extends Component{
     }
 
     render(){
+
+        const { buzzData } = this.props;
+
         return(
             <div>
-                {this.props.buzzData.content}
+                {buzzData.content}
+                {
+                    buzzData.img?
+                        <img src={'http://localhost:4000/'+buzzData.img.path}/>:
+                        <span>emptyimg</span>
+                }
+
                 <button onClick={this.deletePost}>delete</button>
             </div>
         )

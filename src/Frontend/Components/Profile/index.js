@@ -14,18 +14,18 @@ class Profile extends Component{
         super(props);
         this.state ={
             islogout: false,
+            isreditect:false,
         }
     }
     componentWillMount(){
         this.props.dispatch(asyncgetCurrentUser());
     }
 
-    /*  componentWillUpdate(){
-     const { match } = this.props;
-     if(match.url == '/profile'){
-     this.props.history.push('/profile/activity');
-     }
-     }*/
+    // componentWillUpdate(){
+    //  this.setState({
+    //      isreditect:true,
+    //  })
+    // }
 
     logout =() =>{
         this.setState({
@@ -37,11 +37,14 @@ class Profile extends Component{
         const { match } = this.props;
         return (
             <div>
-
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            LOGO
+                            {
+                                userDetails.map((item)=>{
+                                    return <span>{item.userName}</span>
+                                })
+                            }
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav navbar-right">
@@ -61,7 +64,6 @@ class Profile extends Component{
                 <div className="container-fluid">
                     <div className="row content">
                         <Navbar userprofile = {userDetails} />
-
                         <div className="col-sm-9">
                             <Route exact
                                    path={`${match.url}/activity`}
@@ -71,6 +73,15 @@ class Profile extends Component{
                             <Route exact path={`${match.url}/complaint`} render={props =>
                                 <Complaints {...props} userDetails={userDetails}/>}
                             />
+                            {/*{*/}
+                            {/*this.state.isreditect?*/}
+                            {/*( <Redirect to="/profile/activity"/>,*/}
+                            {/*<Route exact path={`${match.url}/activity`}*/}
+                            {/*render={props => <Activity {...props} userDetails={userDetails}/>}*/}
+                            {/*/>)*/}
+                            {/*:""*/}
+                            {/*}*/}
+
                         </div>
                     </div>
                 </div>

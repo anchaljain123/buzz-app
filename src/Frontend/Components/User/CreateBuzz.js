@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ImageUpload from './Imageupload'
+import ImageUploader from './Imageupload'
 import { asyncSavePost } from '../../actions'
 
 class CreateBuzz extends React.Component{
@@ -9,6 +9,7 @@ class CreateBuzz extends React.Component{
         this.state = {
             content: "",
             category: "select",
+            img:"",
         }
     }
     handleChange = (event, key) =>{
@@ -16,28 +17,37 @@ class CreateBuzz extends React.Component{
             [key]: event.target.value,
         })
     };
-    savePost = () => {
+    savePost = (imageState) => {
         let { userDetails } = this.props;
+        let formData = new FormData();
 
-        let postInfo = {
-            content: this.state.content,
-            category:this.state.category,
-            userDetails:userDetails,
-            // img:imageState,
-        };
-        this.props.dispatch(asyncSavePost(postInfo));
+        formData.append('content', this.state.content);
+        formData.append('category', this.state.category);
+        formData.append('userDetails', userDetails);
+        formData.append('file', imageState);
+
+
+        this.props.dispatch(asyncSavePost(formData));
         this.setState({
             content:"",
             category:"select",
+            img:'',
         })
     };
+    componentWillUpdate(){
+        //  redirect to recentbuzz
+    }
 
     render(){
         return(
             <div>
                 <div className="row" >
-                    <textarea className="col-sm-12" value={this.state.content} name="content" onChange={(e)=>this.handleChange(e,'content')} />
-                    {/*<ImageUploader savePost={this.savePost} />*/}
+                    <textarea className="col-sm-12"
+                              value={this.state.content}
+                              name="content"
+                              onChange={(e)=>this.handleChange(e,'content')}
+                    />
+                    <ImageUploader savePost={this.savePost} />
                 </div>
                 <br/>
                 <div className="row">
@@ -46,7 +56,8 @@ class CreateBuzz extends React.Component{
                             <select
                                 name="dropdownValue"
                                 value={this.state.category}
-                                onChange={(e) => this.handleChange(e, 'category')}>
+                                onChange={(e) => this.handleChange(e, 'category')}
+                            >
                                 <option value="select">Select</option>
                                 <option value="activity">Activity</option>
                                 <option value="lostnfound">LostnFound</option>

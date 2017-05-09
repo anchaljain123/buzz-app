@@ -28,9 +28,15 @@ class RecentBuzz extends Component{
 
             <div className="row">
                 {
-                   tempArray.map(item => (
-                       <div  className="well" key={item._id}><RecentBuzzRow buzzData={item} deleteBuzz={this.deleteBuzz} /></div>
-                   ))
+                    tempArray.map(item => (
+                        <div  className="well" key={item._id}>
+                            {
+                                tempArray.length == buzz.length?
+                                    <RecentBuzzRow buzzData={item} deleteBuzz={this.deleteBuzz}/>
+                                    :""
+                            }
+                        </div>
+                    ))
                 }
             </div>
         )

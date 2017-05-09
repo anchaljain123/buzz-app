@@ -50,7 +50,7 @@ export const buzzReducer = (state=initialState,action) =>{
         case DELETE_BUZZ_FAILED:{
             return{
                 ...state,
-                err:err,
+                err:action.err,
             }
         }
 
