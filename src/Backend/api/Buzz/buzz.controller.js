@@ -17,6 +17,5 @@ exports.deleteBuzz = function (req,res,next) {
 
     const buzzDetails = req.body;
 
-    console.log("kdjasdkla;lls",buzzDetails._id);
     buzzService.deleteBuzz(buzzDetails,res);
 }

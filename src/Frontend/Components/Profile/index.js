@@ -22,12 +22,6 @@ class Profile extends Component{
 
     }
 
-    // componentWillUpdate(){
-    //  this.setState({
-    //      isreditect:true,
-    //  })
-    // }
-
     logout =() =>{
         this.setState({
             islogout:false,
@@ -35,6 +29,7 @@ class Profile extends Component{
     }
     render() {
         let userDetails = this.props.userReducers.users;
+
         const { match } = this.props;
         return (
             <div>

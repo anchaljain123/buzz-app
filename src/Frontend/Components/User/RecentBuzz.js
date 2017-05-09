@@ -30,7 +30,10 @@ class RecentBuzz extends Component{
                         <div  className="well" key={item._id}>
                             {
                                 tempArray.length == buzz.length?
-                                    <RecentBuzzRow buzzData={item} deleteBuzz={this.deleteBuzz}/>
+                                    <RecentBuzzRow buzzData={item}
+                                                   deleteBuzz={this.deleteBuzz}
+                                                   userDetails={this.props.userDetails}
+                                    />
                                     :""
                             }
                         </div>

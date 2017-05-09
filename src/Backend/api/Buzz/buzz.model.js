@@ -20,6 +20,10 @@ const buzzSchema = new mongoose.Schema({
     }
 
 
-})
+},
+    {
+        versionKey:false,
+    }
+)
 
 module.exports = mongoose.model('Buzz',buzzSchema);

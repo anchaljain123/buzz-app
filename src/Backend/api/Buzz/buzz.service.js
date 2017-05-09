@@ -22,21 +22,35 @@ exports.getBuzz = function (res) {
 
 exports.deleteBuzz = function (buzzDetails,res) {
 
-    const buzzId = buzzDetails._id;
-    Buzz.remove({'_id':buzzId},(err,data) =>{
+    const buzzId = buzzDetails.post._id;
+    const userId = buzzDetails.currentId;
 
+    const findUser = {'userDetails.0':userId};
+
+    console.log(userId,"====**=======",buzzId,"******");
+
+    Buzz.find(findUser,(err,data) => {
         if(err) console.log(err);
+        else
+        {
+            Buzz.remove({'_id':buzzId},(err,data) =>{
 
-        else{
-           Buzz.find({},(err,data) =>{
-               if(err) console.log(err);
-               else
-               {
-                   res.send(data);
-               }
+                if(err) console.log(err);
 
-           })
+                else{
+                    Buzz.find({},(err,data) =>{
+                        if(err) console.log(err);
+                        else
+                        {
+                            res.send(data);
+                        }
+
+                    })
+                }
+
+            })
+
         }
-
     })
+
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ImageUploader from './Imageupload'
 import { asyncSavePost } from '../../actions'
 import RecentBuzz from './RecentBuzz'
+import loaderimg from '../assets/images/loader.gif'
 
 class CreateBuzz extends React.Component{
     constructor(props){
@@ -31,7 +32,7 @@ class CreateBuzz extends React.Component{
 
         formData.append('content', this.state.content);
         formData.append('category', this.state.category);
-        formData.append('userDetails', userDetails);
+        formData.append('userDetails', userDetails[0].id);
         formData.append('file', this.state.img);
 
         this.props.dispatch(asyncSavePost(formData));
@@ -81,12 +82,12 @@ class CreateBuzz extends React.Component{
 
                     </div>
                     {
-                        loading?<h4>posting</h4>:""
+                        loading?<img src={loaderimg}/>:""
                     }
 
                 </div>
                 <div className="well">
-                    <RecentBuzz/>
+                    <RecentBuzz userDetails={this.props.userDetails}/>
                 </div>
             </div>
         )

@@ -7,12 +7,18 @@ class RecentBuzzRow extends Component{
         super(props);
         this.state = {
             post:this.props.buzzData,
+            userId:this.props.buzzData.userDetails[0], //currentuser who posted
+            currentId:this.props.userDetails[0].id,
         }
     }
     deletePost = () =>{
-        this.props.deleteBuzz(this.state.post);
+
+       if(this.state.userId == this.state.currentId)
+        this.props.deleteBuzz(this.state);
+
         this.setState({
-            post:""
+            post:"",
+            userId:"",
         })
 
     }
