@@ -27,7 +27,7 @@ class RecentBuzzRow extends Component{
                 {
                     buzzData.img?
                         <img src={'http://localhost:4000/'+buzzData.img.path}/>:
-                        <span>emptyimg</span>
+                        ""
                 }
 
                 <button onClick={this.deletePost}>delete</button>

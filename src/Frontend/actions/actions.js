@@ -13,7 +13,16 @@ import {
     FETCH_COMPLAINT_FAILED,
     DELETE_BUZZ_FAILED,
     DELETE_BUZZ_SUCCESS,
+    LOADER_STARTED,
+
 } from '../config/constants'
+
+
+export const asyncStarted = () =>{
+    return{
+        type:LOADER_STARTED,
+    }
+}
 
 export const asyncFetchSuccess = (data) =>{
     return {

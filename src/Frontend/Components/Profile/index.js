@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route , Redirect } from 'react-router-dom';
 import Activity from '../User/Category/Buzz/Activity';
 import LostnFound from '../User/Category/Buzz/LostnFound';
-import Logout from '../User/Logout'
+import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
 import { asyncgetCurrentUser } from '../../actions';
 import Navbar from './Navbar'

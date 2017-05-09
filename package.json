@@ -46,6 +46,7 @@
     "react-dropzone": "^3.13.1",
     "react-image-uploader": "^1.0.0",
     "react-images-uploader": "^1.0.1",
+    "react-loader": "^2.4.0",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

@@ -1,5 +1,5 @@
 import React ,{ Component } from 'react'
-import LandingPage from './../../LandingPg'
+import LandingPage from '../LandingPg'
 import { Route, Redirect } from 'react-router-dom'
 
 class Logout extends Component{

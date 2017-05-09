@@ -7,6 +7,7 @@ export const saveComplainURI = "http://localhost:4000/saveComplain";
 export const savePostURI = "http://localhost:4000/saveBuzz";
 export const deletePostURI = "http://localhost:4000/deleteBuzz";
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+export const LOADER_STARTED = "LOADER_STARTED";
 export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED';
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED';
 export const FETCH_USER_SUCCESS ="FETCH_USER_SUCCESS";

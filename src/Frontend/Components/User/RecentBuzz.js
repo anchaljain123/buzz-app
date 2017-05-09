@@ -9,19 +9,21 @@ class RecentBuzz extends Component{
         super(props);
     }
 
+    componentWillMount(){
+        this.props.dispatch(asyncgetBuzz());
+    }
+
     deleteBuzz = (postDetails) => {
         this.props.dispatch(asyncdeletePost(postDetails));
     }
 
     render(){
-
         let { buzz } = this.props.buzzReducer;
         let tempArray =[];
         for (let j = buzz.length-1; j >= 0; j--){
             tempArray.push(buzz[j])
         }
         return(
-
             <div className="row">
                 {
                     tempArray.map(item => (

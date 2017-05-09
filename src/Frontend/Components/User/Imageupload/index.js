@@ -6,6 +6,7 @@ class Imageupload extends React.Component{
         super();
         this.state = {
             file:'',
+
         }
         this.saveimg  = this.saveimg.bind(this);
     }
@@ -17,25 +18,21 @@ class Imageupload extends React.Component{
           file:{
               file
           },
+      },()=>{
+          this.props.saveState(this.state.file);
       })
 
     }
 
-    sendimg = () =>{
-
-        this.props.saveState(this.state.file);
-    }
 
     render(){
 
         return(
             <div>
+
                 <form encType="multipart/form-data" id="myform">
-                    <input type="file" name="sampleFile" onBlur={ this.saveimg} />
-                    <input type='button' value='UploadImage' onClick={() => this.sendimg()} />
-
-
-                </form>
+                    <input type="file" name="sampleFile" onBlur={this.saveimg} />
+                                    </form>
 
             </div>
         )

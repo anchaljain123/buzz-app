@@ -26,7 +26,8 @@ export const userReducers = (state=initialState,action) =>{
         }
         case FETCH_USERS_FAILED:{
             return{
-                ...state,err:action.err,loading:false,
+                ...state,err:action.err,
+                loading:false,
             }
         }
 

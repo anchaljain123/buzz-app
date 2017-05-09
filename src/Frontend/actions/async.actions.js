@@ -13,6 +13,7 @@ import {
     asyncComplaintsFailed,
     asyncDeleteSuccess,
     asyncDeleteFailed,
+    asyncStarted,
 
 } from './actions'
 
@@ -62,6 +63,8 @@ export  const asyncgetCurrentUser =() =>{
 
 export const asyncSavePost = (postDetails) =>{
     return(dispatch) =>{
+
+        dispatch(asyncStarted());
         fetch(savePostURI,{
             method:'post',
             body:postDetails,
@@ -70,7 +73,6 @@ export const asyncSavePost = (postDetails) =>{
             .then(data => {
                 dispatch(asyncSaveSuccess(data));
                 dispatch(asyncgetBuzz());
-
             })
             .catch(err => {
                 dispatch(asyncSaveFailed(err));

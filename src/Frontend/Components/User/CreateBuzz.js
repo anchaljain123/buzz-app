@@ -34,7 +34,6 @@ class CreateBuzz extends React.Component{
         formData.append('userDetails', userDetails);
         formData.append('file', this.state.img);
 
-
         this.props.dispatch(asyncSavePost(formData));
 
         this.setState({
@@ -43,11 +42,11 @@ class CreateBuzz extends React.Component{
             img:'',
         })
     };
-    componentWillUpdate(){
-        //  redirect to recentbuzz
-    }
-
     render(){
+
+        let { loading } = this.props.buzzReducer;
+
+
         return(
             <div>
                 <div className="row" >
@@ -77,8 +76,13 @@ class CreateBuzz extends React.Component{
 
                     </div>
                     <div className="col-sm-1">
+
                         <button value="submit" onClick={this.savePost}>Post</button>
+
                     </div>
+                    {
+                        loading?<h4>posting</h4>:""
+                    }
 
                 </div>
                 <div className="well">

@@ -9,8 +9,7 @@ class Navbar extends Component{
     }
 
     render(){
-        //const userName = this.props.userprofile[0].userName;
-        console.log(this.props.userprofile[0],"=====username====")
+
         return(
             <div>
 
