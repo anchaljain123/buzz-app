@@ -12,7 +12,7 @@ class Login extends Component{
     }
     render(){
         let users = this.props.userReducers.users;
-        console.log(users,"----------------allusers")
+
         return (
             <div>
                 {

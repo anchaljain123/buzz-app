@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ImageUploader from './Imageupload'
 import { asyncSavePost } from '../../actions'
+import RecentBuzz from './RecentBuzz'
 
 class CreateBuzz extends React.Component{
     constructor(props){
@@ -17,17 +18,25 @@ class CreateBuzz extends React.Component{
             [key]: event.target.value,
         })
     };
-    savePost = (imageState) => {
+
+    saveState =(imageState)=> {
+        this.setState({
+            img:imageState.file,
+        })
+}
+
+    savePost = () => {
         let { userDetails } = this.props;
         let formData = new FormData();
 
         formData.append('content', this.state.content);
         formData.append('category', this.state.category);
         formData.append('userDetails', userDetails);
-        formData.append('file', imageState);
+        formData.append('file', this.state.img);
 
 
         this.props.dispatch(asyncSavePost(formData));
+
         this.setState({
             content:"",
             category:"select",
@@ -47,7 +56,7 @@ class CreateBuzz extends React.Component{
                               name="content"
                               onChange={(e)=>this.handleChange(e,'content')}
                     />
-                    <ImageUploader savePost={this.savePost} />
+                    <ImageUploader saveState={this.saveState} />
                 </div>
                 <br/>
                 <div className="row">
@@ -71,6 +80,9 @@ class CreateBuzz extends React.Component{
                         <button value="submit" onClick={this.savePost}>Post</button>
                     </div>
 
+                </div>
+                <div className="well">
+                    <RecentBuzz/>
                 </div>
             </div>
         )

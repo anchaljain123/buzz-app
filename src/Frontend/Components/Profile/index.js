@@ -1,6 +1,6 @@
 import React,{ Component} from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route , Redirect } from 'react-router-dom';
 import Activity from '../User/Category/Buzz/Activity';
 import LostnFound from '../User/Category/Buzz/LostnFound';
 import Logout from '../User/Logout'
@@ -19,6 +19,7 @@ class Profile extends Component{
     }
     componentWillMount(){
         this.props.dispatch(asyncgetCurrentUser());
+
     }
 
     // componentWillUpdate(){
@@ -73,6 +74,7 @@ class Profile extends Component{
                             <Route exact path={`${match.url}/complaint`} render={props =>
                                 <Complaints {...props} userDetails={userDetails}/>}
                             />
+                            <Redirect from="/profile" to="/profile/activity" />
                             {/*{*/}
                             {/*this.state.isreditect?*/}
                             {/*( <Redirect to="/profile/activity"/>,*/}

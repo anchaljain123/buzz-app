@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const categoryType = ['lostnfound','activity'];
+
 const buzzSchema = new mongoose.Schema({
     content:{
         type:String
@@ -11,6 +13,7 @@ const buzzSchema = new mongoose.Schema({
     },
     category:{
         type:String,
+        enum:categoryType,
     },
     userDetails:{
         type:Array,

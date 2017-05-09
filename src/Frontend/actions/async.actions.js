@@ -69,6 +69,8 @@ export const asyncSavePost = (postDetails) =>{
             .then(res => res.json())
             .then(data => {
                 dispatch(asyncSaveSuccess(data));
+                dispatch(asyncgetBuzz());
+
             })
             .catch(err => {
                 dispatch(asyncSaveFailed(err));

@@ -1,8 +1,4 @@
-import React from 'react'
-import Dropzone from 'react-dropzone'
-import ImagesUploader from 'react-images-uploader'
-import 'react-images-uploader/styles.css';
-import 'react-images-uploader/font.css';
+import React from 'react';
 
 class Imageupload extends React.Component{
 
@@ -10,17 +6,24 @@ class Imageupload extends React.Component{
         super();
         this.state = {
             file:'',
-            imagePreviewUrl:''
         }
+        this.saveimg  = this.saveimg.bind(this);
     }
 
-    saveimg = (e) =>{
-        e.preventDefault();
-        let file = e.target.files[0];
-        console.log("file", file);
-        this.props.savePost(file);
+    saveimg = (event) =>{
+        event.preventDefault();
+        let file = event.target.files[0];
+      this.setState({
+          file:{
+              file
+          },
+      })
 
+    }
 
+    sendimg = () =>{
+
+        this.props.saveState(this.state.file);
     }
 
     render(){
@@ -28,9 +31,12 @@ class Imageupload extends React.Component{
         return(
             <div>
                 <form encType="multipart/form-data" id="myform">
-                    <input type="file" name="sampleFile" onChange={this.saveimg} />
-                    <input type='button'  value='UploadImage' />
+                    <input type="file" name="sampleFile" onBlur={ this.saveimg} />
+                    <input type='button' value='UploadImage' onClick={() => this.sendimg()} />
+
+
                 </form>
+
             </div>
         )
     }

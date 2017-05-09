@@ -26,5 +26,9 @@ module.exports = (app) => {
 
     app.get('/currentUser',userController.getCurrentUser);
 
+    app.get('/profile',(req,res) =>{
+        res.redirect('http://localhost:9000/');
+    })
+
 };
 
