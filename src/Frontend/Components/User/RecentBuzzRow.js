@@ -8,7 +8,7 @@ class RecentBuzzRow extends Component{
         this.state = {
             post:this.props.buzzData,
             userId:this.props.buzzData.userDetails[0], //currentuser who posted
-            currentId:this.props.userDetails[0].id,
+            currentId:this.props.userDetails[0].id, // loggedin user
         }
     }
     deletePost = () =>{
@@ -29,13 +29,12 @@ class RecentBuzzRow extends Component{
 
         return(
             <div>
-                {buzzData.content}
+                {buzzData.content} - {buzzData.category}
                 {
                     buzzData.img?
                         <img src={'http://localhost:4000/'+buzzData.img.path}/>:
                         ""
                 }
-
                 <button onClick={this.deletePost}>delete</button>
             </div>
         )

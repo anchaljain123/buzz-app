@@ -38,7 +38,11 @@ class Profile extends Component{
                         <div className="navbar-header">
                             {
                                 userDetails.map((item)=>{
-                                    return <span>{item.userName}</span>
+                                    return(
+                                        <span>{item.userName}
+                                        <img src={item.profile.image.url}/>
+                                        </span>
+                                    )
                                 })
                             }
                         </div>

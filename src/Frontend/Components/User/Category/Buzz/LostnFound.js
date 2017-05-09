@@ -20,10 +20,19 @@ class LostnFound extends Component{
         return(
             <div style={{marginLeft:'250px'}}>
                 {
-                    tempArray.map(item =>{
-                        if(item.category == "lostnfound")
-                        return <div key={item._id}>{item.content}</div>
+                    tempArray.map(item => {
+                        if (item.category == "lostnfound")
+                            return (
+                        <div key={item._id}>{item.content}
+                            {
+                                item.img ?
+                                    <img src={'http://localhost:4000/' + item.img.path}/> :
+                                    ""
+                            }
+                        </div>
+                            )
                     })
+
                 }
             </div>
         )
