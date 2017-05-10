@@ -23,34 +23,43 @@ exports.getBuzz = function (res) {
 exports.deleteBuzz = function (buzzDetails,res) {
 
     const buzzId = buzzDetails.post._id;
-    const userId = buzzDetails.currentId;
+    /*  const userId = buzzDetails.currentId;
+     const findUser = {'userDetails.0':userId};*/
 
-    const findUser = {'userDetails.0':userId};
+    Buzz.remove({'_id':buzzId},(err,data) =>{
 
-    console.log(userId,"====**=======",buzzId,"******");
-
-    Buzz.find(findUser,(err,data) => {
         if(err) console.log(err);
-        else
-        {
-            Buzz.remove({'_id':buzzId},(err,data) =>{
-
-                if(err) console.log(err);
-
-                else{
-                    Buzz.find({},(err,data) =>{
-                        if(err) console.log(err);
-                        else
-                        {
-                            res.send(data);
-                        }
-
-                    })
-                }
-
-            })
-
+        else{
+            console.log(data,"**************")
+            res.send(data)
         }
+
     })
+
+
+
+    /* Buzz.find(findUser,(err,data) => {
+     if(err) console.log(err);
+     else
+     {
+     Buzz.remove({'_id':buzzId},(err,data) =>{
+
+     if(err) console.log(err);
+
+     else{
+     Buzz.find({},(err,data) =>{
+     if(err) console.log(err);
+     else
+     {
+     res.send(data);
+     }
+
+     })
+     }
+
+     })
+
+     }
+     })*/
 
 }

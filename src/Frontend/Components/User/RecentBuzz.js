@@ -10,7 +10,7 @@ class RecentBuzz extends Component{
     }
 
     componentWillMount(){
-        this.props.dispatch(asyncgetBuzz());
+     this.props.dispatch(asyncgetBuzz());
     }
 
     deleteBuzz = (postDetails) => {

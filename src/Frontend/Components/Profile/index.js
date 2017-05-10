@@ -7,14 +7,14 @@ import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
 import { asyncgetCurrentUser } from '../../actions';
 import Navbar from './Navbar'
-import headerimg from '../assets/images/newpic.jpeg';
+import '../assets/Styling/logo.css'
 
 class Profile extends Component{
     constructor(props){
         super(props);
         this.state ={
             islogout: false,
-            isreditect:false,
+            img:'',
         }
     }
     componentWillMount(){
@@ -25,6 +25,7 @@ class Profile extends Component{
     logout =() =>{
         this.setState({
             islogout:false,
+            img:'',
         })
     }
     render() {
@@ -36,15 +37,16 @@ class Profile extends Component{
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            {
-                                userDetails.map((item)=>{
-                                    return(
-                                        <span>{item.userName}
-                                        <img src={item.profile.image.url}/>
-                                        </span>
-                                    )
-                                })
-                            }
+                            <span className="site-logo">Logo </span>
+                            {/*{*/}
+                                {/*userDetails.map((item)=>{*/}
+                                    {/*return(*/}
+                                        {/*<span>{item.userName}*/}
+                                            {/*<img src={item.profile.image.url}/>*/}
+                                        {/*</span>*/}
+                                    {/*)*/}
+                                {/*})*/}
+                            {/*}*/}
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav navbar-right">

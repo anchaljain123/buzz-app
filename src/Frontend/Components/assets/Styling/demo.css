@@ -93,24 +93,17 @@ a{
 }
 /*google- button*/
 .google-button input{
-	background-color: #df4a32;
-	border-color: #df4a32;
+	background-color: #ef0000;
+	border-color: #ef0000;
 	border-radius: 9px;
-	color: white;
-}
-.google-button img{
-	max-height: 35px;
-	margin-top: 20px;
+	width: inherit;
 }
 .google-button{
 	margin-top: 10%;
-	background-color: #df4a32;
-	border-radius: 7px;
-	width:25%;
-	margin: 0 auto;
-	margin-top: 30px;
-	margin-bottom: 22px;
-
+}
+.google-button img{
+	max-height: 50px;
+	border-radius: 13px;
 }
 /* Media Queries */
 @media screen and (max-width: 767px) {

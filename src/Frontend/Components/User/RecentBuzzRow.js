@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
-
+import { asyncgetCurrentUser } from '../../actions';
 
 class RecentBuzzRow extends Component{
     constructor(props){
@@ -9,8 +9,10 @@ class RecentBuzzRow extends Component{
             post:this.props.buzzData,
             userId:this.props.buzzData.userDetails[0], //currentuser who posted
             currentId:this.props.userDetails[0].id, // loggedin user
+
         }
     }
+
     deletePost = () =>{
 
        if(this.state.userId == this.state.currentId)
@@ -19,6 +21,7 @@ class RecentBuzzRow extends Component{
         this.setState({
             post:"",
             userId:"",
+            currentId:"",
         })
 
     }
@@ -27,9 +30,12 @@ class RecentBuzzRow extends Component{
 
         const { buzzData } = this.props;
 
+        let userData = this.props.userReducers.users;
         return(
             <div>
+               <img src={buzzData.userimg}/>
                 {buzzData.content} - {buzzData.category}
+
                 {
                     buzzData.img?
                         <img src={'http://localhost:4000/'+buzzData.img.path}/>:

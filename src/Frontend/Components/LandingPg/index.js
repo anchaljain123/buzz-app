@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import '../assets/Styling/style2.css'
 import '../assets/Styling/demo.css'
-import gplus from '../assets/images/google-plus.png'
+import gplus from '../assets/images/gplus.jpg'
 
 const LandingPg = () =>{
     return(
@@ -16,9 +16,9 @@ const LandingPg = () =>{
                     <div className="headtext">
                         <h1>TTN BUZZAPP</h1>
                         <div className="google-button">
-                            <a href="http://localhost:4000/auth/google">
+                            <a className="google-button" href="http://localhost:4000/auth/google">
                                 <img src={gplus}/>
-                                <input type="submit" value="Sign in with google" />
+                                {/*<input type="submit" value="" />*/}
                             </a>
                         </div>
                     </div>

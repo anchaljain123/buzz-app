@@ -12,6 +12,7 @@ class CreateBuzz extends React.Component{
             content: "",
             category: "select",
             img:"",
+
         }
     }
     handleChange = (event, key) =>{
@@ -24,16 +25,24 @@ class CreateBuzz extends React.Component{
         this.setState({
             img:imageState.file,
         })
-}
+    }
 
     savePost = () => {
         let { userDetails } = this.props;
         let formData = new FormData();
+        let userData = {
+            id: userDetails[0].id,
+            img:userDetails[0].profile.image.url,
+        }
+
+        //console.log(userData,"--------------------")
 
         formData.append('content', this.state.content);
         formData.append('category', this.state.category);
         formData.append('userDetails', userDetails[0].id);
-        formData.append('file', this.state.img);
+        formData.append('userimg',userDetails[0].profile.image.url)
+        formData.append('img', this.state.img);
+
 
         this.props.dispatch(asyncSavePost(formData));
 
@@ -54,6 +63,7 @@ class CreateBuzz extends React.Component{
                     <textarea className="col-sm-12"
                               value={this.state.content}
                               name="content"
+                              placeholder="Create Buzz"
                               onChange={(e)=>this.handleChange(e,'content')}
                     />
                     <ImageUploader saveState={this.saveState} />

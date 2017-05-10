@@ -6,7 +6,7 @@ var upload = multer({ dest: 'files/' });
 
 module.exports = (app) =>{
 
-    app.post('/saveBuzz',upload.single('file'), buzzController.saveBuzz);
+    app.post('/saveBuzz',upload.single('img'), buzzController.saveBuzz);
 
     app.get('/buzz',buzzController.getBuzz);
 

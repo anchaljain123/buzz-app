@@ -1,0 +1,17 @@
+.site-logo {
+    width: 130px;
+    height: 67px;
+    display: block;
+    background: url(../images/logo.png) no-repeat 0 0;
+    text-indent: -9999px;
+}
+.navbar-header{
+    padding: 5px;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+    background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+    color: #a9a9a9;
+}
