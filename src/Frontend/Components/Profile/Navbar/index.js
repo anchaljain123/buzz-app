@@ -1,7 +1,6 @@
 import React,{ Component } from 'react'
 
 import { Link } from 'react-router-dom'
-import '../../assets/Styling/main.css'
 
 class Navbar extends Component{
     constructor(props){
@@ -12,17 +11,12 @@ class Navbar extends Component{
 
         return(
             <div>
-
-                <div className="col-sm-3 sidenav hidden-xs">
-
-                    <ul className="nav nav-pills nav-stacked">
-                        <li key={Math.random()*10000} ><Link to="/profile/activity">Activity</Link></li>
-                        <li key={Math.random()*100000}><Link to="/profile/lostnfound">LostnFound</Link></li>
-                        <li key={Math.random()*1000000}><Link to="/profile/complaint">Complaint</Link></li>
-                    </ul><br/>
+                <div>
+                    <h3 key={Math.random()*10000} ><strong><Link to="/profile/activity">Activity</Link></strong></h3><hr/>
+                    <h3 key={Math.random()*100000}><strong><Link to="/profile/lostnfound">LostnFound</Link></strong></h3><hr/>
+                    <h3 key={Math.random()*1000000}><strong><Link to="/profile/complaint">Complaint</Link></strong></h3><hr/>
                 </div>
                 <br/>
-
             </div>
         )
     }

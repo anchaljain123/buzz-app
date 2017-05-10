@@ -1,0 +1,23 @@
+.navbar-default{
+    background-color: #1b7a97;
+    border-color: #1b7a97;
+}
+.mainbody {
+    background: #ffffff;
+}
+body{
+    background: #ffffff;
+}
+.panel-default{
+    border-radius: 10px;
+}
+.buzzcolor{
+    background-color: #45b29d;
+}
+.fileupload{
+    width: 26px;
+    height: 26px;
+    margin-right: 100px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 5-7 */
+}

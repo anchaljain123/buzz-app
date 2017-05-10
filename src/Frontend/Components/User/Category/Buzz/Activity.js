@@ -9,9 +9,7 @@ class Activity extends Component{
     render(){
         return(
             <div>
-                <div className="well">
                     <CreateBuzz userDetails={this.props.userDetails}/>
-                </div>
 
             </div>
         )

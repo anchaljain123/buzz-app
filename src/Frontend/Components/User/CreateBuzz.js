@@ -59,6 +59,47 @@ class CreateBuzz extends React.Component{
 
         return(
             <div>
+                <div className="panel panel-default buzzcolor">
+                    <div className="panel-body">
+                        <div className="media">
+                            <div className="media-body">
+                            <textarea className="form-control"
+                                      rows="3"
+                                        value={this.state.content}
+                                      name="content"
+                                      placeholder="Create Buzz"
+                                      onChange={(e)=>this.handleChange(e,'content')}
+                            />
+                            </div>
+                        </div>
+                        <hr/>
+                        <span className="pull-left">
+                            <ImageUploader saveState={this.saveState} />
+                        </span>
+                        <span className="pull-left">&nbsp;&nbsp;&nbsp;</span>
+                        <span className="pull-left">
+                            <div className="dropdown">
+                                <select
+                                    className="btn-success btn-sm"
+                                    name="dropdownValue"
+                                    value={this.state.category}
+                                    onChange={(e) => this.handleChange(e, 'category')}
+                                >
+                                    <option value="select">Select</option>
+                                    <option value="activity">Activity</option>
+                                    <option value="lostnfound">LostnFound</option>
+                                </select>
+                            </div>
+                        </span>
+                        <span className="pull-right">
+                                {
+                                    loading?<img src={loaderimg}/>:""
+                                }
+                               <button className="btn btn-primary btn-sm" value="submit" onClick={this.savePost}>Post</button>
+                        </span>
+                    </div>
+                </div>
+            {/*
                 <div className="row" >
                     <textarea className="col-sm-12"
                               value={this.state.content}
@@ -95,8 +136,8 @@ class CreateBuzz extends React.Component{
                         loading?<img src={loaderimg}/>:""
                     }
 
-                </div>
-                <div className="well">
+                </div>*/}
+                <div>
                     <RecentBuzz userDetails={this.props.userDetails}/>
                 </div>
             </div>

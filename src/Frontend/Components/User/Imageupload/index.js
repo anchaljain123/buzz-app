@@ -31,7 +31,7 @@ class Imageupload extends React.Component{
             <div>
 
                 <form encType="multipart/form-data" id="myform">
-                    <input type="file" name="sampleFile" onBlur={this.saveimg} />
+                        <input className="" type="file" name="sampleFile" onBlur={this.saveimg} />
                 </form>
 
             </div>

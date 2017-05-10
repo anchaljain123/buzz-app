@@ -24,10 +24,10 @@ class RecentBuzz extends Component{
             tempArray.push(buzz[j])
         }
         return(
-            <div className="row">
+            <div >
                 {
                     tempArray.map(item => (
-                        <div  className="well" key={item._id}>
+                        <div key={item._id}>
                             {
                                 tempArray.length == buzz.length?
                                     <RecentBuzzRow buzzData={item}
