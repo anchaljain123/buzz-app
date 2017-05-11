@@ -18,9 +18,11 @@ import {
     HIT_BUZZ_SUCCESS,
     LIKE_BUZZ_FAILED,
     LIKE_BUZZ_SUCCESS,
+    SAVE_COMMENT_SUCCESS,
+    SAVE_COMMENT_FAILED,
+
 
 } from '../config/constants'
-
 
 export const asyncStarted = () =>{
     return{
@@ -133,5 +135,17 @@ export const asyncgetLikeFailed = (err) => {
 export const asyncgetLikeSuccess = (data) =>{
     return{
         type:LIKE_BUZZ_SUCCESS,data
+    }
+}
+
+export const asyncsaveCommentFailed = (err) =>{
+    return{
+        type:SAVE_COMMENT_FAILED,err
+    }
+}
+
+export const asyncsaveCommentSuccess = (data) =>{
+    return{
+        type:SAVE_COMMENT_SUCCESS,data
     }
 }

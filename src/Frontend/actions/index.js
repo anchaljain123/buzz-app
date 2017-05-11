@@ -9,6 +9,8 @@ export {
     asyncdeletePost,
     asyncsaveHitCount,
     asyncgetLike,
+    asyncLogout,
+    asyncsaveComment,
 
 
 } from './async.actions'

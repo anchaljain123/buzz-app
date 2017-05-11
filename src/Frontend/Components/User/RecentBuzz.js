@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux'
-import { asyncgetBuzz , asyncdeletePost ,asyncsaveHitCount , asyncgetLike } from '../../actions'
+import { asyncgetBuzz , asyncdeletePost ,asyncsaveHitCount , asyncgetLike , asyncsaveComment } from '../../actions'
 import RecentBuzzRow from './RecentBuzzRow'
 
 class RecentBuzz extends Component{
@@ -27,11 +27,20 @@ class RecentBuzz extends Component{
         this.props.dispatch(asyncsaveHitCount(likeDetails));
     };
 
+    saveComment = (commentState) =>{
+
+        let commentDetails = {
+            userName:this.props.userDetails[0].userName,
+            buzzid:commentState.buzzid,
+            uid:commentState.currentId,
+            content:commentState.comment,
+        }
+        this.props.dispatch(asyncsaveComment(commentDetails))
+
+    }
     render(){
         let { buzz } = this.props.buzzReducer;
         let { likes } = this.props.likeReducer;
-        console.log(likes.length,"----------");
-
 
         let tempArray =[];
         for (let j = 0; j <= buzz.length-1; j++){
@@ -49,6 +58,7 @@ class RecentBuzz extends Component{
                                                    userDetails={this.props.userDetails}
                                                    hitLike ={this.hitLike}
                                                    likeData = {likes}
+                                                   saveComment={this.saveComment}
                                     /> :""
                             }
                         </div>

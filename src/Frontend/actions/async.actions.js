@@ -18,6 +18,8 @@ import {
     asyncLikeBuzzFailed,
     asyncgetLikeSuccess,
     asyncgetLikeFailed,
+    asyncsaveCommentSuccess,
+    asyncsaveCommentFailed,
 
 
 } from './actions'
@@ -30,8 +32,9 @@ import {
     saveComplainURI ,
     fetchComplaintsURI,
     deletePostURI,
-    hiteBuzzURI,
+    hitBuzzURI,
     fetchLikeURI,
+    saveCommentURI,
 
 } from '../config/constants'
 
@@ -171,7 +174,7 @@ export const asyncdeletePost = (postDetails) => {
 export const asyncsaveHitCount = (hitDetails) =>{
 
     return(dispatch) =>{
-        fetch(hiteBuzzURI,{
+        fetch(hitBuzzURI,{
             method:'post',
             headers: {
                 'Accept': 'application/json',
@@ -205,6 +208,26 @@ export  const asyncgetLike =() =>{
             })
             .catch(err=>{
                 dispatch(asyncgetLikeFailed(err))
+            })
+    }
+}
+
+export const asyncsaveComment = (commentDetails) =>{
+    return(dispatch) =>{
+        fetch(saveCommentURI,{
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(commentDetails)
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncsaveCommentSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncsaveCommentFailed(err))
             })
     }
 }

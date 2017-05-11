@@ -8,6 +8,8 @@ const userRoute = routing.userRoute;
 const buzzRoute = routing.buzzRoute;
 const complainRoute = routing.complainRoute;
 const likeRoute = routing.likeRoute;
+const commentRoute = routing.commentRoute;
+
 
 
 
@@ -19,6 +21,7 @@ module.exports.appStarted=(app)=>{
     buzzRoute(app);
     complainRoute(app);
     likeRoute(app);
+    commentRoute(app);
 
 };
 

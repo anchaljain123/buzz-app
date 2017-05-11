@@ -30,5 +30,10 @@ module.exports = (app) => {
         res.redirect('http://localhost:9000/');
     })
 
+    app.get('/logout',(req,res) =>{
+        req.logout();
+        res.redirect('http://localhost:9000/');
+    })
+
 };
 

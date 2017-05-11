@@ -9,6 +9,8 @@ class RecentBuzzRow extends Component{
             post:this.props.buzzData,
             userId:this.props.buzzData.userDetails.id, //currentuser who posted
             currentId:this.props.userDetails[0].id, // loggedin user
+            comment:'',
+
         }
     }
 
@@ -20,24 +22,43 @@ class RecentBuzzRow extends Component{
             post:"",
             userId:"",
             currentId:"",
+            comment:'',
 
         })
     };
 
+    handleChange = (event) =>{
+
+        this.setState({
+            comment:event.target.value,
+        })
+    }
+
     postLike = () =>{
-
-            let postObject = {
-                currentId : this.state.currentId,
-                buzzid:this.props.buzzData._id,
-            };
-            this.props.hitLike(postObject);
-
-
+        let postObject = {
+            currentId : this.state.currentId,
+            buzzid:this.props.buzzData._id,
+        };
+        this.props.hitLike(postObject);
     };
+
+   postComment = () =>{
+        let commentObject = {
+            currentId : this.state.currentId,
+            buzzid:this.props.buzzData._id,
+            comment:this.state.comment,
+        };
+        this.props.saveComment(commentObject);
+        this.setState({
+            comment:""
+        })
+    }
 
     render(){
         const { buzzData } = this.props;
-        console.log(this.props.likeData,"+++++++++++")
+        const { likeData } = this.props;
+        let count = 0;
+
         return(
             <div className="panel panel-default">
                 <div className="panel-body">
@@ -81,7 +102,19 @@ class RecentBuzzRow extends Component{
 
                         </div>
                         <div className="pull-left">
-                            <span style={{color:"blue"}}><i className="fa fa-thumbs-o-up"></i> 3 </span>
+                            <span style={{color:"blue"}}><i className="fa fa-thumbs-o-up">
+                                {
+                                    likeData.map(likeitem => {
+                                        if(likeitem.postId == buzzData._id )
+                                        {
+                                            count++;
+                                        }
+
+                                     })
+
+                                }
+                                <div style={{display: 'inline-block',}}>{count}</div></i>
+                            </span>
                         </div>
                         <div className="pull-right btn-group-xs">
                             <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
@@ -109,9 +142,14 @@ class RecentBuzzRow extends Component{
                             </a>
                         </div>
                         <div className="media-body">
-                            <textarea style={{height:"0%"}} className="form-control" rows="1" placeholder="Comment..">
+                            <textarea style={{height:"0%"}}
+                                      className="form-control"
+                                      rows="1"
+                                      value={this.state.comment}
+                                      onChange={this.handleChange}
+                                      placeholder="Comment..">
                             </textarea>
-                            <button>Comment</button>
+                            <button onClick={this.postComment}>Comment</button>
                         </div>
                     </div>
                 </div>

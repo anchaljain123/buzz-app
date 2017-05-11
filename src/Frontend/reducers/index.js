@@ -16,9 +16,14 @@ import {
     likeReducer
 } from './Component.reducer/like.reducer'
 
+import {
+    commentReducer
+} from './Component.reducer/comment.reducer'
+
 export const rootReducer  =  combineReducers({
     userReducers,
     buzzReducer,
     complaintReducer,
-    likeReducer
+    likeReducer,
+    commentReducer,
 })

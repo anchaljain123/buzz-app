@@ -7,7 +7,17 @@ exports.saveLike = function (buzzDetails,res) {
         userName:buzzDetails.userName,
         userid:buzzDetails.uid,
     };
-   //like only for one tome for a user
+   //like only for one time for a user
+
+  /*  Like.find({'postId':buzzDetails.buzzid,'userDetails.userid':buzzDetails.uid},(err,data) =>{ //already exists
+
+        if(err) console.log(err);
+        else {
+            res.send(data);
+        }
+
+    })*/
+
     Like.create(buzzDetails,(err,data) =>{
         if(err) console.log(err);
         else
