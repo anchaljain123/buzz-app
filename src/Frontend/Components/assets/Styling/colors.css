@@ -15,9 +15,5 @@ body{
     background-color: #45b29d;
 }
 .fileupload{
-    width: 26px;
-    height: 26px;
-    margin-right: 100px;
-    opacity: 0;
-    filter: alpha(opacity=0); /* IE 5-7 */
+    display: none;
 }

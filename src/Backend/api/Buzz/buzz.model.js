@@ -6,21 +6,22 @@ const buzzSchema = new mongoose.Schema({
             type:String
         },
         img:{
-
+            // type:String,
         },
         postCreated:{
-            type:Date,
+            type: Date,
+            required: true,
         },
         category:{
             type:String,
             enum:categoryType,
+            default:'activity',
+
         },
         userDetails:{
-            type:Array,
+            type:Object,
+            required:true,
         },
-        userimg:{
-
-        }
 
 
     },
@@ -29,4 +30,7 @@ const buzzSchema = new mongoose.Schema({
     }
 )
 
+
+
 module.exports = mongoose.model('Buzz',buzzSchema);
+

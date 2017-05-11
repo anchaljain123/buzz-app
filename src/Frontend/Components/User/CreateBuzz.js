@@ -10,8 +10,8 @@ class CreateBuzz extends React.Component{
         super(props);
         this.state = {
             content: "",
-            category: "select",
-            img:"",
+            category: "",
+            img:"", //postimage
 
         }
     }
@@ -28,27 +28,25 @@ class CreateBuzz extends React.Component{
     }
 
     savePost = () => {
-        let { userDetails } = this.props;
+        let { userDetails } = this.props; //loggedin user who's posting
+
         let formData = new FormData();
         let userData = {
             id: userDetails[0].id,
             img:userDetails[0].profile.image.url,
+            name:userDetails[0].userName,
         }
 
-        //console.log(userData,"--------------------")
-
+        let details = JSON.stringify(userData);
         formData.append('content', this.state.content);
         formData.append('category', this.state.category);
-        formData.append('userDetails', userDetails[0].id);
-        formData.append('userimg',userDetails[0].profile.image.url)
         formData.append('img', this.state.img);
-
+        formData.append('userDetails', details);
 
         this.props.dispatch(asyncSavePost(formData));
-
         this.setState({
             content:"",
-            category:"select",
+            category:"",
             img:'',
         })
     };

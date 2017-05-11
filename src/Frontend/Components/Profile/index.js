@@ -107,11 +107,12 @@ class Profile extends Component {
                                                             <div className="col-md-6">
                                                                 <a
                                                                     className="btn btn-default btn-sm pull-right"
-                                                                    onClick={(e) => this.setState({islogout:true})}>
-                                                                    <i className="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                                                                    onClick={(e) => this.setState({islogout: true})}>
+                                                                    <i className="fa fa-power-off"
+                                                                       aria-hidden="true"></i>Logout</a>
                                                                 {
-                                                                    this.state.islogout?
-                                                                        <Logout logout={this.logout}/> :""
+                                                                    this.state.islogout ?
+                                                                        <Logout logout={this.logout}/> : ""
                                                                 }
                                                             </div>
                                                         </div>
@@ -124,7 +125,7 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
-                    <div style={{paddingTop:'50px'}}> </div>
+                    <div style={{paddingTop: '50px'}}></div>
                     <div className="col-lg-3 col-md-3">
                         <div className="panel panel-default">
                             <div className="panel-body">
@@ -133,7 +134,9 @@ class Profile extends Component {
                                         userDetails.map((item) => {
                                             return (
                                                 <div align="center">
-                                                    <img src={item.profile.image.url} className="thumbnail img-responsive" width="300px" height="300px"/>
+                                                    <img src={item.profile.image.url}
+                                                         className="thumbnail img-responsive" width="300px"
+                                                         height="300px"/>
                                                     <h1><strong>{item.userName}</strong></h1>
                                                     <hr/>
                                                 </div>
@@ -143,9 +146,9 @@ class Profile extends Component {
                                     }
                                     <div className="media-body">
 
-                                        <Navbar userprofile = {userDetails} />
+                                        <Navbar userprofile={userDetails}/>
 
-                                            <Redirect from="/profile" to="/profile/activity" />
+                                        <Redirect from="/profile" to="/profile/activity"/>
                                     </div>
                                 </div>
                             </div>

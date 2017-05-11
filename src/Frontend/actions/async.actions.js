@@ -14,6 +14,11 @@ import {
     asyncDeleteSuccess,
     asyncDeleteFailed,
     asyncStarted,
+    asyncLikeBuzzSuccess,
+    asyncLikeBuzzFailed,
+    asyncgetLikeSuccess,
+    asyncgetLikeFailed,
+
 
 } from './actions'
 
@@ -25,6 +30,9 @@ import {
     saveComplainURI ,
     fetchComplaintsURI,
     deletePostURI,
+    hiteBuzzURI,
+    fetchLikeURI,
+
 } from '../config/constants'
 
 import fetch from 'isomorphic-fetch'
@@ -156,6 +164,47 @@ export const asyncdeletePost = (postDetails) => {
             })
             .catch(err => {
                 dispatch(asyncDeleteFailed(err));
+            })
+    }
+}
+
+export const asyncsaveHitCount = (hitDetails) =>{
+
+    return(dispatch) =>{
+        fetch(hiteBuzzURI,{
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(hitDetails)
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncLikeBuzzSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncLikeBuzzFailed(err))
+            })
+    }
+}
+
+export  const asyncgetLike =() =>{
+    return(dispatch) =>{
+        fetch(fetchLikeURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=> {
+                dispatch(asyncgetLikeSuccess(data));
+                dispatch(asyncgetBuzz());
+            })
+            .catch(err=>{
+                dispatch(asyncgetLikeFailed(err))
             })
     }
 }

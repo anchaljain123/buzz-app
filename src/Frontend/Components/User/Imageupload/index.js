@@ -23,15 +23,17 @@ class Imageupload extends React.Component{
         })
 
     }
-
-
     render(){
 
         return(
             <div>
 
                 <form encType="multipart/form-data" id="myform">
-                        <input className="" type="file" name="sampleFile" onBlur={this.saveimg} />
+
+                    {/*<label class="btn btn-default btn-file" >*/}
+                        <input  type="file" name="sampleFile" onBlur={this.saveimg} />
+                     {/*<i className="fa fa-camera"></i>*/}
+                    {/*</label>*/}
                 </form>
 
             </div>

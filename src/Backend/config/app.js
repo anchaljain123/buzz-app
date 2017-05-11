@@ -7,6 +7,7 @@ const routing = require('./Route');
 const userRoute = routing.userRoute;
 const buzzRoute = routing.buzzRoute;
 const complainRoute = routing.complainRoute;
+const likeRoute = routing.likeRoute;
 
 
 
@@ -17,6 +18,7 @@ module.exports.appStarted=(app)=>{
     userRoute(app);
     buzzRoute(app);
     complainRoute(app);
+    likeRoute(app);
 
 };
 

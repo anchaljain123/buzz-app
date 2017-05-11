@@ -7,5 +7,8 @@ export {
     asyncSaveComplaint,
     asyncgetComplaints,
     asyncdeletePost,
+    asyncsaveHitCount,
+    asyncgetLike,
+
 
 } from './async.actions'

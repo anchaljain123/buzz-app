@@ -35,13 +35,12 @@ class ComplaintForm extends  Component{
     };
     render(){
         return(
-            <section id="contact" className="content-section text-center">
-                <div className="contact-section">
-                    <div className="container">
+
+                    <div className="">
+                        <br/>
                         <h2>Complaint Form</h2>
-                        <div className="row">
-                            <div className="col-md-8 col-md-offset-2">
-                                <form className="form-horizontal">
+
+                                <form className="">
                                     <div className="form-group">
                                         <label>Title</label>
                                         <input type="text"
@@ -59,6 +58,7 @@ class ComplaintForm extends  Component{
                                                    onChange={(e)=>this.handleChange(e,'description')}>
                                         </textarea>
                                     </div>
+                                    <div className="form-group">
                                     <select name="complaintValue"
                                             value={this.state.category}
                                             onChange={(e) => this.handleChange(e, 'category')}>
@@ -67,18 +67,19 @@ class ComplaintForm extends  Component{
                                         <option value="software">Software</option>
                                         <option value="others">Other</option>
                                     </select>
+                                    </div>
+                                    <div className="form-group">
                                     <button
                                         value="submit"
                                          className="btn btn-default"
                                         onClick={this.saveComplaint}>
                                         Submit
                                     </button>
+                                    </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+
         )
     }
 }

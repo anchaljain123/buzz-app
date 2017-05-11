@@ -14,6 +14,10 @@ import {
     DELETE_BUZZ_FAILED,
     DELETE_BUZZ_SUCCESS,
     LOADER_STARTED,
+    HIT_BUZZ_FAILED,
+    HIT_BUZZ_SUCCESS,
+    LIKE_BUZZ_FAILED,
+    LIKE_BUZZ_SUCCESS,
 
 } from '../config/constants'
 
@@ -105,5 +109,29 @@ export const asyncDeleteFailed = (err) =>{
 export const asyncDeleteSuccess = (data) => {
     return{
         type:DELETE_BUZZ_SUCCESS,data
+    }
+}
+
+export const asyncLikeBuzzFailed = (err) =>{
+    return{
+        type:HIT_BUZZ_FAILED,err
+    }
+}
+
+export const asyncLikeBuzzSuccess = (data) =>{
+    return{
+        type:HIT_BUZZ_SUCCESS,data
+    }
+}
+
+export const asyncgetLikeFailed = (err) => {
+    return{
+        type:LIKE_BUZZ_FAILED,err,
+    }
+}
+
+export const asyncgetLikeSuccess = (data) =>{
+    return{
+        type:LIKE_BUZZ_SUCCESS,data
     }
 }
