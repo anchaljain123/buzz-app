@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
-import { asyncgetCurrentUser } from '../../actions';
+import { asyncgetComment } from '../../actions';
+import Comment from  './Comment'
 
 class RecentBuzzRow extends Component{
     constructor(props){
@@ -9,12 +10,8 @@ class RecentBuzzRow extends Component{
             post:this.props.buzzData,
             userId:this.props.buzzData.userDetails.id, //currentuser who posted
             currentId:this.props.userDetails[0].id, // loggedin user
-            comment:'',
-
         }
     }
-
-
 
     deletePost = () =>{
         this.props.deleteBuzz(this.state);
@@ -27,13 +24,6 @@ class RecentBuzzRow extends Component{
         })
     };
 
-    handleChange = (event) =>{
-
-        this.setState({
-            comment:event.target.value,
-        })
-    }
-
     postLike = () =>{
         let postObject = {
             currentId : this.state.currentId,
@@ -42,21 +32,21 @@ class RecentBuzzRow extends Component{
         this.props.hitLike(postObject);
     };
 
-   postComment = () =>{
+    postComment = (commentState) =>{
         let commentObject = {
             currentId : this.state.currentId,
             buzzid:this.props.buzzData._id,
-            comment:this.state.comment,
+            comment:commentState,
         };
         this.props.saveComment(commentObject);
-        this.setState({
-            comment:""
-        })
-    }
+
+    };
+
 
     render(){
         const { buzzData } = this.props;
         const { likeData } = this.props;
+
         let count = 0;
 
         return(
@@ -73,8 +63,7 @@ class RecentBuzzRow extends Component{
                     <div className="pull-right">
                         {
                             (this.state.userId == this.state.currentId)?
-                                <button className="btn-sm btn-danger" onClick={this.deletePost}>delete</button>
-                                :""
+                                <button className="btn-sm btn-danger" onClick={this.deletePost}>delete</button> :""
                         }
                     </div>
                     <h4 style={{"color":"#165ba8"}}>
@@ -106,12 +95,8 @@ class RecentBuzzRow extends Component{
                                 {
                                     likeData.map(likeitem => {
                                         if(likeitem.postId == buzzData._id )
-                                        {
                                             count++;
-                                        }
-
-                                     })
-
+                                    })
                                 }
                                 <div style={{display: 'inline-block',}}>{count}</div></i>
                             </span>
@@ -130,28 +115,11 @@ class RecentBuzzRow extends Component{
                         <br/>
                     </div>
                     <hr/>
-                    <div className="media">
-                        <div className="pull-left">
-                            <a href="#">
-                                <img
-                                    className="media-object img-circle"
-                                    src={this.props.userDetails[0].profile.image.url}
-                                    width="35px" height="35px"
-                                    style={{"marginLeft":"3px", "marginRight":"-5px"}}
-                                />
-                            </a>
-                        </div>
-                        <div className="media-body">
-                            <textarea style={{height:"0%"}}
-                                      className="form-control"
-                                      rows="1"
-                                      value={this.state.comment}
-                                      onChange={this.handleChange}
-                                      placeholder="Comment..">
-                            </textarea>
-                            <button onClick={this.postComment}>Comment</button>
-                        </div>
-                    </div>
+                    <Comment
+                        postComment={this.postComment}
+                        buzzid={this.props.buzzData._id}
+                        userDetails={this.props.userDetails}
+                    />
                 </div>
             </div>
         )

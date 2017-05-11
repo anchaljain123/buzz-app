@@ -20,6 +20,5 @@ exports.deleteBuzz = function (req,res,next) {
 
 exports.updateBuzz = function (req,res,next) {
     const buzzDetails = req.body;
-    console.log(buzzDetails,"+++++++++++++++++++++++++==")
     buzzService.updateBuzz(buzzDetails,res);
 }

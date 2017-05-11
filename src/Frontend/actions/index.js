@@ -11,6 +11,7 @@ export {
     asyncgetLike,
     asyncLogout,
     asyncsaveComment,
+    asyncgetComment,
 
 
 } from './async.actions'

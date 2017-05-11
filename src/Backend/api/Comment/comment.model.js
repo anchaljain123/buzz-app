@@ -8,7 +8,7 @@ const commentSchema = new mongoose.Schema({
         type:Object,
         required:true,
     },
-    content:{
+    comment:{
         type:String
     },
     commentCreated:{

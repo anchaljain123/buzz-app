@@ -20,6 +20,8 @@ import {
     LIKE_BUZZ_SUCCESS,
     SAVE_COMMENT_SUCCESS,
     SAVE_COMMENT_FAILED,
+    FETCH_COMMENT_SUCCESS,
+    FETCH_COMMENT_FAILED,
 
 
 } from '../config/constants'
@@ -147,5 +149,17 @@ export const asyncsaveCommentFailed = (err) =>{
 export const asyncsaveCommentSuccess = (data) =>{
     return{
         type:SAVE_COMMENT_SUCCESS,data
+    }
+}
+
+export const asyncCommentSuccess = (data) =>{
+    return{
+        type:FETCH_COMMENT_SUCCESS,data
+    }
+}
+
+export const asyncCommentFailed = (err) =>{
+    return{
+        type:FETCH_COMMENT_FAILED,err
     }
 }

@@ -9,6 +9,7 @@ export const savePostURI = "http://localhost:4000/saveBuzz";
 export const deletePostURI = "http://localhost:4000/deleteBuzz";
 export const fetchLikeURI = "http://localhost:4000/getLike";
 export const saveCommentURI = "http://localhost:4000/saveComment";
+export const fetchCommentURI = "http://localhost:4000/getComment";
 
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const LOADER_STARTED = "LOADER_STARTED";
@@ -31,3 +32,5 @@ export const LIKE_BUZZ_FAILED = "LIKE_BUZZ_FAILED";
 export const LIKE_BUZZ_SUCCESS ="LIKE_BUZZ_SUCCESS";
 export const SAVE_COMMENT_SUCCESS = "SAVE_COMMENT_SUCCESS";
 export const SAVE_COMMENT_FAILED = "SAVE_COMMENT_FAILED";
+export const FETCH_COMMENT_FAILED = "FETCH_COMMENT_FAILED";
+export const FETCH_COMMENT_SUCCESS = "FETCH_COMMENT_SUCCESS";

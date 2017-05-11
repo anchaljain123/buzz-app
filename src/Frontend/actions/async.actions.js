@@ -20,6 +20,8 @@ import {
     asyncgetLikeFailed,
     asyncsaveCommentSuccess,
     asyncsaveCommentFailed,
+    asyncCommentSuccess,
+    asyncCommentFailed
 
 
 } from './actions'
@@ -35,6 +37,7 @@ import {
     hitBuzzURI,
     fetchLikeURI,
     saveCommentURI,
+    fetchCommentURI,
 
 } from '../config/constants'
 
@@ -228,6 +231,25 @@ export const asyncsaveComment = (commentDetails) =>{
             })
             .catch(err=>{
                 dispatch(asyncsaveCommentFailed(err))
+            })
+    }
+}
+
+export const asyncgetComment = () =>{
+    return(dispatch) =>{
+        fetch(fetchCommentURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=> {
+                dispatch(asyncCommentSuccess(data))
+            })
+            .catch(err=>{
+                dispatch(asyncCommentFailed(err))
             })
     }
 }

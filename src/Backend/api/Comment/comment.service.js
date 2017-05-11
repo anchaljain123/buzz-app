@@ -3,7 +3,7 @@ const Comment = require('./comment.model');
 exports.saveComment = function (buzzDetails,res) {
 
     buzzDetails.postId = buzzDetails.buzzid;
-    buzzDetails.content = buzzDetails.comment;
+    buzzDetails.comment = buzzDetails.content;
     buzzDetails.userDetails = {
         userName:buzzDetails.userName,
         userid:buzzDetails.uid,
@@ -18,3 +18,13 @@ exports.saveComment = function (buzzDetails,res) {
     })
 }
 
+exports.getComment = function (res) {
+    Comment.find({},(err,data) =>{
+        if(err) console.log(err);
+        else
+        {
+            console.log(data,"<<<<<<<<<<<<<<<<<<<<<<")
+            res.send(data);
+        }
+    })
+}
