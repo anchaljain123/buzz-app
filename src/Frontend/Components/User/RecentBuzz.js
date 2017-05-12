@@ -25,6 +25,8 @@ class RecentBuzz extends Component{
             uid:hitState.currentId,
         }
         this.props.dispatch(asyncsaveHitCount(likeDetails));
+       // this.props.dispatch(asyncgetLike());
+
     };
 
     saveComment = (commentState) =>{
@@ -38,6 +40,11 @@ class RecentBuzz extends Component{
         this.props.dispatch(asyncsaveComment(commentDetails))
 
     }
+
+    hitdisLike = (disLikeState) =>{
+    console.log('dislike')
+    }
+
     render(){
         let { buzz } = this.props.buzzReducer;
         let { likes } = this.props.likeReducer;
@@ -57,6 +64,7 @@ class RecentBuzz extends Component{
                                                    deleteBuzz={this.deleteBuzz}
                                                    userDetails={this.props.userDetails}
                                                    hitLike ={this.hitLike}
+                                                   hitdisLike={this.hitdisLike}
                                                    likeData = {likes}
                                                    saveComment={this.saveComment}
                                     /> :""

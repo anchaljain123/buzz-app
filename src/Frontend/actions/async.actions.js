@@ -188,6 +188,8 @@ export const asyncsaveHitCount = (hitDetails) =>{
             .then(res=>res.json())
             .then(data=>{
                 dispatch(asyncLikeBuzzSuccess(data))
+                dispatch(asyncgetLike())
+                dispatch(asyncgetBuzz())
             })
             .catch(err=>{
                 dispatch(asyncLikeBuzzFailed(err))
@@ -228,6 +230,10 @@ export const asyncsaveComment = (commentDetails) =>{
             .then(res=>res.json())
             .then(data=>{
                 dispatch(asyncsaveCommentSuccess(data))
+                dispatch(asyncgetBuzz())
+                dispatch(asyncgetComment())
+
+
             })
             .catch(err=>{
                 dispatch(asyncsaveCommentFailed(err))

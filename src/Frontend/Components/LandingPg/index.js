@@ -18,21 +18,12 @@ const LandingPg = () =>{
                         <div className="google-button">
                             <a className="google-button" href="http://localhost:4000/auth/google">
                                 <img src={gplus}/>
-                                {/*<input type="submit" value="" />*/}
                             </a>
                         </div>
                     </div>
                 </header>
-               {/* <div className="login">
-                    <a href="http://localhost:4000/auth/google">
-                        <input type="submit" value="Sign in with google" />
-                    </a>
-                </div>*/}
             </div>
         </div>
-
-
-
     )
 }
 

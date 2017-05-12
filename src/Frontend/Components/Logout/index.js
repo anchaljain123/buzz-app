@@ -2,12 +2,8 @@ import React ,{ Component } from 'react'
 import LandingPage from '../LandingPg'
 import { Route, Redirect } from 'react-router-dom'
 
-class Logout extends Component{
-    componentWillMount(){
-        //this.props.logout();
-    }
-    render(){
-        return(
+ const Logout =()=>{
+     return(
             <div>
                 { <div>
                   {/*  <Redirect to="/"/>
@@ -17,7 +13,7 @@ class Logout extends Component{
                 }
             </div>
         )
-    }
+
 }
 
 export default Logout

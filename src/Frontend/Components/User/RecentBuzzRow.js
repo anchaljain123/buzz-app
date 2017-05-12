@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { asyncgetComment } from '../../actions';
 import Comment from  './Comment'
@@ -7,46 +7,54 @@ class RecentBuzzRow extends Component{
     constructor(props){
         super(props);
         this.state = {
-            post:this.props.buzzData,
-            userId:this.props.buzzData.userDetails.id, //currentuser who posted
-            currentId:this.props.userDetails[0].id, // loggedin user
+            post: this.props.buzzData,
+            userId: this.props.buzzData.userDetails.id, //currentuser who posted
+            currentId: this.props.userDetails[0].id, // loggedin user
         }
     }
 
     deletePost = () =>{
         this.props.deleteBuzz(this.state);
         this.setState({
-            post:"",
-            userId:"",
-            currentId:"",
-            comment:'',
+            post: "",
+            userId: "",
+            currentId: "",
+            comment: '',
 
         })
     };
 
-    postLike = () =>{
+    postLike = (e) =>{
+        e.preventDefault();
         let postObject = {
             currentId : this.state.currentId,
-            buzzid:this.props.buzzData._id,
+            buzzid: this.props.buzzData._id,
         };
         this.props.hitLike(postObject);
     };
 
+    postdisLike = () => {
+
+        let postObject = {
+            currentId : this.state.currentId,
+            buzzid: this.props.buzzData._id,
+        };
+        this.props.hitdisLike(postObject);
+    }
+
     postComment = (commentState) =>{
         let commentObject = {
             currentId : this.state.currentId,
-            buzzid:this.props.buzzData._id,
-            comment:commentState,
+            buzzid: this.props.buzzData._id,
+            comment: commentState,
         };
         this.props.saveComment(commentObject);
 
     };
 
-
     render(){
         const { buzzData } = this.props;
         const { likeData } = this.props;
-
         let count = 0;
 
         return(
@@ -84,8 +92,7 @@ class RecentBuzzRow extends Component{
                         <div className="pull-left">
                             {
                                 buzzData.category=='activity'?
-                                    <span className="label label-warning">Activity</span>
-                                    :
+                                    <span className="label label-warning">Activity</span> :
                                     <span className="label label-info">LostnFound</span>
                             }
 
@@ -103,9 +110,13 @@ class RecentBuzzRow extends Component{
                         </div>
                         <div className="pull-right btn-group-xs">
                             <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
-
                                 <button onClick={this.postLike} style={{'background':'none','border':'none'}}>
                                     <i className="fa fa-heart" aria-hidden="true"></i>Like
+                                </button>
+                            </a>
+                            <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
+                                <button onClick={(event)=>this.postdisLike} style={{'background':'none','border':'none'}}>
+                                    <i className="fa fa-heart" aria-hidden="true"></i>Dislike
                                 </button>
                             </a>
                             <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
@@ -126,7 +137,9 @@ class RecentBuzzRow extends Component{
     }
 }
 
+export default RecentBuzzRow;
 
-const maptoState = state => state;
-const RecentBuzzRowContainer = connect(maptoState)(RecentBuzzRow)
-export default RecentBuzzRowContainer;
+/*
+ const maptoState = state => state;
+ const RecentBuzzRowContainer = connect(maptoState)(RecentBuzzRow)
+ export default RecentBuzzRowContainer;*/

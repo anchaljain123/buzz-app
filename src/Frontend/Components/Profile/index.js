@@ -15,7 +15,6 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            islogout: false,
             img: '',
         }
     }
@@ -35,7 +34,6 @@ class Profile extends Component {
 
     render() {
         let userDetails = this.props.userReducers.users;
-
         const {match} = this.props;
         return (
 
@@ -108,11 +106,10 @@ class Profile extends Component {
                                                             <div className="col-md-6">
                                                                 <a className="btn btn-default btn-sm pull-right">
                                                                     <i className="fa fa-power-off"
-                                                                       aria-hidden="true">
-                                                                    </i>
+                                                                       aria-hidden="true"></i>
                                                                     Logout
                                                                 </a>
-                                                                <Logout />
+                                                                <Logout/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -144,9 +141,7 @@ class Profile extends Component {
                                         })
                                     }
                                     <div className="media-body">
-
                                         <Navbar userprofile={userDetails}/>
-
                                         <Redirect from="/profile" to="/profile/activity"/>
                                     </div>
                                 </div>

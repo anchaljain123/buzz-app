@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ImageUploader from './Imageupload'
-import { asyncSavePost } from '../../actions'
 import RecentBuzz from './RecentBuzz'
 import loaderimg from '../assets/images/loader.gif'
 
@@ -11,7 +10,7 @@ class CreateBuzz extends React.Component{
         this.state = {
             content: "",
             category: "",
-            img:"", //postimage
+            img: "", //postimage
 
         }
     }
@@ -21,40 +20,36 @@ class CreateBuzz extends React.Component{
         })
     };
 
-    saveState =(imageState)=> {
+    saveState = (imageState) => {
         this.setState({
-            img:imageState.file,
+            img: imageState.file,
         })
     }
 
     savePost = () => {
-        let { userDetails } = this.props; //loggedin user who's posting
+        /*     let { userDetails } = this.props; //loggedin user who's posting
+         let formData = new FormData();
+         let userData = {
+         id: userDetails[0].id,
+         img:userDetails[0].profile.image.url,
+         name:userDetails[0].userName,
+         }
 
-        let formData = new FormData();
-        let userData = {
-            id: userDetails[0].id,
-            img:userDetails[0].profile.image.url,
-            name:userDetails[0].userName,
-        }
-
-        let details = JSON.stringify(userData);
-        formData.append('content', this.state.content);
-        formData.append('category', this.state.category);
-        formData.append('img', this.state.img);
-        formData.append('userDetails', details);
-
-        this.props.dispatch(asyncSavePost(formData));
+         let details = JSON.stringify(userData);
+         formData.append('content', this.state.content);
+         formData.append('category', this.state.category);
+         formData.append('img', this.state.img);
+         formData.append('userDetails', details);*/
+        this.props.savePost(this.state);
         this.setState({
-            content:"",
-            category:"",
-            img:'',
+            content: "",
+            category: "",
+            img: '',
         })
     };
+
     render(){
-
-        let { loading } = this.props.buzzReducer;
-
-
+       // let { loading } = this.props.buzzReducer;
         return(
             <div>
                 <div className="panel panel-default buzzcolor">
@@ -63,11 +58,10 @@ class CreateBuzz extends React.Component{
                             <div className="media-body">
                             <textarea className="form-control"
                                       rows="3"
-                                        value={this.state.content}
+                                      value={this.state.content}
                                       name="content"
                                       placeholder="Create Buzz"
-                                      onChange={(e)=>this.handleChange(e,'content')}
-                            />
+                                      onChange={(e)=>this.handleChange(e,'content')}/>
                             </div>
                         </div>
                         <hr/>
@@ -81,8 +75,7 @@ class CreateBuzz extends React.Component{
                                     className="btn-success btn-sm"
                                     name="dropdownValue"
                                     value={this.state.category}
-                                    onChange={(e) => this.handleChange(e, 'category')}
-                                >
+                                    onChange={(e) => this.handleChange(e, 'category')}>
                                     <option value="select">Select</option>
                                     <option value="activity">Activity</option>
                                     <option value="lostnfound">LostnFound</option>
@@ -91,50 +84,50 @@ class CreateBuzz extends React.Component{
                         </span>
                         <span className="pull-right">
                                 {
-                                    loading?<img src={loaderimg}/>:""
+                                    this.props.loading?<img src={loaderimg}/>:""
                                 }
-                               <button className="btn btn-primary btn-sm" value="submit" onClick={this.savePost}>Post</button>
+                            <button className="btn btn-primary btn-sm" value="submit" onClick={this.savePost}>Post</button>
                         </span>
                     </div>
                 </div>
-            {/*
-                <div className="row" >
-                    <textarea className="col-sm-12"
-                              value={this.state.content}
-                              name="content"
-                              placeholder="Create Buzz"
-                              onChange={(e)=>this.handleChange(e,'content')}
-                    />
-                    <ImageUploader saveState={this.saveState} />
-                </div>
-                <br/>
-                <div className="row">
-                    <div className="col-sm-5">
-                        <div className="dropdown">
-                            <select
-                                name="dropdownValue"
-                                value={this.state.category}
-                                onChange={(e) => this.handleChange(e, 'category')}
-                            >
-                                <option value="select">Select</option>
-                                <option value="activity">Activity</option>
-                                <option value="lostnfound">LostnFound</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="col-sm-6">
+                {/*
+                 <div className="row" >
+                 <textarea className="col-sm-12"
+                 value={this.state.content}
+                 name="content"
+                 placeholder="Create Buzz"
+                 onChange={(e)=>this.handleChange(e,'content')}
+                 />
+                 <ImageUploader saveState={this.saveState} />
+                 </div>
+                 <br/>
+                 <div className="row">
+                 <div className="col-sm-5">
+                 <div className="dropdown">
+                 <select
+                 name="dropdownValue"
+                 value={this.state.category}
+                 onChange={(e) => this.handleChange(e, 'category')}
+                 >
+                 <option value="select">Select</option>
+                 <option value="activity">Activity</option>
+                 <option value="lostnfound">LostnFound</option>
+                 </select>
+                 </div>
+                 </div>
+                 <div className="col-sm-6">
 
-                    </div>
-                    <div className="col-sm-1">
+                 </div>
+                 <div className="col-sm-1">
 
-                        <button value="submit" onClick={this.savePost}>Post</button>
+                 <button value="submit" onClick={this.savePost}>Post</button>
 
-                    </div>
-                    {
-                        loading?<img src={loaderimg}/>:""
-                    }
+                 </div>
+                 {
+                 loading?<img src={loaderimg}/>:""
+                 }
 
-                </div>*/}
+                 </div>*/}
                 <div>
                     <RecentBuzz userDetails={this.props.userDetails}/>
                 </div>
@@ -143,7 +136,9 @@ class CreateBuzz extends React.Component{
     }
 }
 
+export default CreateBuzz;
+/*
 const maptoState =  state => state;
 const CreateBuzzContainer =  connect(maptoState)(CreateBuzz);
 
-export default CreateBuzzContainer;
+export default CreateBuzzContainer;*/
