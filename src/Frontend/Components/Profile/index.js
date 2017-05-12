@@ -55,9 +55,9 @@ class Profile extends Component {
                                                                 data-toggle="dropdown">
 
                                         {
-                                            userDetails.map((item) => {
+                                            userDetails.map((item, i) => {
                                                 return (
-                                                    <span>
+                                                    <span key={i}>
                                                     <span className="user-avatar pull-left"
                                                           style={{marginRight: '8px', marginTop: '-5px'}}>
 
@@ -80,9 +80,9 @@ class Profile extends Component {
                                             <li>
                                                 <div className="navbar-content">
                                                     {
-                                                        userDetails.map((item) => {
+                                                        userDetails.map((item, i) => {
                                                             return (
-                                                                <div className="row">
+                                                                <div className="row" key={i}>
                                                                     <div className="col-md-5">
                                                                         <img src={item.profile.image.url}/>
                                                                     </div>
@@ -127,9 +127,9 @@ class Profile extends Component {
                             <div className="panel-body">
                                 <div className="media">
                                     {
-                                        userDetails.map((item) => {
+                                        userDetails.map((item, i) => {
                                             return (
-                                                <div align="center">
+                                                <div key={i}>
                                                     <img src={item.profile.image.url}
                                                          className="thumbnail img-responsive" width="100px"
                                                          height="100px" />

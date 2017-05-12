@@ -1,24 +1,24 @@
-const passport = require('passport');
+//const passport = require('passport');
 const express = require('express');
-var cors=require('cors');
-var multer  = require('multer');
+const cors=require('cors');
+//var multer  = require('multer');
 const constants  = require('./config/constant');
-var cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 const appConfig = require('./config/app');
 const PORT =  constants.PORT ;
-const allowCrossDomain = function(req, res, next) {
+/*const allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
-};
+};*/
 
 const app = express();
-app.use(cookieParser());
-app.use(allowCrossDomain);
+//app.use(cookieParser());
+//app.use(allowCrossDomain);
 app.use('/files', express.static('files'));
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', req.headers.origin);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, *');
@@ -30,8 +30,8 @@ app.use((req, res, next) => {
     }
 
     next();
-});
-app.use(cors({origin:true,credentials: true}));
+});*/
+app.use(cors({origin:true,credentials:true}));
 
 appConfig.appStarted(app);
 app.listen(PORT,()=>{

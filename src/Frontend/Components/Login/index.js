@@ -7,7 +7,7 @@ class Login extends Component{
         super(props);
 
     }
-    componentWillMount(){
+    componentDidMount(){
         this.props.dispatch(asyncAction());
     }
     render(){

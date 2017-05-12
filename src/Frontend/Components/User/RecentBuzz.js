@@ -9,7 +9,7 @@ class RecentBuzz extends Component{
         super(props);
     }
 
-    componentWillMount(){
+    componentDidMount(){
      this.props.dispatch(asyncgetBuzz());
      this.props.dispatch(asyncgetLike());
     }

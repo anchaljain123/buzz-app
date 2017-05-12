@@ -14,8 +14,8 @@ const buzzSchema = new mongoose.Schema({
         },
         category:{
             type:String,
-            enum:categoryType,
             default:'activity',
+            enum:categoryType,
 
         },
         userDetails:{

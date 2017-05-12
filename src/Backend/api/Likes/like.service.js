@@ -9,11 +9,11 @@ exports.saveLike = function (buzzDetails,res) {
     };
    //like only for one time for a user
 
-  /*  Like.find({'postId':buzzDetails.buzzid,'userDetails.userid':buzzDetails.uid},(err,data) =>{ //already exists
+/*   Like.remove({'postId':buzzDetails.buzzid,'userDetails.userid':buzzDetails.uid},(err,data) =>{ //already exists
 
         if(err) console.log(err);
         else {
-            res.send(data);
+          console.log("deleted")
         }
 
     })*/

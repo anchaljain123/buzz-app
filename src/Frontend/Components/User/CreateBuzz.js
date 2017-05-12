@@ -9,7 +9,7 @@ class CreateBuzz extends React.Component{
         super(props);
         this.state = {
             content: "",
-            category: "",
+            category: "activity",
             img: "", //postimage
 
         }
@@ -43,7 +43,7 @@ class CreateBuzz extends React.Component{
         this.props.savePost(this.state);
         this.setState({
             content: "",
-            category: "",
+            category: "activity",
             img: '',
         })
     };
@@ -76,7 +76,7 @@ class CreateBuzz extends React.Component{
                                     name="dropdownValue"
                                     value={this.state.category}
                                     onChange={(e) => this.handleChange(e, 'category')}>
-                                    <option value="select">Select</option>
+
                                     <option value="activity">Activity</option>
                                     <option value="lostnfound">LostnFound</option>
                                 </select>
