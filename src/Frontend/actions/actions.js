@@ -14,10 +14,10 @@ import {
     DELETE_BUZZ_FAILED,
     DELETE_BUZZ_SUCCESS,
     LOADER_STARTED,
-    HIT_BUZZ_FAILED,
-    HIT_BUZZ_SUCCESS,
-    LIKE_BUZZ_FAILED,
-    LIKE_BUZZ_SUCCESS,
+    SAVE_LIKE_FAILED,
+    SAVE_LIKE_SUCCESS,
+    FETCH_LIKES_FAILED,
+    FETCH_LIKES_SUCCESS,
     SAVE_COMMENT_SUCCESS,
     SAVE_COMMENT_FAILED,
     FETCH_COMMENT_SUCCESS,
@@ -122,25 +122,25 @@ export const asyncDeleteSuccess = (data) => {
 
 export const asyncLikeBuzzFailed = (err) =>{
     return{
-        type:HIT_BUZZ_FAILED,err
+        type:SAVE_LIKE_FAILED,err
     }
 }
 
 export const asyncLikeBuzzSuccess = (data) =>{
     return{
-        type:HIT_BUZZ_SUCCESS,data
+        type:SAVE_LIKE_SUCCESS,data
     }
 }
 
 export const asyncgetLikeFailed = (err) => {
     return{
-        type:LIKE_BUZZ_FAILED,err,
+        type:FETCH_LIKES_FAILED,err,
     }
 }
 
 export const asyncgetLikeSuccess = (data) =>{
     return{
-        type:LIKE_BUZZ_SUCCESS,data
+        type:FETCH_LIKES_SUCCESS,data
     }
 }
 

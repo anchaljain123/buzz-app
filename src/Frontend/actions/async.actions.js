@@ -48,7 +48,7 @@ import {
 
 import fetch from 'isomorphic-fetch'
 
-export const asyncAction = () => {
+export const asyncAction = () => { //get users
     return (dispatch) => {
         fetch(fetchURI)
             .then(response => response.json())
@@ -179,29 +179,6 @@ export const asyncdeletePost = (postDetails) => {
     }
 };
 
-export const asyncsaveHitCount = (hitDetails) =>{
-
-    return(dispatch) =>{
-        fetch(hitBuzzURI,{
-            method:'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify(hitDetails)
-        })
-            .then(res=>res.json())
-            .then(data=>{
-                dispatch(asyncLikeBuzzSuccess(data))
-                dispatch(asyncgetLike())
-                dispatch(asyncgetBuzz())
-            })
-            .catch(err=>{
-                dispatch(asyncLikeBuzzFailed(err))
-            })
-    }
-};
-
 export  const asyncgetLikes =() =>{
     return(dispatch) =>{
         fetch(fetchLikeURI, {
@@ -218,6 +195,30 @@ export  const asyncgetLikes =() =>{
             })
             .catch(err=>{
                 dispatch(asyncgetLikeFailed(err))
+            })
+    }
+};
+
+export const asyncsaveLike = (hitDetails) =>{
+
+    return(dispatch) =>{
+        fetch(hitBuzzURI,{
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(hitDetails)
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncLikeBuzzSuccess(data));
+                dispatch(asyncgetLikes());
+                dispatch(asyncgetDislikes());
+                dispatch(asyncgetBuzz())
+            })
+            .catch(err=>{
+                dispatch(asyncLikeBuzzFailed(err))
             })
     }
 };
@@ -279,7 +280,8 @@ export const asyncsaveDislike = (disLikeDetails) =>{
             .then(res=>res.json())
             .then(data=>{
                 dispatch(asyncdisLikeBuzzSuccess(data));
-               dispatch(asyncgetLike());
+                dispatch(asyncgetLikes());
+                dispatch(asyncgetDislikes());
                 dispatch(asyncgetBuzz());
             })
             .catch(err=>{

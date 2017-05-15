@@ -1,9 +1,9 @@
 
 import {
-    HIT_BUZZ_FAILED,
-    HIT_BUZZ_SUCCESS,
-    LIKE_BUZZ_FAILED,
-    LIKE_BUZZ_SUCCESS,
+    SAVE_LIKE_FAILED,
+    SAVE_LIKE_SUCCESS,
+    FETCH_LIKES_FAILED,
+    FETCH_LIKES_SUCCESS,
 
 } from '../../config/constants'
 
@@ -16,27 +16,28 @@ export const likeReducer = (state=initialState,action) =>{
 
     switch(action.type){
 
-        case HIT_BUZZ_FAILED:{
-            return{
-                ...state,err:action.err
-            }
-        }
-
-        case HIT_BUZZ_SUCCESS:{
+        case SAVE_LIKE_FAILED:{
             return{
                 ...state,
-                likes:action.data
+                err:action.err
             }
         }
 
-        case LIKE_BUZZ_FAILED:{
+        case SAVE_LIKE_SUCCESS:{
+            return{
+                ...state,
+
+            }
+        }
+
+        case FETCH_LIKES_FAILED:{
             return{
                 ...state,
                 err:action.err,
             }
         }
 
-        case LIKE_BUZZ_SUCCESS:{
+        case FETCH_LIKES_SUCCESS:{
             return{
                 ...state,
                 likes:action.data,

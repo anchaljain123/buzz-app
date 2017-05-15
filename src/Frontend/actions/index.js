@@ -7,7 +7,7 @@ export {
     asyncSaveComplaint,
     asyncgetComplaints,
     asyncdeletePost,
-    asyncsaveHitCount,
+    asyncsaveLike,
     asyncgetLikes,
     asyncLogout,
     asyncsaveComment,

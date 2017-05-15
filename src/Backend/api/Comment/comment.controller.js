@@ -6,6 +6,6 @@ exports.saveComment = function (req,res,next) {
     commentService.saveComment(buzzDetails,res);
 };
 
-exports.getComment = function (req,res,next) {
-    commentService.getComment(res);
+exports.getComments = function (req,res,next) {
+    commentService.getComments(res);
 }

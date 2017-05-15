@@ -18,7 +18,7 @@ exports.saveComment = function (buzzDetails,res) {
     })
 }
 
-exports.getComment = function (res) {
+exports.getComments = function (res) {
     Comment.find({},(err,data) =>{
         if(err) console.log(err);
         else

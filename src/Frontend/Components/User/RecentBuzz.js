@@ -5,7 +5,7 @@ import RecentBuzzRow from './RecentBuzzRow'
 import {
     asyncgetBuzz ,
     asyncdeletePost ,
-    asyncsaveHitCount ,
+    asyncsaveLike ,
     asyncgetLikes ,
     asyncsaveComment ,
     asyncsaveDislike,
@@ -20,9 +20,9 @@ class RecentBuzz extends Component{
     }
 
     componentDidMount(){
-     this.props.dispatch(asyncgetBuzz());
-     this.props.dispatch(asyncgetLikes());
-     this.props.dispatch(asyncgetDislikes());
+        this.props.dispatch(asyncgetBuzz());
+        this.props.dispatch(asyncgetLikes());
+        this.props.dispatch(asyncgetDislikes());
     }
 
     deleteBuzz = (postDetails) => {
@@ -35,11 +35,9 @@ class RecentBuzz extends Component{
             buzzid:hitState.buzzid,
             uid:hitState.currentId,
         };
-        this.props.dispatch(asyncsaveHitCount(likeDetails));
-       // this.props.dispatch(asyncgetLike());
-
+        this.props.dispatch(asyncsaveLike(likeDetails));
+        // this.props.dispatch(asyncgetLike());
     };
-
 
     hitdisLike = (disLikeState) =>{
         let dislikeDetails = {
@@ -48,12 +46,9 @@ class RecentBuzz extends Component{
             uid:disLikeState.currentId,
         };
         this.props.dispatch(asyncsaveDislike(dislikeDetails));
-
     };
 
-
     saveComment = (commentState) =>{
-
         let commentDetails = {
             userName:this.props.userDetails[0].userName,
             buzzid:commentState.buzzid,
@@ -61,32 +56,30 @@ class RecentBuzz extends Component{
             content:commentState.comment,
         };
         this.props.dispatch(asyncsaveComment(commentDetails));
-
     };
 
     render(){
         let { buzz } = this.props.buzzReducer;
         let { likes } = this.props.likeReducer;
         let { dislikes } = this.props.dislikeReducer;
-        console.log(this.props,"---->>");
         let tempArray =[];
         for (let j = 0; j <= buzz.length-1; j++){
             tempArray.push(buzz[j]);
         }
         return(
-            <div >
+            <div>
                 {
                     tempArray.map(item => (
                         <div key={item._id}>
                             {
-                                tempArray.length == buzz.length?
+                                tempArray.length === buzz.length?
                                     <RecentBuzzRow buzzData={item}
                                                    deleteBuzz={this.deleteBuzz}
                                                    userDetails={this.props.userDetails}
                                                    hitLike ={this.hitLike}
                                                    hitdisLike={this.hitdisLike}
                                                    likeData = {likes}
-                                                    dislikeData ={dislikes}
+                                                   dislikeData ={dislikes}
                                                    saveComment={this.saveComment}/> : ""
                             }
                         </div>

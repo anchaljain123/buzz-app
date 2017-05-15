@@ -1,4 +1,4 @@
-exports.userRoute  = require('../api/users/user.route');
+exports.userRoute  = require('../api/Users/user.route');
 exports.buzzRoute = require('../api/Buzz/buzz.route');
 exports.complainRoute = require('../api/Complaints/complaint.route');
 exports.likeRoute = require('../api/Likes/like.route');

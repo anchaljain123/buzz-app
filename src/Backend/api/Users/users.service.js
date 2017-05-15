@@ -9,7 +9,7 @@ exports.getUser = function (res) {
         }
     })
 
-}
+};
 
 exports.getCurrentUser = function (userId,res) {
 
@@ -24,7 +24,7 @@ exports.getCurrentUser = function (userId,res) {
             res.send(user);
         }
     })
-}
+};
 
 
 

@@ -1,6 +1,5 @@
 
 import {
-
     SAVE_DISLIKE_FAILED,
     SAVE_DISLIKE_SUCCESS,
     FETCH_DISLIKES_FAILED,
@@ -20,7 +19,7 @@ export const dislikeReducer = (state=initialState,action) =>{
         case SAVE_DISLIKE_SUCCESS:{
             return{
                 ...state,
-                dislikes:action.data,
+
             }
         }
 
@@ -31,6 +30,7 @@ export const dislikeReducer = (state=initialState,action) =>{
         }
 
         case FETCH_DISLIKES_SUCCESS:{
+
             return{
                 ...state,
                 dislikes:action.data,

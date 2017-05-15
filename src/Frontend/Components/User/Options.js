@@ -1,75 +1,56 @@
 import React,{Component} from 'react'
 
 class Options extends Component{
-    constructor(){
-        super();
-        this.state = {
-            liked:false,
-        }
-    }
+  constructor(){
+    super();
+  }
+  saveLike = (e) => {
+    e.preventDefault();
+    this.props.postLike();
+  };
 
+  savedisLike = (e) =>{
+    e.preventDefault();
+    this.props.postdisLike();
+  };
 
-    saveLike = (e) => {
-        e.preventDefault();
-        this.props.postLike();
-        this.setState({
-            liked:true,
-        })
-    };
+  render(){
+    const { likeData } = this.props;
+    let isLike;
+    return(
+      <div>
+        <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
 
-    savedisLike = () =>{
-        this.props.postdisLike();
-        /* this.setState({
-         liked:false,
-         })*/
-    };
+          {
+            likeData.map(item=> {
+                if (this.props.uid == item.userDetails.userid
+                  && this.props.buzzid == item.postId)
+                  isLike = true;
 
-    render(){
-        const { likeData } = this.props;
-        const { dislikeData } = this.props;
-        let count1=0,count2=0;
-        return(
-            <div>
-                <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
+                else
+                  isLike = false;
+              }
+            )
 
-                    {
-                        likeData.map(item=> {
-                                if (this.props.uid == item.userDetails.userid
-                                    && this.props.buzzid == item.postId
-                                    && item.like ==true){
-                                    //disable like btn
-                                }
+          }
+          {
+            isLike ?
+              <button onClick={this.savedisLike} style={{'background': 'none', 'border': 'none'}}>
+                <i className="fa fa-heart" aria-hidden="true"></i>DisLike
+              </button>
+              :
+              <button onClick={this.saveLike} style={{'background': 'none', 'border': 'none'}}>
+                <i className="fa fa-heart" aria-hidden="true"></i>Like
+              </button>
+          }
+        </a>
 
-                                else{
-                                    //disable dislike btn
-                                }
-
-
-                            }
-                        )
-
-                    }
-
-                    <button onClick={this.savedisLike}
-                            style={{'background': 'none', 'border': 'none'}}>
-                        <i className="fa fa-heart" aria-hidden="true"></i>DisLike
-                    </button>
-                    <button onClick={this.saveLike} style={{'background': 'none', 'border': 'none'}}>
-                        <i className="fa fa-heart" aria-hidden="true"></i>Like
-                    </button>
-
-                </a>
-                {/*     <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
-                 <button onClick={this.savedisLike} style={{'background':'none','border':'none'}}>
-                 <i className="fa fa-heart" aria-hidden="true"></i>Dislike
-                 </button>
-                 </a>*/}
-                <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
-                    <i className="fa fa-comment" aria-hidden="true"></i>Comment
-                </a>
-            </div>
-        )
-    }
+        <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
+          <i className="fa fa-comment" aria-hidden="true"></i>Comment
+        </a>
+      </div>
+    )
+  }
 }
 
 export default Options;
