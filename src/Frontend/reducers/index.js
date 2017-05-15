@@ -20,10 +20,15 @@ import {
     commentReducer
 } from './Component.reducer/comment.reducer'
 
+import {
+    dislikeReducer
+} from './Component.reducer/dislike.reducer'
+
 export const rootReducer  =  combineReducers({
     userReducers,
     buzzReducer,
     complaintReducer,
     likeReducer,
     commentReducer,
+    dislikeReducer,
 })

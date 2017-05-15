@@ -8,10 +8,12 @@ export {
     asyncgetComplaints,
     asyncdeletePost,
     asyncsaveHitCount,
-    asyncgetLike,
+    asyncgetLikes,
     asyncLogout,
     asyncsaveComment,
     asyncgetComment,
+    asyncsaveDislike,
+    asyncgetDislikes,
 
 
 } from './async.actions'

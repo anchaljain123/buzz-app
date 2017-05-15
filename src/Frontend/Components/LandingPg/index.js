@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
-import '../assets/Styling/style2.css'
-import '../assets/Styling/demo.css'
-import gplus from '../assets/images/gplus.jpg'
+import '../Assets/Styling/style2.css'
+import '../Assets/Styling/demo.css'
+import gplus from '../Assets/images/gplus.jpg'
 
 const LandingPg = () =>{
     return(

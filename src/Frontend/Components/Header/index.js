@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import headerStyling from '../assets/Styling/headerStyling'
+import headerStyling from '../Assets/Styling/headerStyling'
 
 const Header = () =>{
     return(

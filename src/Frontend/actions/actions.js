@@ -22,6 +22,10 @@ import {
     SAVE_COMMENT_FAILED,
     FETCH_COMMENT_SUCCESS,
     FETCH_COMMENT_FAILED,
+    SAVE_DISLIKE_FAILED,
+    SAVE_DISLIKE_SUCCESS,
+    FETCH_DISLIKES_FAILED,
+    FETCH_DISLIKES_SUCCESS,
 
 
 } from '../config/constants'
@@ -161,5 +165,29 @@ export const asyncCommentSuccess = (data) =>{
 export const asyncCommentFailed = (err) =>{
     return{
         type:FETCH_COMMENT_FAILED,err
+    }
+}
+
+export const asyncdisLikeBuzzFailed = (err) =>{
+    return{
+        type:SAVE_DISLIKE_FAILED,err
+    }
+}
+
+export const asyncdisLikeBuzzSuccess = (data) =>{
+    return{
+        type:SAVE_DISLIKE_SUCCESS,data
+    }
+}
+
+export const asyncgetdisLikeFailed = (err) =>{
+    return{
+        type:FETCH_DISLIKES_FAILED,err
+    }
+}
+
+export const asyncgetdisLikeSuccess = (data) =>{
+    return{
+        type:FETCH_DISLIKES_SUCCESS,data
     }
 }

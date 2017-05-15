@@ -1,5 +1,5 @@
 import React,{ Component } from 'react'
-import '../../../assets/Styling/formStyling.css'
+import '../../../Assets/Styling/formStyling.css'
 import { asyncSaveComplaint } from '../../../../actions'
 import { connect } from 'react-redux'
 

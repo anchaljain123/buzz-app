@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { asyncgetComment } from '../../actions';
 import Comment from  './Comment'
+import Options from './Options'
 
 class RecentBuzzRow extends Component{
     constructor(props){
@@ -24,8 +25,7 @@ class RecentBuzzRow extends Component{
         })
     };
 
-    postLike = (e) =>{
-        e.preventDefault();
+    postLike = () =>{
         let postObject = {
             currentId : this.state.currentId,
             buzzid: this.props.buzzData._id,
@@ -40,7 +40,7 @@ class RecentBuzzRow extends Component{
             buzzid: this.props.buzzData._id,
         };
         this.props.hitdisLike(postObject);
-    }
+    };
 
     postComment = (commentState) =>{
         let commentObject = {
@@ -55,8 +55,8 @@ class RecentBuzzRow extends Component{
     render(){
         const { buzzData } = this.props;
         const { likeData } = this.props;
-        let count = 0;
-
+        const { dislikeData } = this.props;
+        let likecount = 0,dislikecount =0;
         return(
             <div className="panel panel-default">
                 <div className="panel-body">
@@ -102,26 +102,31 @@ class RecentBuzzRow extends Component{
                                 {
                                     likeData.map(likeitem => {
                                         if(likeitem.postId == buzzData._id )
-                                            count++;
+                                            likecount++;
                                     })
                                 }
-                                <div style={{display: 'inline-block',}}>{count}</div></i>
+                                <div style={{display: 'inline-block',}}>{likecount}</div></i>
                             </span>
+                            <span style={{color:"blue"}}><i className="fa fa-thumbs-o-down">
+                                {
+                                    dislikeData.map(dislikeitem => {
+                                        if(dislikeitem.postId == buzzData._id )
+                                            dislikecount++;
+                                    })
+                                }
+                                <div style={{display: 'inline-block',}}>{dislikecount}</div></i>
+                            </span>
+
                         </div>
                         <div className="pull-right btn-group-xs">
-                            <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
-                                <button onClick={this.postLike} style={{'background':'none','border':'none'}}>
-                                    <i className="fa fa-heart" aria-hidden="true"></i>Like
-                                </button>
-                            </a>
-                            <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
-                                <button onClick={(event)=>this.postdisLike} style={{'background':'none','border':'none'}}>
-                                    <i className="fa fa-heart" aria-hidden="true"></i>Dislike
-                                </button>
-                            </a>
-                            <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
-                                <i className="fa fa-comment" aria-hidden="true"></i>Comment
-                            </a>
+                            <Options
+                                postLike={this.postLike}
+                                postdisLike={this.postdisLike}
+                                likeData = {likeData}
+                                dislikeData = {dislikeData}
+                                uid={this.state.currentId}
+                                buzzid={this.props.buzzData._id}
+                            />
                         </div>
                         <br/>
                     </div>

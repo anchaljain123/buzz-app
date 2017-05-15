@@ -21,13 +21,17 @@ import {
     asyncsaveCommentSuccess,
     asyncsaveCommentFailed,
     asyncCommentSuccess,
-    asyncCommentFailed
-
+    asyncCommentFailed,
+    asyncdisLikeBuzzSuccess,
+    asyncdisLikeBuzzFailed,
+    asyncgetdisLikeSuccess,
+    asyncgetdisLikeFailed,
 
 } from './actions'
 
 import {
     fetchURI ,
+    fetchdisLikeURI,
     fetchCurrentUserURI,
     savePostURI,
     fetchBuzzURI,
@@ -38,6 +42,7 @@ import {
     fetchLikeURI,
     saveCommentURI,
     fetchCommentURI,
+    disLikeBuzzURI,
 
 } from '../config/constants'
 
@@ -73,7 +78,7 @@ export  const asyncgetCurrentUser =() =>{
                 dispatch(asyncCurrentUserFailed(err))
             })
     }
-}
+};
 
 export const asyncSavePost = (postDetails) =>{
     return(dispatch) =>{
@@ -92,7 +97,7 @@ export const asyncSavePost = (postDetails) =>{
                 dispatch(asyncSaveFailed(err));
             })
     }
-}
+};
 
 export  const asyncgetBuzz =() =>{
     return(dispatch) =>{
@@ -111,7 +116,7 @@ export  const asyncgetBuzz =() =>{
                 dispatch(asyncBuzzFailed(err))
             })
     }
-}
+};
 
 export const asyncSaveComplaint = (complainDetails) => {
     return(dispatch) => {
@@ -131,7 +136,7 @@ export const asyncSaveComplaint = (complainDetails) => {
                 dispatch(asyncSaveComplaintFailed(err))
             })
     }
-}
+};
 
 export  const asyncgetComplaints =() =>{
     return(dispatch) =>{
@@ -150,7 +155,7 @@ export  const asyncgetComplaints =() =>{
                 dispatch(asyncComplaintsFailed(err))
             })
     }
-}
+};
 
 export const asyncdeletePost = (postDetails) => {
     return(dispatch) =>{
@@ -172,7 +177,7 @@ export const asyncdeletePost = (postDetails) => {
                 dispatch(asyncDeleteFailed(err));
             })
     }
-}
+};
 
 export const asyncsaveHitCount = (hitDetails) =>{
 
@@ -195,9 +200,9 @@ export const asyncsaveHitCount = (hitDetails) =>{
                 dispatch(asyncLikeBuzzFailed(err))
             })
     }
-}
+};
 
-export  const asyncgetLike =() =>{
+export  const asyncgetLikes =() =>{
     return(dispatch) =>{
         fetch(fetchLikeURI, {
             credentials: 'include',
@@ -215,7 +220,7 @@ export  const asyncgetLike =() =>{
                 dispatch(asyncgetLikeFailed(err))
             })
     }
-}
+};
 
 export const asyncsaveComment = (commentDetails) =>{
     return(dispatch) =>{
@@ -239,7 +244,7 @@ export const asyncsaveComment = (commentDetails) =>{
                 dispatch(asyncsaveCommentFailed(err))
             })
     }
-}
+};
 
 export const asyncgetComment = () =>{
     return(dispatch) =>{
@@ -258,4 +263,47 @@ export const asyncgetComment = () =>{
                 dispatch(asyncCommentFailed(err))
             })
     }
-}
+};
+
+export const asyncsaveDislike = (disLikeDetails) =>{
+
+    return(dispatch) =>{
+        fetch(disLikeBuzzURI,{
+            method:'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(disLikeDetails)
+        })
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch(asyncdisLikeBuzzSuccess(data));
+               dispatch(asyncgetLike());
+                dispatch(asyncgetBuzz());
+            })
+            .catch(err=>{
+                dispatch(asyncdisLikeBuzzFailed(err))
+            })
+    }
+};
+
+export  const asyncgetDislikes =() =>{
+    return(dispatch) =>{
+        fetch(fetchdisLikeURI, {
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data=> {
+                dispatch(asyncgetdisLikeSuccess(data));
+                dispatch(asyncgetBuzz());
+            })
+            .catch(err=>{
+                dispatch(asyncgetdisLikeFailed(err))
+            })
+    }
+};

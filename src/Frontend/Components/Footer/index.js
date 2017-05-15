@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import footerStyling from '../assets/Styling/footerStyling'
+import footerStyling from '../Assets/Styling/footerStyling'
 
 const Footer = () =>{
     return(

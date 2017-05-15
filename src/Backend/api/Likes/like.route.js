@@ -2,8 +2,12 @@ const likeController = require('./like.controller');
 
 module.exports = (app) => {
 
-    app.post('/savehit', likeController.saveLike);
+    app.post('/saveLike', likeController.saveLike);
 
-    app.get('/getLike',likeController.getLike);
+    app.get('/getLikes',likeController.getLikes);
+
+    app.put('/saveDislike',likeController.saveDislike);
+
+    app.get('/getDislikes',likeController.getDislikes);
 
 }

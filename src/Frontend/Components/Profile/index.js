@@ -7,9 +7,9 @@ import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
 import { asyncgetCurrentUser,asyncLogout } from '../../actions';
 import Navbar from './Navbar'
-import '../assets/Styling/logo.css'
-import '../assets/Styling/profile.css'
-import '../assets/Styling/colors.css'
+import '../Assets/Styling/logo.css'
+import '../Assets/Styling/profile.css'
+import '../Assets/Styling/colors.css'
 
 class Profile extends Component {
     constructor(props) {

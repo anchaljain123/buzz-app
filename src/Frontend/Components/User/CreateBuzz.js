@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ImageUploader from './Imageupload'
 import RecentBuzz from './RecentBuzz'
-import loaderimg from '../assets/images/loader.gif'
+import loaderimg from '../Assets/images/loader.gif'
 
 class CreateBuzz extends React.Component{
     constructor(props){

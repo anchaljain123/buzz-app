@@ -1,7 +1,17 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux'
-import { asyncgetBuzz , asyncdeletePost ,asyncsaveHitCount , asyncgetLike , asyncsaveComment } from '../../actions'
 import RecentBuzzRow from './RecentBuzzRow'
+
+import {
+    asyncgetBuzz ,
+    asyncdeletePost ,
+    asyncsaveHitCount ,
+    asyncgetLikes ,
+    asyncsaveComment ,
+    asyncsaveDislike,
+    asyncgetDislikes,
+
+} from '../../actions'
 
 class RecentBuzz extends Component{
 
@@ -11,7 +21,8 @@ class RecentBuzz extends Component{
 
     componentDidMount(){
      this.props.dispatch(asyncgetBuzz());
-     this.props.dispatch(asyncgetLike());
+     this.props.dispatch(asyncgetLikes());
+     this.props.dispatch(asyncgetDislikes());
     }
 
     deleteBuzz = (postDetails) => {
@@ -23,11 +34,23 @@ class RecentBuzz extends Component{
             userName:this.props.userDetails[0].userName,
             buzzid:hitState.buzzid,
             uid:hitState.currentId,
-        }
+        };
         this.props.dispatch(asyncsaveHitCount(likeDetails));
        // this.props.dispatch(asyncgetLike());
 
     };
+
+
+    hitdisLike = (disLikeState) =>{
+        let dislikeDetails = {
+            userName:this.props.userDetails[0].userName,
+            buzzid:disLikeState.buzzid,
+            uid:disLikeState.currentId,
+        };
+        this.props.dispatch(asyncsaveDislike(dislikeDetails));
+
+    };
+
 
     saveComment = (commentState) =>{
 
@@ -36,19 +59,16 @@ class RecentBuzz extends Component{
             buzzid:commentState.buzzid,
             uid:commentState.currentId,
             content:commentState.comment,
-        }
-        this.props.dispatch(asyncsaveComment(commentDetails))
+        };
+        this.props.dispatch(asyncsaveComment(commentDetails));
 
-    }
-
-    hitdisLike = (disLikeState) =>{
-    console.log('dislike')
-    }
+    };
 
     render(){
         let { buzz } = this.props.buzzReducer;
         let { likes } = this.props.likeReducer;
-
+        let { dislikes } = this.props.dislikeReducer;
+        console.log(this.props,"---->>");
         let tempArray =[];
         for (let j = 0; j <= buzz.length-1; j++){
             tempArray.push(buzz[j]);
@@ -66,8 +86,8 @@ class RecentBuzz extends Component{
                                                    hitLike ={this.hitLike}
                                                    hitdisLike={this.hitdisLike}
                                                    likeData = {likes}
-                                                   saveComment={this.saveComment}
-                                    /> :""
+                                                    dislikeData ={dislikes}
+                                                   saveComment={this.saveComment}/> : ""
                             }
                         </div>
                     ))

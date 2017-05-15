@@ -3,10 +3,10 @@ import {Route} from 'react-router-dom'
 import LandingPage from '../LandingPg'
 import Header from '../Header'
 import Footer from '../Footer'
-import '../assets/Styling/app.css'
+import '../Assets/Styling/app.css'
 import Login from '../Login'
 import Profile from  '../Profile'
-import footerStyling from '../assets/Styling/footerStyling'
+import footerStyling from '../Assets/Styling/footerStyling'
 
 const App = () => {
     return (
