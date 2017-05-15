@@ -6,36 +6,42 @@ import CommentForm from './CommentForm'
 
 class Comment extends Component{
 
-    constructor(props){
-        super(props);
+  constructor(props){
+    super(props);
 
-        this.state = {
-            showcmnt:false,
+    this.state = {
+      showcmnt:false,
+    }
+  }
+
+
+  componentWillMount(){
+    this.props.dispatch(asyncgetComment())
+  }
+
+  postComment = (commentState) =>{
+    this.props.postComment(commentState);
+  };
+
+
+  render(){
+
+    let { comments } = this.props.commentReducer;
+    return(
+      <div>
+        <button onClick={(e)=>this.setState({showcmnt:false})}>Comment</button>
+        <button onClick={(e)=>this.setState({showcmnt:true})}>ShowComment</button>
+        {
+          this.state.showcmnt?
+            <ShowComment buzzid={this.props.buzzid} comments={comments}/>
+            :<CommentForm
+              userDetails={this.props.userDetails}
+              postComment={this.postComment}
+            />
         }
-    }
-
-    postComment = (commentState) =>{
-        this.props.postComment(commentState);
-    }
-
-
-    render(){
-
-        return(
-            <div>
-                    <button onClick={(e)=>this.setState({showcmnt:false})}>Comment</button>
-                    <button onClick={(e)=>this.setState({showcmnt:true})}>ShowComment</button>
-                    {
-                        this.state.showcmnt?
-                            <ShowComment buzzid={this.props.buzzid}/>
-                            :<CommentForm
-                                userDetails={this.props.userDetails}
-                                postComment={this.postComment}
-                            />
-                    }
-                </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 const mapTostate = state=>state;

@@ -3,28 +3,34 @@ import { connect } from 'react-redux'
 import { asyncgetComment } from '../../../actions';
 
 class Showcomment extends Component{
-    constructor(props){
-        super(props)
-    }
+  constructor(props){
+    super(props)
+  }
+  render(){
+    return(
+      <div>
+        {
+          this.props.comments.map((item) => {
 
-    componentWillMount(){
-        this.props.dispatch(asyncgetComment())
-    }
+            if (item.postId == this.props.buzzid) {
+                return (
+              <div key={item._id}>
+                <img
+                  className="media-object img-circle"
+                  src={item.userDetails.img}
+                  width="50px" height="50px"
+                  style={{marginRight: '8px', marginTop: '-5px'}}
+                />
+                <h3 >{item.userDetails.userName} - {item.comment}</h3>
+              </div>
+                )
 
-    render(){
-        let { comments } = this.props.commentReducer;
-        return(
-            <div>
-                {
-                    comments.map((item) => {
-                        if (item.postId == this.props.buzzid)
-                            <div> {item.userDetails.userName} - {item.comment} </div>
-                    })
-
-                }
-            </div>
-        )
-    }
+              }
+          })
+            }
+      </div>
+    )
+  }
 }
 
 const ShowcommentContainer = connect(state=>state)(Showcomment);

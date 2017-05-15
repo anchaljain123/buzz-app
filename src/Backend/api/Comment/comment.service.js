@@ -7,6 +7,7 @@ exports.saveComment = function (buzzDetails,res) {
     buzzDetails.userDetails = {
         userName:buzzDetails.userName,
         userid:buzzDetails.uid,
+        img:buzzDetails.userimage,
     };
 
     Comment.create(buzzDetails,(err,data) =>{
@@ -23,7 +24,6 @@ exports.getComments = function (res) {
         if(err) console.log(err);
         else
         {
-            console.log(data,"<<<<<<<<<<<<<<<<<<<<<<")
             res.send(data);
         }
     })

@@ -42,13 +42,13 @@ class RecentBuzzRow extends Component{
   };
 
   postComment = (commentState) =>{
-    let commentObject = {
+
+   let commentObject = {
       currentId : this.state.currentId,
       buzzid: this.props.buzzData._id,
       comment: commentState,
     };
     this.props.saveComment(commentObject);
-
   };
 
   render(){
@@ -95,8 +95,6 @@ class RecentBuzzRow extends Component{
                   <span className="label label-info">LostnFound</span>
               }
             </div>
-
-            <h5>dislike Data len : {dislikeData.length}</h5>
             <div className="pull-left">
               <span style={{color:"blue"}}><i className="fa fa-thumbs-o-up">
                 {

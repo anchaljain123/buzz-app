@@ -54,6 +54,7 @@ class RecentBuzz extends Component{
             buzzid:commentState.buzzid,
             uid:commentState.currentId,
             content:commentState.comment,
+            userimage:this.props.userDetails[0].profile.image.url,
         };
         this.props.dispatch(asyncsaveComment(commentDetails));
     };
