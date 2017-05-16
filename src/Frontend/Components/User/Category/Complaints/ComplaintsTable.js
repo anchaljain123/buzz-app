@@ -19,6 +19,8 @@ class ComplaintsTable extends Component{
   };
 
   render(){
+    console.log('----------------',this.props.userDetails[0])
+    let { userDetails } = this.props;
     let { complaints } = this.props.complaintReducer;
     let tempArray =[];
     for (let j = complaints.length-1; j >= 0; j--){
@@ -45,9 +47,9 @@ class ComplaintsTable extends Component{
                 {
 
                   complaints.map(item => {
-                     if (item.userDetails.uid == this.props.userDetails[0].id && this.props.userDetails[0].role == 'User')
-                        return <ComplaintsRow item={item} closeComplain={this.closeComplain} />
-                    else
+                     if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
+                        return <ComplaintsRow item={item} closeComplain={this.closeComplain} userDetails={this.props.userDetails}/>
+                    else if((userDetails) && (userDetails[0].role == 'Admin'))
                        return <ComplaintsRow item={item} closeComplain={this.closeComplain} userDetails={this.props.userDetails}/>
                     }
                   )

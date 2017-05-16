@@ -7,11 +7,14 @@ exports.saveBuzz = function (req,res,next) {
     buzzDetails.img = req.file;
     buzzDetails.userDetails = JSON.parse(buzzDetails.userDetails);
     buzzService.saveBuzz(buzzDetails,res);
-}
+};
 
 exports.getBuzz = function (req,res,next) {
-    buzzService.getBuzz(res);
-}
+    buzzService.getBuzz(res)
+    .then(data=>res.send(data))
+      .catch(err=>res.send(err))
+
+};
 
 exports.deleteBuzz = function (req,res,next) {
     const buzzDetails = req.body;

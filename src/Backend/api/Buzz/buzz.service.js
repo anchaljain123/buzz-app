@@ -1,87 +1,102 @@
 const Buzz = require('./buzz.model');
 
 exports.saveBuzz = function (buzzDetails,res) {
-    Buzz.create(buzzDetails,(err,data) =>{
-        if(err) console.log(err);
-        else
-        {
-            res.send(data);
-        }
-    })
+  Buzz.create(buzzDetails,(err,data) =>{
+    if(err) console.log(err);
+    else
+    {
+      res.send(data);
+    }
+  })
 }
 
-exports.getBuzz = function (res) {
+/*exports.getBuzz = function (res) {
+ Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
+ if(err) console.log(err);
+ else
+ {
+ res.send(data)
+ }
+ })
+ }*/
+
+
+exports.getBuzz=()=>{
+
+  return new Promise((resolve,reject)=>{
     Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
-        if(err) console.log(err);
-        else
-        {
-            res.send(data)
-        }
+      if(err){
+        reject({error:err})
+      }else{
+        resolve(data)
+      }
     })
-}
+  })
+};
+
 
 exports.deleteBuzz = function (buzzDetails,res) {
 
-    const buzzId = buzzDetails.post._id;
-    /*  const userId = buzzDetails.currentId;
-     const findUser = {'userDetails.0':userId};*/
-    Buzz.remove({'_id':buzzId},(err,data) =>{
+  const buzzId = buzzDetails.post._id;
+  /*  const userId = buzzDetails.currentId;
+   const findUser = {'userDetails.0':userId};*/
+  Buzz.remove({'_id':buzzId},(err,data) =>{
 
-        if(err) console.log(err);
-        else{
+    if(err) console.log(err);
+    else{
 
-            res.send(data)
-        }
+      res.send(data)
+    }
 
-    })
+  });
 
 
 
-    /* Buzz.find(findUser,(err,data) => {
-     if(err) console.log(err);
-     else
-     {
-     Buzz.remove({'_id':buzzId},(err,data) =>{
+  /* Buzz.find(findUser,(err,data) => {
+   if(err) console.log(err);
+   else
+   {
+   Buzz.remove({'_id':buzzId},(err,data) =>{
 
-     if(err) console.log(err);
+   if(err) console.log(err);
 
-     else{
-     Buzz.find({},(err,data) =>{
-     if(err) console.log(err);
-     else
-     {
-     res.send(data);
-     }
+   else{
+   Buzz.find({},(err,data) =>{
+   if(err) console.log(err);
+   else
+   {
+   res.send(data);
+   }
 
-     })
-     }
+   })
+   }
 
-     })
+   })
 
-     }
-     })*/
+   }
+   })*/
 
 }
 
 exports.updateBuzz = function (buzzDetails,res) {
 
-    Buzz.find({'_id':buzzDetails.buzzid},(err,data)=>{
+  Buzz.find({'_id':buzzDetails.buzzid},(err,data)=>{
+    if(err) console.log(err);
+    else
+    {
+      Buzz.update({'_id':buzzDetails.buzzid},{ $set:{likescount:buzzDetails.like}},(err,data)=>{
         if(err) console.log(err);
         else
         {
-            Buzz.update({'_id':buzzDetails.buzzid},{ $set:{likescount:buzzDetails.like}},(err,data)=>{
-                if(err) console.log(err);
-                else
-                {
-                   Buzz.find({},(err,data) => {
-                       if(err) console.log(err);
-                       else
-                       {
-                           res.send(data)
-                       }
-                   })
-                }
-            })
+          Buzz.find({},(err,data) => {
+            if(err) console.log(err);
+            else
+            {
+              res.send(data)
+            }
+          })
         }
-    })
+      })
+    }
+  })
 }
