@@ -89,10 +89,7 @@ class Profile extends Component {
                               <div className="col-md-6">
                               </div>
                               <div className="col-md-6">
-                                <a className="btn btn-default btn-sm pull-right">
-                                  <i className="fa fa-power-off" aria-hidden="true"></i>
-                                  Logout
-                                </a>
+
                                 <Logout/>
                               </div>
                             </div>

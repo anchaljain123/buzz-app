@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import ComplaintsRow from './ComplaintsRow'
 import { connect } from 'react-redux'
-import { asyncgetComplaints,asyncCloseComplaint } from  '../../../../actions'
+import { asyncgetComplaints,asyncCloseComplaint,asyncAction } from  '../../../../actions'
 
 class ComplaintsTable extends Component{
   constructor(){
@@ -9,6 +9,7 @@ class ComplaintsTable extends Component{
   }
   componentWillMount(){
     this.props.dispatch(asyncgetComplaints());
+  /*  this.props.dispatch(asyncAction())*/
   }
   closeComplain = (complainRefID) =>{
     let complainData = {
@@ -19,17 +20,15 @@ class ComplaintsTable extends Component{
   };
 
   render(){
-    console.log('----------------',this.props.userDetails[0])
     let { userDetails } = this.props;
     let { complaints } = this.props.complaintReducer;
+   // let { users } = this.props.userReducers;
     let tempArray =[];
     for (let j = complaints.length-1; j >= 0; j--){
       tempArray.push(complaints[j])
     }
     return(
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
+
             <div className="table-responsive">
               {<table className="table table-bordred table-striped">
                 <thead>
@@ -39,18 +38,29 @@ class ComplaintsTable extends Component{
                 <th>Status</th>
                 {
                   this.props.userDetails[0].role == 'Admin'?
-                    <th>Filled By</th>:""
+                    (
+                      <th>FilledBy</th>
+                    ):""
                 }
+                {
+                  this.props.userDetails[0].role == 'Admin'?
+                    (
+                        <th>AssignedTo</th>
+                    ):""
+                }
+
                 <th>Close</th>
                 </thead>
                 <tbody>
                 {
 
                   complaints.map(item => {
-                     if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
-                        return <ComplaintsRow item={item} closeComplain={this.closeComplain} userDetails={this.props.userDetails}/>
-                    else if((userDetails) && (userDetails[0].role == 'Admin'))
-                       return <ComplaintsRow item={item} closeComplain={this.closeComplain} userDetails={this.props.userDetails}/>
+                      if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
+                        return <ComplaintsRow item={item} closeComplain={this.closeComplain}
+                                              userDetails={this.props.userDetails} />
+                      else if((userDetails) && (userDetails[0].role == 'Admin'))
+                        return <ComplaintsRow item={item} closeComplain={this.closeComplain}
+                                              userDetails={this.props.userDetails} />
                     }
                   )
                 }
@@ -60,9 +70,7 @@ class ComplaintsTable extends Component{
 
               }
             </div>
-          </div>
-        </div>
-      </div>
+
     )
   }
 }

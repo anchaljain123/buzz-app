@@ -21,9 +21,21 @@ class ComplaintForm extends  Component{
       e.preventDefault();
         let { userDetails } = this.props;
 
+
+        console.log(this.state.category,"________category______")
+        if(this.state.category === 'hardware')
+          var admin = "Anchal Jain";
+
+         if(this.state.category === 'software')
+          var admin = "Pankaj Malhotra";
+
+        if(this.state.category === 'others')
+         var  admin = "Puja Goyal";
+
         var ob = {
           uid:userDetails[0].id,
-          uname:userDetails[0].userName
+          uname:userDetails[0].userName,
+          assignedTo:admin,
         };
 
 
