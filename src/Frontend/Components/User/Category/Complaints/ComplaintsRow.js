@@ -1,27 +1,32 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 
 class ComplaintsRow extends React.Component{
-    constructor(){
-        super();
-    }
+  constructor(){
+    super();
+  }
+  render(){
 
+    let { item } = this.props;
+    let { userDetails } = this.props;
+    return(
+      <tr key={item._id}>
+        <td>{item.title}</td>
+        <td>{item.description}</td>
+        <td>{item.category}</td>
+        <td>{item.status}</td>
+        {
+        userDetails[0].role == 'Admin' ?
+          <td>{item.userDetails.uname}</td> :""
+        }
+        <td>
+          <button onClick={(event)=>this.props.closeComplain(item._id)} className="glyphicon glyphicon-remove">Close</button>
+        </td>
+      </tr>
 
-
-    render(){
-
-        return(
-            <div>
-                {
-                    this.props.item.title
-                }
-            </div>
-        )
-    }
+    )
+  }
 }
 
-const maptoState = state => state;
-const ComplaintsRowContainer = connect(maptoState)(ComplaintsRow);
 
-export default ComplaintsRowContainer;
+export default ComplaintsRow;

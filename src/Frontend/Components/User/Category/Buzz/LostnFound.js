@@ -21,10 +21,10 @@ class LostnFound extends Component{
             <div>
 
                 {
-                    tempArray.map(item => {
+                    tempArray.map((item,i) => {
                         if (item.category == "lostnfound")
                             return (
-                                <div className="panel panel-default ">
+                                <div className="panel panel-default" key={i}>
                                     <div className="panel-body">
                                         <div className="pull-left">
                                             <img
@@ -51,7 +51,6 @@ class LostnFound extends Component{
                                                         <img src={'http://localhost:4000/' + item.img.path}/> : ""
                                             }
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

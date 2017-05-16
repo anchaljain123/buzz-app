@@ -6,4 +6,6 @@ module.exports  = (app) =>{
 
     app.get('/complaints',complaintController.getComplain);
 
+    app.delete('/deleteComplaint',complaintController.deleteComplain);
+
 }

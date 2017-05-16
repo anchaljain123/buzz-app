@@ -7,6 +7,7 @@ import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
 import { asyncgetCurrentUser,asyncLogout } from '../../actions';
 import Navbar from './Navbar'
+import Resolve from '../User/Category/Buzz/Resolve'
 import '../Assets/Styling/logo.css'
 import '../Assets/Styling/profile.css'
 import '../Assets/Styling/colors.css'
@@ -126,7 +127,7 @@ class Profile extends Component {
                     })
                   }
                   <div className="media-body">
-                    <Navbar userprofile={userDetails}/>
+                    <Navbar userDetails={userDetails}/>
                     <Redirect from="/profile" to="/profile/activity"/>
                   </div>
                 </div>
@@ -139,6 +140,7 @@ class Profile extends Component {
             <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
             <Route exact path={`${match.url}/complaint`} render={props =>
               <Complaints {...props} userDetails={userDetails}/>}/>
+            <Route path={`${match.url}/resolve`} render={props => <Resolve {...props} userDetails={userDetails} />}/>
           </div>
         </div>
       </div>

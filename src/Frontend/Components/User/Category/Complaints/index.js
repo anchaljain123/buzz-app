@@ -16,10 +16,12 @@ class Complaint extends  Component {
                     <ul className="nav nav-tabs">
                         <li className="active">
                             <a data-toggle="tab" href="#home">
-                                <button style={{border:'none','background':'none'}} onClick={(e)=>this.setState({newComplaint:true, })}>Form</button>
+                                <button style={{border:'none','background':'none'}} onClick={(e)=>this.setState({newComplaint:true, })}>
+                                  Form</button>
                             </a></li>
                         <li><a data-toggle="tab" href="#menu1">
-                            <button  style={{border:'none','background':'none'}} onClick={(e)=>this.setState({newComplaint:false, })}>Complaints</button>
+                            <button  style={{border:'none','background':'none'}} onClick={(e)=>this.setState({newComplaint:false, })}>
+                              Complaints</button>
                         </a></li>
                     </ul>
 
@@ -28,7 +30,7 @@ class Complaint extends  Component {
                             <ComplaintForm userDetails={this.props.userDetails}/>
                         </div>
                         <div id="menu1" className="tab-pane fade">
-                            <ComplaintsTable/>
+                            <ComplaintsTable userDetails={this.props.userDetails} />
                         </div>
                     </div>
                 </div>

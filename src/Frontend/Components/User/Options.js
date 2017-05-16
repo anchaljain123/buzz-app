@@ -45,9 +45,9 @@ class Options extends Component{
           }
         </a>
 
-        <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
+       {/* <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
           <i className="fa fa-comment" aria-hidden="true"></i>Comment
-        </a>
+        </a>*/}
       </div>
     )
   }

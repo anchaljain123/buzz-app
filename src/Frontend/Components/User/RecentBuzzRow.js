@@ -1,6 +1,4 @@
 import React,{ Component } from 'react'
-import { connect } from 'react-redux'
-import { asyncgetComment } from '../../actions';
 import Comment from  './Comment'
 import Options from './Options'
 
@@ -43,7 +41,7 @@ class RecentBuzzRow extends Component{
 
   postComment = (commentState) =>{
 
-   let commentObject = {
+    let commentObject = {
       currentId : this.state.currentId,
       buzzid: this.props.buzzData._id,
       comment: commentState,
@@ -141,7 +139,3 @@ class RecentBuzzRow extends Component{
 
 export default RecentBuzzRow;
 
-/*
- const maptoState = state => state;
- const RecentBuzzRowContainer = connect(maptoState)(RecentBuzzRow)
- export default RecentBuzzRowContainer;*/

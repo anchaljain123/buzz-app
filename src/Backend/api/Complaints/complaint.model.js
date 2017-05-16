@@ -17,7 +17,7 @@ const complaintSchema = new mongoose.Schema({
         type:Date,
     },
     userDetails:{
-        type:String
+        type:Object
     } ,
     status:{
 

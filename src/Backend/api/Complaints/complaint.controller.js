@@ -8,8 +8,13 @@ exports.saveComplain = function(req,res,next) {
     complainDetails.complainUpdated = Date.now();
     complaintService.saveComplain(complainDetails,res);
 
-}
+};
 
 exports.getComplain = function (req,res,next) {
     complaintService.getComplain(res);
-}
+};
+
+exports.deleteComplain = function (req,res,next) {
+  const complainID = req.body;
+  complaintService.deleteComplain(complainID,res)
+};

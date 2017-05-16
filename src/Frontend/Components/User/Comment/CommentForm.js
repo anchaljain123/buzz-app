@@ -43,7 +43,10 @@ class CommentForm extends Component{
                                       onChange={this.handleChange}
                                       placeholder="Comment..">
                             </textarea>
-                    <button onClick={this.postComment}>Comment</button>
+
+                    <button onClick={this.postComment} style={{'background': 'none', 'border': 'none',color:'white','background':'black'}}>
+                      Post Comment
+                    </button>
                 </div>
             </div>
               )

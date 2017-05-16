@@ -17,13 +17,21 @@ class ComplaintForm extends  Component{
             [key]: event.target.value,
         })
     };
-    saveComplaint = () => {
+    saveComplaint = (e) => {
+      e.preventDefault();
         let { userDetails } = this.props;
+
+        var ob = {
+          uid:userDetails[0].id,
+          uname:userDetails[0].userName
+        };
+
+
         let ComplainInfo = {
             description: this.state.description,
             category: this.state.category,
             title: this.state.title,
-            userDetails:userDetails,
+            userDetails:ob,
             // img:imageState,
         };
         this.props.dispatch(asyncSaveComplaint(ComplainInfo));
@@ -78,8 +86,6 @@ class ComplaintForm extends  Component{
                                     </div>
                                 </form>
                             </div>
-
-
         )
     }
 }

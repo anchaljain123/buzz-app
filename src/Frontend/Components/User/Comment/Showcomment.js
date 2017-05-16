@@ -14,14 +14,14 @@ class Showcomment extends Component{
 
             if (item.postId == this.props.buzzid) {
                 return (
-              <div key={item._id}>
+              <div>
                 <img
                   className="media-object img-circle"
                   src={item.userDetails.img}
                   width="50px" height="50px"
-                  style={{marginRight: '8px', marginTop: '-5px'}}
+                  style={{marginRight: '8px', marginTop: '4px'}}
                 />
-                <h3 >{item.userDetails.userName} - {item.comment}</h3>
+                <h3 key={item._id}>{item.userDetails.userName} - {item.comment}</h3>
               </div>
                 )
 

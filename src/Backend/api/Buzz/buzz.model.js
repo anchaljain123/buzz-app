@@ -6,7 +6,7 @@ const buzzSchema = new mongoose.Schema({
             type:String
         },
         img:{
-            // type:String,
+
         },
         postCreated:{
             type: Date,
