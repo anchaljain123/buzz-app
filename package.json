@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --progress --colors",
     "dev-server": "nodemon ./src/Backend",
-    "dev-client": "webpack-dev-server --port 9000",
+    "dev-client": "webpack-dev-server",
     "dev-start": "concurrently \"npm run dev-server\" \"npm run dev-client\""
   },
   "keywords": [],
