@@ -3,7 +3,7 @@ const likeService = require('./like.service');
 
 exports.saveLike = function (req,res,next) {
     const buzzDetails = req.body;
-    console.log(req.body,">>>>>>>>>>")
+    //console.log(req.body,">>>>>>>>>>")
     likeService.saveLike(buzzDetails,res);
 };
 

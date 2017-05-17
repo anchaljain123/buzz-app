@@ -10,7 +10,7 @@ const likeSchema = new mongoose.Schema({
     },
     like:{
         type:Boolean,
-        default:true,
+       // default:true,
     }
 },{
     versionKey:false,

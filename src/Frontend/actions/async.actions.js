@@ -204,10 +204,10 @@ export  const asyncgetLikes =() =>{
 };
 
 export const asyncsaveLike = (hitDetails) =>{
-
+console.log(hitDetails,"----------asyncaction")
   return(dispatch) =>{
     fetch(hitBuzzURI,{
-      method:'post',
+      method:'put',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

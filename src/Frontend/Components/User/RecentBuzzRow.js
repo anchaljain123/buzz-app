@@ -11,9 +11,9 @@ class RecentBuzzRow extends Component{
       currentId: this.props.userDetails[0].id, // loggedin user
     }
   }
-
   deletePost = () =>{
     this.props.deleteBuzz(this.state);
+    //deletefromlikedb & imgfolder
     this.setState({
       post: "",
       userId: "",
@@ -21,7 +21,6 @@ class RecentBuzzRow extends Component{
       comment: '',
     })
   };
-
   postLike = () =>{
     let postObject = {
       currentId : this.state.currentId,
@@ -29,18 +28,14 @@ class RecentBuzzRow extends Component{
     };
     this.props.hitLike(postObject);
   };
-
   postdisLike = () => {
-
     let postObject = {
       currentId: this.state.currentId,
       buzzid: this.props.buzzData._id,
     };
     this.props.hitdisLike(postObject);
   };
-
   postComment = (commentState) =>{
-
     let commentObject = {
       currentId : this.state.currentId,
       buzzid: this.props.buzzData._id,
@@ -48,11 +43,13 @@ class RecentBuzzRow extends Component{
     };
     this.props.saveComment(commentObject);
   };
-
   render(){
     const { buzzData } = this.props;
     const { likeData } = this.props;
     const { dislikeData } = this.props;
+    console.log(buzzData,"--------currentbuzzdata")
+    console.log(this.state.currentId,"===currentuser")
+
     let likecount = 0,dislikecount =0;
     return(
       <div className="panel panel-default">

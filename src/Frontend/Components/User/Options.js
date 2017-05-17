@@ -16,23 +16,34 @@ class Options extends Component{
 
   render(){
     const { likeData } = this.props;
-    let isLike;
+    const { dislikeData } = this.props;
+    console.log(this.props.buzzid,">>>>>>>>>>>>.");
+    let isLike = false;
     return(
       <div>
         <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
-
           {
             likeData.map(item=> {
                 if (this.props.uid == item.userDetails.userid
-                  && this.props.buzzid == item.postId)
-                  isLike = true;
+                  && this.props.buzzid == item.postId) {
 
-                else
-                  isLike = false;
+                  isLike = true;
+                }
+
               }
             )
-
           }
+          {
+            dislikeData.map(item => {
+              if (this.props.uid == item.userDetails.userid
+                && this.props.buzzid == item.postId) {
+
+                isLike = false;
+              }
+
+            })
+          }
+          { console.log(isLike,"??????????????????like?") }
           {
             isLike ?
               <button onClick={this.savedisLike} style={{'background': 'none', 'border': 'none'}}>
@@ -44,10 +55,6 @@ class Options extends Component{
               </button>
           }
         </a>
-
-       {/* <a className="btn btn-default btn-xs"  style={{margin:'2px'}}>
-          <i className="fa fa-comment" aria-hidden="true"></i>Comment
-        </a>*/}
       </div>
     )
   }

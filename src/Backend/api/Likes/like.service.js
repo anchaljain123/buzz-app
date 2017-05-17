@@ -2,7 +2,9 @@ const Like = require('./like.model');
 
 exports.saveLike = function (buzzDetails,res) {
 
-  Like.update({'postId':buzzDetails.buzzid,'userDetails.userid':buzzDetails.uid},{$set:{like:true}},{ upsert: true},(err,data)=>{
+  console.log(buzzDetails.like,"=============");
+  Like.update({'postId':buzzDetails.buzzid,'userDetails.userid':buzzDetails.uid},
+    {$set:{like:buzzDetails.like}},{ upsert: true},(err,data)=>{
     if(err) res.send({msg:err});
     else
     {
@@ -24,6 +26,7 @@ exports.getLikes = function (res) {
   })
 };
 
+/*
 exports.saveDislike = function (buzzDetails,res) {
 
   buzzDetails.postId = buzzDetails.buzzid;
@@ -44,6 +47,7 @@ exports.saveDislike = function (buzzDetails,res) {
   })
 
 };
+*/
 
 exports.getDislikes = function (res) {
 
