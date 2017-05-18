@@ -10,7 +10,7 @@ class Comment extends Component{
     super(props);
 
     this.state = {
-      showcmnt:false,
+
     }
   }
   componentWillMount(){
@@ -25,24 +25,29 @@ class Comment extends Component{
     let { comments } = this.props.commentReducer;
     return(
       <div>
-        <button onClick={(e)=>this.setState({showcmnt:false})}
-                style={{'background': 'none', 'border': 'none',color:'white','background':'black'}}>
-          <i className="fa fa-comment" aria-hidden="true"></i>Comment
-        </button>&nbsp;
 
-        <button onClick={(e)=>this.setState({showcmnt:true})}
+
+{/*        <button onClick={(e)=>this.setState({showcmnt:true})}
                 style={{'background': 'none', 'border': 'none',color:'white','background':'black'}}>
           <i className="fa fa-bars" aria-hidden="true"></i>Show
-        </button>
-
-        {
-          this.state.showcmnt?
+        </button>*/}
             <ShowComment buzzid={this.props.buzzid} comments={comments}/>
-            :<CommentForm
+
+
+        <button onClick={(e)=>this.setState({show:!this.state.show})}
+                style={{'background': 'none', 'border': 'none',color:'white','background':'black'}}>
+          <i className="fa fa-comment" aria-hidden="true"></i>Comment
+        </button>
+        {
+          this.state.show?"":
+            <CommentForm
               userDetails={this.props.userDetails}
               postComment={this.postComment}
             />
+
+
         }
+
       </div>
     )
   }

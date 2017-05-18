@@ -20,9 +20,6 @@ class ComplaintForm extends  Component{
     saveComplaint = (e) => {
       e.preventDefault();
         let { userDetails } = this.props;
-
-
-        console.log(this.state.category,"________category______")
         if(this.state.category === 'hardware')
           var admin = "Anchal Jain";
 

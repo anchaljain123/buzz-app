@@ -15,6 +15,7 @@ const userScheme = new  mongoose.Schema({
     },
     role:{
         type:String,
+      //default:User,
     },
     profile:{
 

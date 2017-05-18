@@ -15,14 +15,14 @@ class Activity extends Component{
             id: this.props.userDetails[0].id,
             img:this.props.userDetails[0].profile.image.url,
             name:this.props.userDetails[0].userName,
-        }
+        };
         let details = JSON.stringify(userData);
         formData.append('content', postState.content);
         formData.append('category', postState.category);
         formData.append('img', postState.img);
         formData.append('userDetails', details);
         this.props.dispatch(asyncSavePost(formData));
-    }
+    };
 
 
     render(){

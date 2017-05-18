@@ -1,5 +1,4 @@
 const buzzController = require('./buzz.controller');
-const imagesUpload  = require('images-upload-middleware');
 //const path = require('path');
 var multer  = require('multer');
 var upload = multer({ dest: 'files/' });
@@ -15,4 +14,4 @@ module.exports = (app) =>{
     app.put('/updateBuzz',buzzController.updateBuzz);
 
 
-}
+};

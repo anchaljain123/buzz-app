@@ -5,7 +5,6 @@ const Constants = require('../config/constant');
 const GOOGLE_CLIENT_ID = Constants.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = Constants.GOOGLE_CLIENT_SECRET;
 const GOOGLE_CALLBACK_URL = Constants.GOOGLE_CALLBACK_URL;
-const jwt = require('jsonwebtoken');
 
 module.exports.googleauth = () =>{
     passport.use(new GoogleStrategy({
@@ -27,7 +26,7 @@ module.exports.googleauth = () =>{
                     newUser.userName = profile.displayName;
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
-                    newUser.role = "User";
+                    newUser.role = 'User'
 
 
                     if(newUser.emailID.includes('@tothenew.com')){

@@ -31,4 +31,4 @@ export const rootReducer  =  combineReducers({
     likeReducer,
     commentReducer,
     dislikeReducer,
-})
+});

@@ -36,8 +36,7 @@ class RecentBuzz extends Component{
             uid:hitState.currentId,
             like:true
         };
-        console.log(likeDetails,'>>>>likeDetails')
-        this.props.dispatch(asyncsaveLike(likeDetails));
+      this.props.dispatch(asyncsaveLike(likeDetails));
         // this.props.dispatch(asyncgetLike());
     };
 
@@ -48,7 +47,7 @@ class RecentBuzz extends Component{
             uid:disLikeState.currentId,
             like:false
         };
-        console.log(dislikeDetails,">>>>dislikeDetails")
+
         this.props.dispatch(asyncsaveLike(dislikeDetails));
     };
 

@@ -7,6 +7,8 @@ class Options extends Component{
   saveLike = (e) => {
     e.preventDefault();
     this.props.postLike();
+   // this.refs.btn.setAttribute("disabled", "disabled");
+
   };
 
   savedisLike = (e) =>{
@@ -21,25 +23,21 @@ class Options extends Component{
     likeData.map(item=> {
       if (this.props.uid == item.userDetails.userid
         && this.props.buzzid == item.postId) {
-
         isLike = true;
       }
-
     });
     dislikeData.map(item => {
       if (this.props.uid == item.userDetails.userid
         && this.props.buzzid == item.postId) {
-
         isLike = false;
       }
-
     });
     return(
       <div>
         <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
           {
             isLike ?
-              <button onClick={this.savedisLike} style={{'background': 'none', 'border': 'none'}}>
+              <button onClick={this.savedisLike} ref="btn" style={{'background': 'none', 'border': 'none'}}>
                 <i className="fa fa-heart" aria-hidden="true"></i>DisLike
               </button>
               :

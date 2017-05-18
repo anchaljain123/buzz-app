@@ -47,8 +47,6 @@ class RecentBuzzRow extends Component{
     const { buzzData } = this.props;
     const { likeData } = this.props;
     const { dislikeData } = this.props;
-    console.log(buzzData,"--------currentbuzzdata")
-    console.log(this.state.currentId,"===currentuser")
 
     let likecount = 0,dislikecount =0;
     return(

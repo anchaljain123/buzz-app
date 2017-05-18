@@ -133,7 +133,7 @@ export const asyncSaveComplaint = (complainDetails) => {
     })
       .then(res=>res.json())
       .then(data=>{
-        dispatch(asyncSaveComplaintSuccess(data))
+        dispatch(asyncSaveComplaintSuccess(data));
         dispatch(asyncgetComplaints())
       })
       .catch(err=>{
@@ -204,7 +204,6 @@ export  const asyncgetLikes =() =>{
 };
 
 export const asyncsaveLike = (hitDetails) =>{
-console.log(hitDetails,"----------asyncaction")
   return(dispatch) =>{
     fetch(hitBuzzURI,{
       method:'put',
@@ -239,8 +238,8 @@ export const asyncsaveComment = (commentDetails) =>{
     })
       .then(res=>res.json())
       .then(data=>{
-        dispatch(asyncsaveCommentSuccess(data))
-        dispatch(asyncgetBuzz())
+        dispatch(asyncsaveCommentSuccess(data));
+        dispatch(asyncgetBuzz());
         dispatch(asyncgetComment())
 
 

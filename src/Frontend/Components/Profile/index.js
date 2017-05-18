@@ -137,7 +137,7 @@ class Profile extends Component {
             <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
             <Route exact path={`${match.url}/complaint`} render={props =>
               <Complaints {...props} userDetails={userDetails}/>}/>
-            <Route path={`${match.url}/resolve`} render={props => <Resolve {...props} userDetails={userDetails} />}/>
+            <Route path={`${match.url}/resolve`} render={props =><Resolve {...props} userDetails={userDetails} />}/>
           </div>
         </div>
       </div>
