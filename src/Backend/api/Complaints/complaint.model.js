@@ -20,9 +20,10 @@ const complaintSchema = new mongoose.Schema({
         type:Object
     } ,
     status:{
-
+      type:String,
+      default:'Pending'
     },
 
-})
+});
 
 module.exports = mongoose.model('Complain',complaintSchema);

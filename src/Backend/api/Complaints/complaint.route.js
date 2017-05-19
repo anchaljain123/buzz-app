@@ -8,4 +8,6 @@ module.exports  = (app) =>{
 
     app.delete('/deleteComplaint',complaintController.deleteComplain);
 
-}
+    app.put('/resolveComplaint',complaintController.resolveComplain);
+
+};

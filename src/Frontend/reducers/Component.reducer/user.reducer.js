@@ -33,7 +33,6 @@ export const userReducers = (state=initialState,action) =>{
 
         case FETCH_USER_SUCCESS:{
             const users = action.data;
-            console.log(users,"--------------currentuser")
             return{
                 ...state,
                 users:users,

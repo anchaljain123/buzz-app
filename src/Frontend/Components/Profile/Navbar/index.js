@@ -22,7 +22,6 @@ class Navbar extends Component{
               <h3 key={Math.random() * 10000000}><strong><Link to="/profile/resolve">Resolve</Link></strong></h3>
               : ''
           }
-
         </div>
         <br/>
       </div>

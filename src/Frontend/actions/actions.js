@@ -27,8 +27,9 @@ import {
   FETCH_DISLIKES_FAILED,
   FETCH_DISLIKES_SUCCESS,
   DELETE_COMPLAINT_FAILED,
-  DELETE_COMPLAINT_SUCCESS
-
+  DELETE_COMPLAINT_SUCCESS,
+  RESOLVE_COMPLAINT_SUCCESS,
+  RESOLVE_COMPLAINT_FAILED,
 
 } from '../config/constants'
 
@@ -203,5 +204,18 @@ export const asyncDeleteComplaintFailed = (err) =>{
 export const asyncDeleteComplaintSuccess = (data) =>{
   return{
     type:DELETE_COMPLAINT_SUCCESS,data
+  }
+};
+
+export const asyncResolveComplaintSuccess = (data) =>{
+  return{
+    type:RESOLVE_COMPLAINT_SUCCESS,data,
+  }
+};
+
+export const asyncResolveComplaintFailed = (err) =>{
+
+  return{
+    type:RESOLVE_COMPLAINT_FAILED,err
   }
 };

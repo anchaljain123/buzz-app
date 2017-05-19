@@ -27,9 +27,18 @@ exports.getComplain = function (res) {
 };
 
 exports.deleteComplain = function (complainID,res) {
-  console.log('___service',complainID.id);
-
   Complain.remove({'_id':complainID.id},(err,data)=>{
+    if(err){
+      res.send({msg:err});
+    }
+    else{
+      res.send(data)
+    }
+  })
+};
+
+exports.resolveComplain = (complainID,res) => {
+  Complain.update({'_id':complainID.id},{$set:{'status':'Resolved'}},(err,data)=>{
     if(err){
       res.send({msg:err});
     }

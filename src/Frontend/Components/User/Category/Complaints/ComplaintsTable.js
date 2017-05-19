@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import ComplaintsRow from './ComplaintsRow'
 import { connect } from 'react-redux'
-import { asyncgetComplaints,asyncCloseComplaint,asyncAction } from  '../../../../actions'
+import { asyncgetComplaints,asyncCloseComplaint,asyncResolveComplaint } from  '../../../../actions'
 
 class ComplaintsTable extends Component{
   constructor(){
@@ -15,8 +15,16 @@ class ComplaintsTable extends Component{
     let complainData = {
       id:complainRefID
     };
-    this.props.dispatch(asyncCloseComplaint(complainData));
+    this.props.dispatch(asyncResolveComplaint(complainData));
 
+  };
+
+  resolveComplain = (complainRefID) =>{
+
+    let complainData = {
+      id:complainRefID
+    };
+    this.props.dispatch(asyncCloseComplaint(complainData));
   };
 
   render(){
@@ -59,7 +67,7 @@ class ComplaintsTable extends Component{
                         return <ComplaintsRow item={item} closeComplain={this.closeComplain}
                                               userDetails={this.props.userDetails} />
                       else if((userDetails) && (userDetails[0].role == 'Admin'))
-                        return <ComplaintsRow item={item} closeComplain={this.closeComplain}
+                        return <ComplaintsRow item={item} resolveComplain={this.resolveComplain}
                                               userDetails={this.props.userDetails} />
                     }
                   )

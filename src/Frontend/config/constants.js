@@ -13,6 +13,7 @@ export const saveCommentURI = "http://localhost:4000/saveComment";
 export const fetchCommentURI = "http://localhost:4000/getComments";
 export const disLikeBuzzURI = "http://localhost:4000/saveDislike";
 export const fetchdisLikeURI = "http://localhost:4000/getDislikes";
+export const resolveComplaintURI = "http://localhost:4000/resolveComplaint";
 
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const LOADER_STARTED = "LOADER_STARTED";
@@ -43,3 +44,5 @@ export const SAVE_DISLIKE_SUCCESS = "SAVE_DISLIKE_SUCCESS";
 export const SAVE_DISLIKE_FAILED = "SAVE_DISLIKE_FAILED";
 export const FETCH_DISLIKES_FAILED = "FETCH_DISLIKES_FAILED";
 export const FETCH_DISLIKES_SUCCESS = "FETCH_DISLIKES_SUCCESS";
+export const RESOLVE_COMPLAINT_FAILED = "RESOLVE_COMPLAINT_FAILED";
+export const RESOLVE_COMPLAINT_SUCCESS = "RESOLVE_COMPLAINT_SUCCESS";

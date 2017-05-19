@@ -23,14 +23,14 @@ class Activity extends Component{
         formData.append('userDetails', details);
         this.props.dispatch(asyncSavePost(formData));
     };
-
-
     render(){
         let { loading } = this.props.buzzReducer;
         return(
             <div>
-                    <CreateBuzz savePost={this.savePost} loading={loading} userDetails={this.props.userDetails}/>
-
+                    <CreateBuzz savePost={this.savePost}
+                                loading={loading}
+                                userDetails={this.props.userDetails}
+                    />
             </div>
         )
     }

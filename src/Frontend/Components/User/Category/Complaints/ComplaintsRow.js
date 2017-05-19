@@ -29,11 +29,9 @@ class ComplaintsRow extends React.Component{
         }
         {
           userDetails[0].role == 'Admin' ?
-            <td><button onClick={(event)=>this.props.closeComplain(item._id)} className="glyphicon glyphicon-remove">Resolve</button>
+            <td><button onClick={(event)=>this.props.resolveComplain(item._id)} className="glyphicon glyphicon-remove">Resolve</button>
             </td>:
             <button onClick={(event)=>this.props.closeComplain(item._id)} className="glyphicon glyphicon-remove">Close</button>
-
-
         }
       </tr>
 

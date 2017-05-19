@@ -5,6 +5,9 @@ import {
   SAVE_COMPLAINT_FAILED,
   DELETE_COMPLAINT_FAILED,
   DELETE_COMPLAINT_SUCCESS,
+  RESOLVE_COMPLAINT_FAILED,
+  RESOLVE_COMPLAINT_SUCCESS,
+
 } from '../../config/constants'
 
 const initialState = {
@@ -40,12 +43,24 @@ export const complaintReducer = (state = initialState,action) =>{
       }
     }
     case DELETE_COMPLAINT_SUCCESS:{
-      console.log("---reducer",action.data)
+      console.log("---reducer",action.data);
       return{
         ...state,
       }
     }
 
+    case RESOLVE_COMPLAINT_FAILED:{
+      return{
+        ...state,
+        err:action.err,
+      }
+    }
+
+    case RESOLVE_COMPLAINT_SUCCESS:{
+      return{
+        ...state
+      }
+    }
   }
   return state;
 };

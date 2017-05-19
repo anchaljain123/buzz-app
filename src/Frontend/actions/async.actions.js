@@ -28,6 +28,8 @@ import {
   asyncgetdisLikeFailed,
   asyncDeleteComplaintSuccess,
   asyncDeleteComplaintFailed,
+  asyncResolveComplaintSuccess,
+  asyncResolveComplaintFailed,
 
 } from './actions'
 
@@ -46,6 +48,7 @@ import {
   saveCommentURI,
   fetchCommentURI,
   disLikeBuzzURI,
+  resolveComplaintURI,
 
 } from '../config/constants'
 
@@ -331,6 +334,28 @@ export const asyncCloseComplaint = (complaintId) => {
       })
       .catch(err => {
         dispatch(asyncDeleteComplaintFailed(err));
+      })
+  }
+};
+
+export const asyncResolveComplaint = (complaintId) => {
+  return(dispatch) =>{
+    fetch(resolveComplaintURI,{
+      method:'put',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(complaintId),
+    })
+      .then(res => res.json())
+      .then(data => {
+        dispatch(asyncResolveComplaintSuccess(data));
+        dispatch(asyncgetComplaints());
+
+      })
+      .catch(err => {
+        dispatch(asyncResolveComplaintFailed(err));
       })
   }
 };

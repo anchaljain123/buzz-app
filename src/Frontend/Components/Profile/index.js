@@ -22,7 +22,6 @@ class Profile extends Component {
 
   componentWillMount() {
     this.props.dispatch(asyncgetCurrentUser());
-
   }
 
   render() {
@@ -59,7 +58,6 @@ class Profile extends Component {
                         )
                       })
                     }
-
                     <b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       <li>
@@ -89,7 +87,6 @@ class Profile extends Component {
                               <div className="col-md-6">
                               </div>
                               <div className="col-md-6">
-
                                 <Logout/>
                               </div>
                             </div>

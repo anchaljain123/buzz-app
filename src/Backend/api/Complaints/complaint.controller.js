@@ -18,3 +18,8 @@ exports.deleteComplain = function (req,res,next) {
   const complainID = req.body;
   complaintService.deleteComplain(complainID,res)
 };
+
+exports.resolveComplain = (req,res,next) => {
+  const complainID = req.body;
+  complaintService.resolveComplain(complainID,res)
+};
