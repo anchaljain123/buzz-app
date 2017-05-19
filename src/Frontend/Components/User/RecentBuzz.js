@@ -27,6 +27,7 @@ class RecentBuzz extends Component {
 
   deleteBuzz = (postDetails) => {
     this.props.dispatch(asyncdeletePost(postDetails));
+    //delete from like & comment
   };
 
   hitLike = (hitState) => {

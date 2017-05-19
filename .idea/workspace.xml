@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23fd72fb-3490-4cd0-b6ad-91b0260525f7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Comment/comment.controller.js" afterPath="$PROJECT_DIR$/src/Backend/api/Comment/comment.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Comment/comment.model.js" afterPath="$PROJECT_DIR$/src/Backend/api/Comment/comment.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Comment/comment.route.js" afterPath="$PROJECT_DIR$/src/Backend/api/Comment/comment.route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Comment/comment.service.js" afterPath="$PROJECT_DIR$/src/Backend/api/Comment/comment.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintForm.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Comment/Showcomment.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Comment/Showcomment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Comment/index.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Comment/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Imageupload/index.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Imageupload/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzzRow.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzzRow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/actions/actions.js" afterPath="$PROJECT_DIR$/src/Frontend/actions/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/actions/async.actions.js" afterPath="$PROJECT_DIR$/src/Frontend/actions/async.actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/actions/index.js" afterPath="$PROJECT_DIR$/src/Frontend/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/config/constants.js" afterPath="$PROJECT_DIR$/src/Frontend/config/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/comment.reducer.js" afterPath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/comment.reducer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,6 +62,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RecentBuzz.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="comment.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/api/Comment/comment.controller.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.service.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="comment.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/api/Comment/comment.service.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -188,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/Frontend/Components/App/index.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Logout/index.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Profile/Navbar/index.js" />
-        <option value="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Buzz/LostnFound.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/index.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Container.js" />
@@ -214,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/Comment/index.js" />
         <option value="$PROJECT_DIR$/src/Backend/api/Comment/comment.controller.js" />
         <option value="$PROJECT_DIR$/src/Backend/api/Comment/comment.service.js" />
+        <option value="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
       </list>
     </option>
   </component>
@@ -1413,12 +1408,12 @@
       <workItem from="1495170039853" duration="19000" />
       <workItem from="1495174324281" duration="2905000" />
       <workItem from="1495188369430" duration="596000" />
-      <workItem from="1495213047769" duration="3357000" />
+      <workItem from="1495213047769" duration="3451000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352888000" />
+    <option name="totallyTimeSpent" value="352982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="52" y="-11" width="1315" height="780" extended-state="6" />
@@ -1636,13 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Buzz/LostnFound.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -1838,14 +1826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Comment/Showcomment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Comment/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -1870,6 +1850,22 @@
             <element signature="e#94#484#0" expanded="false" />
             <element signature="e#524#664#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Comment/Showcomment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
