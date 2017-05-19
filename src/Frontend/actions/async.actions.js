@@ -30,6 +30,9 @@ import {
   asyncDeleteComplaintFailed,
   asyncResolveComplaintSuccess,
   asyncResolveComplaintFailed,
+  asyncDeleteCommentSuccess,
+  asyncDeleteCommentFailed,
+
 
 } from './actions'
 
@@ -49,6 +52,7 @@ import {
   fetchCommentURI,
   disLikeBuzzURI,
   resolveComplaintURI,
+  deleteCommentURI,
 
 } from '../config/constants'
 
@@ -356,6 +360,26 @@ export const asyncResolveComplaint = (complaintId) => {
       })
       .catch(err => {
         dispatch(asyncResolveComplaintFailed(err));
+      })
+  }
+};
+
+export const asyncdeleteComment = (commentData) => {
+  return(dispatch) =>{
+    fetch(deleteCommentURI,{
+      method:'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(commentData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        dispatch(asyncDeleteCommentSuccess(data));
+      })
+      .catch(err => {
+        dispatch(asyncDeleteCommentFailed(err));
       })
   }
 };

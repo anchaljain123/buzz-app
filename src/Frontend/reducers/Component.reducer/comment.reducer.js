@@ -4,6 +4,8 @@ import {
   SAVE_COMMENT_SUCCESS,
   FETCH_COMMENT_FAILED,
   FETCH_COMMENT_SUCCESS,
+  DELETE_COMMENT_FAILED,
+  DELETE_COMMENT_SUCCESS,
 
 } from '../../config/constants'
 
@@ -37,6 +39,19 @@ export const commentReducer = (state=initialState,action) =>{
     }
 
     case FETCH_COMMENT_FAILED:{
+      return{
+        ...state,
+        err:action.err
+      }
+    }
+
+    case DELETE_COMMENT_SUCCESS:{
+      return{
+        ...state,
+        comments:action.data,
+      }
+    }
+    case DELETE_COMMENT_FAILED:{
       return{
         ...state,
         err:action.err

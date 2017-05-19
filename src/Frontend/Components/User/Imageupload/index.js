@@ -6,8 +6,7 @@ class Imageupload extends React.Component{
         super();
         this.state = {
             file:'',
-
-        }
+        };
         this.saveimg  = this.saveimg.bind(this);
     }
 
@@ -22,7 +21,7 @@ class Imageupload extends React.Component{
             this.props.saveState(this.state.file);
         })
 
-    }
+    };
     render(){
 
         return(

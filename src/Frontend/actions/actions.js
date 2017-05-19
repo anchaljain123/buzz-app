@@ -30,6 +30,9 @@ import {
   DELETE_COMPLAINT_SUCCESS,
   RESOLVE_COMPLAINT_SUCCESS,
   RESOLVE_COMPLAINT_FAILED,
+  DELETE_COMMENT_FAILED,
+  DELETE_COMMENT_SUCCESS,
+
 
 } from '../config/constants'
 
@@ -217,5 +220,17 @@ export const asyncResolveComplaintFailed = (err) =>{
 
   return{
     type:RESOLVE_COMPLAINT_FAILED,err
+  }
+};
+
+export const asyncDeleteCommentFailed = (err) => {
+  return {
+    type: DELETE_COMMENT_FAILED, err
+  }
+};
+
+export const asyncDeleteCommentSuccess = (data) =>{
+  return{
+    type:DELETE_COMMENT_SUCCESS,data
   }
 };

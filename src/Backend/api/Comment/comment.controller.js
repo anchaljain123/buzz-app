@@ -8,4 +8,9 @@ exports.saveComment = function (req,res,next) {
 
 exports.getComments = function (req,res,next) {
     commentService.getComments(res);
-}
+};
+
+exports.deleteComment = (req,res,next) => {
+  let commentData =  req.body;
+  commentService.deleteComment(commentData,res);
+};

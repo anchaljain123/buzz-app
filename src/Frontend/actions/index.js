@@ -16,6 +16,7 @@ export {
     asyncgetDislikes,
   asyncCloseComplaint,
   asyncResolveComplaint,
+  asyncdeleteComment,
 
 
 } from './async.actions'

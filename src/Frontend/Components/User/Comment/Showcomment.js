@@ -7,6 +7,11 @@ class Showcomment extends Component {
     super(props)
   }
 
+  deleteComment = (commentid) => {
+
+    this.props.deleteComment(commentid);
+  };
+
   render() {
     return (
       <div>
@@ -22,6 +27,12 @@ class Showcomment extends Component {
                     style={{marginRight: '8px', marginTop: '4px'}}
                   />
                   <h3 key={item._id}>{item.userDetails.userName} : {item.comment}</h3>
+                  <div className="pull-right">
+                    {
+                      (item.userDetails.userid == this.props.rowData.currentId) ?
+                        <button className="btn btn-sm" onClick={(e)=>this.deleteComment(item._id)}>delete</button> : ""
+                    }
+                  </div>
                 </div>
               )
 

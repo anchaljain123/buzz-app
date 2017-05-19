@@ -9,7 +9,7 @@ const commentSchema = new mongoose.Schema({
         required:true,
     },
     comment:{
-        type:String
+        type:String,
     },
     commentCreated:{
         type:Number,
@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
     }
 },{
     versionKey:false,
-})
+});
 
 
 module.exports = mongoose.model('Comment',commentSchema);

@@ -129,6 +129,7 @@ class RecentBuzzRow extends Component {
             postComment={this.postComment}
             buzzid={this.props.buzzData._id}
             userDetails={this.props.userDetails}
+            rowData = {this.state}
           />
         </div>
       </div>

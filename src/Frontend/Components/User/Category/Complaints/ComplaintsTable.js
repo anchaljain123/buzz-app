@@ -15,7 +15,7 @@ class ComplaintsTable extends Component{
     let complainData = {
       id:complainRefID
     };
-    this.props.dispatch(asyncResolveComplaint(complainData));
+    this.props.dispatch(asyncCloseComplaint(complainData));
 
   };
 
@@ -24,7 +24,7 @@ class ComplaintsTable extends Component{
     let complainData = {
       id:complainRefID
     };
-    this.props.dispatch(asyncCloseComplaint(complainData));
+    this.props.dispatch(asyncResolveComplaint(complainData));
   };
 
   render(){

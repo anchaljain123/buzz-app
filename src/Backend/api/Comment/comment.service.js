@@ -17,7 +17,7 @@ exports.saveComment = function (buzzDetails,res) {
             res.send(data);
         }
     })
-}
+};
 
 exports.getComments = function (res) {
     Comment.find({},(err,data) =>{
@@ -27,4 +27,23 @@ exports.getComments = function (res) {
             res.send(data);
         }
     })
-}
+};
+
+exports.deleteComment = (commentId,res) =>{
+
+  Comment.remove({'_id':commentId.id},
+    (err,data)=>{
+    if(err)
+      res.send({msg:"Failed to remove document",error:err});
+    else {
+      Comment.find((err,data)=>{
+        if(err){
+          res.send({msg:"Failed to fetch data",error:err})
+        }
+        else {
+          res.send(data);
+        }
+      })
+    }
+  })
+};
