@@ -36,7 +36,7 @@ class Options extends Component{
       <div>
         <a className="btn btn-default btn-xs" style={{margin:'2px'}}>
           {
-            isLike ?
+            isLike ==true || dislikeData.isdisliked==false?
               <button onClick={this.savedisLike} ref="btn" style={{'background': 'none', 'border': 'none'}}>
                 <i className="fa fa-heart" aria-hidden="true"></i>DisLike
               </button>

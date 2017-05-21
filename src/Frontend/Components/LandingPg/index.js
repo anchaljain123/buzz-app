@@ -25,6 +25,6 @@ const LandingPg = () =>{
             </div>
         </div>
     )
-}
+};
 
 export default LandingPg;

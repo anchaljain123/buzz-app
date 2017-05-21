@@ -11,9 +11,11 @@ exports.saveComment = function (buzzDetails,res) {
     };
 
     Comment.create(buzzDetails,(err,data) =>{
-        if(err) console.log(err);
+        if(err)
+          res.send({error:err});
         else
         {
+          console.log(data,"====>")
             res.send(data);
         }
     })
@@ -21,7 +23,8 @@ exports.saveComment = function (buzzDetails,res) {
 
 exports.getComments = function (res) {
     Comment.find({},(err,data) =>{
-        if(err) console.log(err);
+        if(err)
+          res.send({error:err});
         else
         {
             res.send(data);

@@ -11,7 +11,6 @@ import {
 
 const initialState = {
   comments:[],
-
 };
 
 export const commentReducer = (state=initialState,action) =>{
@@ -19,6 +18,7 @@ export const commentReducer = (state=initialState,action) =>{
   switch(action.type){
 
     case SAVE_COMMENT_FAILED:{
+      console.log(action.err,">>>>>>>>>>>>;;;;;;;;;;;;;;;;;;")
       return{
         ...state,
         err:action.err,
@@ -26,6 +26,7 @@ export const commentReducer = (state=initialState,action) =>{
     }
 
     case SAVE_COMMENT_SUCCESS:{
+      console.log(action.data,";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
       return{
         ...state,
       }
@@ -62,4 +63,4 @@ export const commentReducer = (state=initialState,action) =>{
 
 
   return state
-}
+};

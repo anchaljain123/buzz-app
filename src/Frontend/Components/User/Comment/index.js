@@ -17,11 +17,10 @@ class Comment extends Component {
     this.props.postComment(commentState);
   };
   deleteComment = (commentState) =>{
-    console.log(commentState,">>>>>>>>>>>>>>>>>>>>>")
     let commentobject = {
       id:commentState
-    }
-   this.props.dispatch(asyncdeleteComment(commentobject))
+    };
+    this.props.dispatch(asyncdeleteComment(commentobject))
   };
   render() {
     let {comments} = this.props.commentReducer;

@@ -12,13 +12,8 @@ const App = () => {
     return (
         <div id="wrap">
             <div>
-
                 <Route exact path="/" component={LandingPage}/>
-               {/* <Route path="/login" component={Login}/>*/}
                 <Route path="/profile" component={Profile}/>
-                {/*<footer className="container-fluid text-center" style={footerStyling.bglightgray} >*/}
-                {/*<Footer/>*/}
-                {/*</footer>*/}
             </div>
         </div>
     )

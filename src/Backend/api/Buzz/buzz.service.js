@@ -2,29 +2,17 @@ const Buzz = require('./buzz.model');
 
 exports.saveBuzz = function (buzzDetails,res) {
   Buzz.create(buzzDetails,(err,data) =>{
-    if(err) console.log(err);
+    if(err) res.send({error:err});
     else
     {
       res.send(data);
     }
   })
-}
-
-/*exports.getBuzz = function (res) {
- Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
- if(err) console.log(err);
- else
- {
- res.send(data)
- }
- })
- }*/
-
+};
 
 exports.getBuzz=()=>{
-
   return new Promise((resolve,reject)=>{
-    Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
+    Buzz.find({},null,{sort:{'postCreated':-1},limit:10},(err,data) =>{
       if(err){
         reject({error:err})
       }else{
@@ -42,7 +30,7 @@ exports.deleteBuzz = function (buzzDetails,res) {
    const findUser = {'userDetails.0':userId};*/
   Buzz.remove({'_id':buzzId},(err,data) =>{
 
-    if(err) console.log(err);
+    if(err) res.send({error:err});
     else{
 
       res.send(data)
@@ -50,46 +38,21 @@ exports.deleteBuzz = function (buzzDetails,res) {
 
   });
 
-
-
-  /* Buzz.find(findUser,(err,data) => {
-   if(err) console.log(err);
-   else
-   {
-   Buzz.remove({'_id':buzzId},(err,data) =>{
-
-   if(err) console.log(err);
-
-   else{
-   Buzz.find({},(err,data) =>{
-   if(err) console.log(err);
-   else
-   {
-   res.send(data);
-   }
-
-   })
-   }
-
-   })
-
-   }
-   })*/
-
-}
+};
 
 exports.updateBuzz = function (buzzDetails,res) {
 
   Buzz.find({'_id':buzzDetails.buzzid},(err,data)=>{
-    if(err) console.log(err);
+    if(err) res.send({error:err});
     else
     {
-      Buzz.update({'_id':buzzDetails.buzzid},{ $set:{likescount:buzzDetails.like}},(err,data)=>{
-        if(err) console.log(err);
+      Buzz.update({'_id':buzzDetails.buzzid},
+        { $set:{likescount:buzzDetails.like}},(err,data)=>{
+        if(err) res.send({error:err});
         else
         {
           Buzz.find({},(err,data) => {
-            if(err) console.log(err);
+            if(err) res.send({error:err});
             else
             {
               res.send(data)

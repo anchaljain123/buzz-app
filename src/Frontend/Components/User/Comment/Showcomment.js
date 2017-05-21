@@ -8,7 +8,6 @@ class Showcomment extends Component {
   }
 
   deleteComment = (commentid) => {
-
     this.props.deleteComment(commentid);
   };
 

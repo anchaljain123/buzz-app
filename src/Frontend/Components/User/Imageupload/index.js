@@ -1,43 +1,40 @@
 import React from 'react';
 
-class Imageupload extends React.Component{
+class Imageupload extends React.Component {
 
-    constructor(){
-        super();
-        this.state = {
-            file:'',
-        };
-        this.saveimg  = this.saveimg.bind(this);
-    }
-
-    saveimg = (event) =>{
-        event.preventDefault();
-        let file = event.target.files[0];
-        this.setState({
-            file:{
-                file
-            },
-        },()=>{
-            this.props.saveState(this.state.file);
-        })
-
+  constructor() {
+    super();
+    this.state = {
+      file: '',
     };
-    render(){
+    this.saveimg = this.saveimg.bind(this);
+  }
 
-        return(
-            <div>
+  saveimg = (event) => {
+    event.preventDefault();
+    let file = event.target.files[0];
+    this.setState({
+      file: {
+        file
+      },
+    }, () => {
+      this.props.saveState(this.state.file);
+    })
 
-                <form encType="multipart/form-data" id="myform">
+  };
 
-                    {/*<label class="btn btn-default btn-file" >*/}
-                        <input  type="file" name="sampleFile" onBlur={this.saveimg} />
-                     {/*<i className="fa fa-camera"></i>*/}
-                    {/*</label>*/}
-                </form>
+  render() {
 
-            </div>
-        )
-    }
+    return (
+      <div>
+
+        <form encType="multipart/form-data" id="myform">
+          <input type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*"/>
+        </form>
+
+      </div>
+    )
+  }
 
 }
 

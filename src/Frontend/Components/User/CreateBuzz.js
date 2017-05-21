@@ -28,12 +28,14 @@ class CreateBuzz extends React.Component {
   };
 
   savePost = () => {
-    this.props.savePost(this.state);
-    this.setState({
-      content: "",
-      category: "activity",
-      img: '',
-    })
+    if(this.state.content || this.state.img) {
+      this.props.savePost(this.state);
+      this.setState({
+        content: "",
+        category: "activity",
+        img: '',
+      })
+    }
   };
 
   render() {
@@ -69,10 +71,10 @@ class CreateBuzz extends React.Component {
                   </select>
               </div>
             </span>
-            <span className="pull-right">
+            <span className="pull-right">{/*
               {
                 this.props.loading ? <img src={loaderimg}/> : ""
-              }
+              }*/}
               <button className="btn btn-primary btn-sm" value="submit" onClick={this.savePost}>Post</button>
             </span>
           </div>

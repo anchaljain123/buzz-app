@@ -1,22 +1,30 @@
 export {
-    asyncAction,
-    asyncgetCurrentUser,
-    asyncSavePost,
-    asyncgetBuzz,
-    asyncgetLostnFoundBuzz,
-    asyncSaveComplaint,
-    asyncgetComplaints,
-    asyncdeletePost,
-    asyncsaveLike,
-    asyncgetLikes,
-    asyncLogout,
-    asyncsaveComment,
-    asyncgetComment,
-    asyncsaveDislike,
-    asyncgetDislikes,
-  asyncCloseComplaint,
-  asyncResolveComplaint,
+  asyncAction,
+  asyncgetCurrentUser,
+} from './component.asyncactions/user.asyncaction'
+
+export {
+  asyncgetBuzz,
+  asyncSavePost,
+  asyncdeletePost
+} from './component.asyncactions/buzz.asyncaction'
+
+export {
+  asyncgetDislikes,
+  asyncgetLikes,
+  asyncsaveDislike,
+  asyncsaveLike
+} from './component.asyncactions/like.asyncaction'
+
+export {
+  asyncgetComment,
   asyncdeleteComment,
+  asyncsaveComment
+} from './component.asyncactions/comment.asyncaction'
 
-
-} from './async.actions'
+export {
+  asyncgetComplaints,
+  asyncSaveComplaint,
+  asyncCloseComplaint,
+  asyncResolveComplaint
+} from './component.asyncactions/complaint.asyncaction'

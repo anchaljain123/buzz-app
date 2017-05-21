@@ -8,8 +8,8 @@ import {
   asyncsaveLike,
   asyncgetLikes,
   asyncsaveComment,
-  asyncsaveDislike,
   asyncgetDislikes,
+  asyncgetComment,
 
 } from '../../actions'
 
@@ -17,12 +17,49 @@ class RecentBuzz extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      offset: 0,
+      data: [],
+    };
+   // this.onWindowScroll = this.onWindowScroll.bind(this);
+
   }
+/*
+
+  fetchData = () => {
+    this.setState({
+      data: [...this.state.data, this.props.dispatch(asyncgetBuzz(this.state.offset))]
+    })
+  };
+*/
 
   componentDidMount() {
     this.props.dispatch(asyncgetBuzz());
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
+   // this.props.dispatch(asyncgetComment())
+   // window.addEventListener('scroll', this.onWindowScroll);
+   // fetchData();
+
+  }
+/*
+  onWindowScroll() {
+    if (changeOffset()) {
+      this.setState({offset: this.state.offset + 10});
+      fetchData()
+    }
+  }
+
+  changeOffset() {
+    // set height of filters with footer offset, only for large screens and large reports(with scroll)
+    if ((window.innerWidth > LARGE_SCREEN_MIN_WIDTH) &&
+      ((window.innerHeight + window.scrollY) >= document.body.offsetHeight)) {
+      return true;
+    }
+  }*/
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onWindowScroll);
   }
 
   deleteBuzz = (postDetails) => {
@@ -37,7 +74,8 @@ class RecentBuzz extends Component {
       uid: hitState.currentId,
       like: true
     };
-    this.props.dispatch(asyncsaveLike(likeDetails));
+
+      this.props.dispatch(asyncsaveLike(likeDetails));
     // this.props.dispatch(asyncgetLike());
   };
 
@@ -48,7 +86,6 @@ class RecentBuzz extends Component {
       uid: disLikeState.currentId,
       like: false
     };
-
     this.props.dispatch(asyncsaveLike(dislikeDetails));
   };
 

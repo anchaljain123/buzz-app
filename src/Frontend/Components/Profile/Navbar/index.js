@@ -2,12 +2,8 @@ import React,{ Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class Navbar extends Component{
-  constructor(props){
-    super(props);
-  }
   render() {
     let { userDetails } = this.props;
-   //console.log('f>>>>>>>>>>>>>>>>',userDetails[0] && userDetails[0].role);
     return (
       <div>
         <div>
@@ -27,7 +23,6 @@ class Navbar extends Component{
       </div>
     )
   }
+}
 
-};
-
-export default Navbar
+export default Navbar;

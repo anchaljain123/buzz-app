@@ -1,52 +1,59 @@
-
 import {
-    SAVE_LIKE_FAILED,
-    SAVE_LIKE_SUCCESS,
-    FETCH_LIKES_FAILED,
-    FETCH_LIKES_SUCCESS,
+  SAVE_LIKE_FAILED,
+  SAVE_LIKE_SUCCESS,
+  FETCH_LIKES_FAILED,
+  FETCH_LIKES_SUCCESS,
+  LOADER_STARTED,
 
 } from '../../config/constants'
 
 const initialState = {
-    likes:[],
-
+  likes: [],
+  isliked: false,
 };
 
-export const likeReducer = (state=initialState,action) =>{
+export const likeReducer = (state = initialState, action) => {
 
-    switch(action.type){
-
-        case SAVE_LIKE_FAILED:{
-            return{
-                ...state,
-                err:action.err
-            }
-        }
-
-        case SAVE_LIKE_SUCCESS:{
-            return{
-                ...state,
-
-            }
-        }
-
-        case FETCH_LIKES_FAILED:{
-            return{
-                ...state,
-                err:action.err,
-            }
-        }
-
-        case FETCH_LIKES_SUCCESS:{
-            return{
-                ...state,
-                likes:action.data,
-            }
-        }
-
-
+  switch (action.type) {
+    case LOADER_STARTED: {
+      return {
+        ...state,
+        isliked: false,
+      }
     }
 
+    case SAVE_LIKE_FAILED: {
+      return {
+        ...state,
+        err: action.err,
+        isliked: false,
+      }
+    }
 
-    return state
-}
+    case SAVE_LIKE_SUCCESS: {
+      return {
+        ...state,
+        isliked: true,
+
+      }
+    }
+
+    case FETCH_LIKES_FAILED: {
+      return {
+        ...state,
+        err: action.err,
+      }
+    }
+
+    case FETCH_LIKES_SUCCESS: {
+      return {
+        ...state,
+        likes: action.data,
+      }
+    }
+
+  }
+
+
+  return state
+};

@@ -9,18 +9,16 @@ class CommentForm extends Component{
         }
     }
     postComment = () =>{
-
         this.props.postComment(this.state.comment);
         this.setState({
             comment:"",
-
         })
-    }
+    };
     handleChange = (event) =>{
         this.setState({
             comment:event.target.value,
         })
-    }
+    };
 
     render(){
         return(
