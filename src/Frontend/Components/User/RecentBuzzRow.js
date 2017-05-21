@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Comment from  './Comment'
 import Options from './Options'
+import _ from 'lodash'
 
 class RecentBuzzRow extends Component {
   constructor(props) {
@@ -103,7 +104,7 @@ class RecentBuzzRow extends Component {
               <div className="pull-left">
               <span style={{color: "blue"}}><i className="fa fa-thumbs-o-up">
                 {
-                  likeData.map(likeitem => {
+                  _.map(likeData,function(likeitem) {
                     if (likeitem.postId === buzzData._id)
                       likecount++;
                   })
@@ -112,7 +113,7 @@ class RecentBuzzRow extends Component {
               </span>
                 <span style={{color: "blue"}}><i className="fa fa-thumbs-o-down">
                 {
-                  dislikeData.map(dislikeitem => {
+                  _.map(dislikeData,dislikeitem => {
                     if (dislikeitem.postId === buzzData._id)
                       dislikecount++;
                   })
