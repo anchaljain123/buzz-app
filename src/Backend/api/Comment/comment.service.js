@@ -32,7 +32,6 @@ exports.getComments = function (res) {
 };
 
 exports.deleteComment = (commentId,res) =>{
-
   Comment.remove({'_id':commentId.id}, (err,data)=>{
     if(err)
       res.send({msg:"Failed to remove document",error:err});
@@ -50,7 +49,6 @@ exports.deleteComment = (commentId,res) =>{
 };
 
 exports.deleteComments = (postData,res) => {
-  console.log(postData,">>>>>>>")
   Comment.remove({'postId':postData.post._id},(err,data)=>{
     if(err){
       res.send({msg:'Error while deleting',error:err});

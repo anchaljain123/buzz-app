@@ -22,22 +22,20 @@ exports.getBuzz=()=>{
   })
 };
 
-
 exports.deleteBuzz = function (buzzDetails,res) {
-
   const buzzId = buzzDetails.post._id;
-  /*  const userId = buzzDetails.currentId;
-   const findUser = {'userDetails.0':userId};*/
-  Buzz.remove({'_id':buzzId},(err,data) =>{
 
+  Buzz.find({'userDetails.id':buzzDetails.currentId},(err,data) => {
     if(err) res.send({error:err});
-    else{
-
-      res.send(data)
+    else {
+      Buzz.remove({'_id':buzzId},(err,data) =>{
+        if(err) res.send({error:err});
+        else{
+          res.send(data)
+        }
+      })
     }
-
   });
-
 };
 
 exports.updateBuzz = function (buzzDetails,res) {
@@ -62,4 +60,4 @@ exports.updateBuzz = function (buzzDetails,res) {
       })
     }
   })
-}
+};
