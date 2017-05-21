@@ -4,6 +4,8 @@ import {
   FETCH_LIKES_FAILED,
   FETCH_LIKES_SUCCESS,
   LOADER_STARTED,
+  DELETE_LIKE_FAILED,
+  DELETE_LIKE_SUCCESS,
 
 } from '../../config/constants'
 
@@ -49,6 +51,19 @@ export const likeReducer = (state = initialState, action) => {
       return {
         ...state,
         likes: action.data,
+      }
+    }
+    case DELETE_LIKE_SUCCESS:{
+      return{
+        ...state,
+        likes:action.data
+      }
+    }
+
+    case DELETE_LIKE_FAILED:{
+      return{
+        ...state,
+        err:action.err
       }
     }
 

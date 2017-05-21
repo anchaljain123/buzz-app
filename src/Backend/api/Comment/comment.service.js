@@ -15,7 +15,6 @@ exports.saveComment = function (buzzDetails,res) {
           res.send({error:err});
         else
         {
-          console.log(data,"====>")
             res.send(data);
         }
     })
@@ -34,14 +33,32 @@ exports.getComments = function (res) {
 
 exports.deleteComment = (commentId,res) =>{
 
-  Comment.remove({'_id':commentId.id},
-    (err,data)=>{
+  Comment.remove({'_id':commentId.id}, (err,data)=>{
     if(err)
       res.send({msg:"Failed to remove document",error:err});
     else {
       Comment.find((err,data)=>{
         if(err){
           res.send({msg:"Failed to fetch data",error:err})
+        }
+        else {
+          res.send(data);
+        }
+      })
+    }
+  })
+};
+
+exports.deleteComments = (postData,res) => {
+  console.log(postData,">>>>>>>")
+  Comment.remove({'postId':postData.post._id},(err,data)=>{
+    if(err){
+      res.send({msg:'Error while deleting',error:err});
+    }
+    else {
+      Comment.find((err,data)=>{
+        if(err){
+          res.send({msg:'error in Listing data ',error:err});
         }
         else {
           res.send(data);

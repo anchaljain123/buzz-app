@@ -13,13 +13,15 @@ export {
   asyncgetDislikes,
   asyncgetLikes,
   asyncsaveDislike,
-  asyncsaveLike
+  asyncsaveLike,
+  asyncdeletefromLike,
 } from './component.asyncactions/like.asyncaction'
 
 export {
   asyncgetComment,
   asyncdeleteComment,
-  asyncsaveComment
+  asyncsaveComment,
+  asyncdeletefromComment,
 } from './component.asyncactions/comment.asyncaction'
 
 export {

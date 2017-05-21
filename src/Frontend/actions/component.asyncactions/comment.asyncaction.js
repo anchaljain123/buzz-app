@@ -20,6 +20,7 @@ import {
   saveCommentURI,
   fetchCommentURI,
   deleteCommentURI,
+  deletefromCommentURI,
 
 } from '../../config/constants'
 
@@ -75,6 +76,26 @@ export const asyncdeleteComment = (commentData) => {
         'Content-Type': 'application/json',
       },
       body:JSON.stringify(commentData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        dispatch(asyncDeleteCommentSuccess(data));
+      })
+      .catch(err => {
+        dispatch(asyncDeleteCommentFailed(err));
+      })
+  }
+};
+
+export const asyncdeletefromComment = (postData) => {
+  return(dispatch) =>{
+    fetch(deletefromCommentURI,{
+      method:'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(postData),
     })
       .then(res => res.json())
       .then(data => {

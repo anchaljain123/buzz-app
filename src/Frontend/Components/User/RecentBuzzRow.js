@@ -14,7 +14,7 @@ class RecentBuzzRow extends Component {
 
   deletePost = () => {
     this.props.deleteBuzz(this.state);
-    //deletefromlikedb & imgfolder
+    //deletefromlikedb & imgfolder& comment
     this.setState({
       post: "",
       userId: "",

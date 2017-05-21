@@ -11,8 +11,9 @@ import {
   asyncgetdisLikeSuccess,
   asyncgetdisLikeFailed,
 
-  dislikeloaderStarted,
-  likeloaderStarted,
+  asyncdeleteLikeSuccess,
+  asyncdeleteLikeFailed,
+
   asyncStarted,
 
 } from '../component.actions/like.action'
@@ -21,19 +22,17 @@ import {
 import {
   asyncgetBuzz
 } from './buzz.asyncaction'
+
 import {
 
   fetchdisLikeURI,
   hitBuzzURI,
   fetchLikeURI,
   disLikeBuzzURI,
-
-
+  deleteLikeURI,
 } from '../../config/constants'
 
 import fetch from 'isomorphic-fetch'
-
-
 
 export  const asyncgetLikes =() =>{
   return(dispatch) =>{
@@ -79,7 +78,6 @@ export const asyncsaveLike = (hitDetails) =>{
   }
 };
 
-
 export const asyncsaveDislike = (disLikeDetails) =>{
   return(dispatch) =>{
     dispatch(asyncStarted());
@@ -120,6 +118,28 @@ export  const asyncgetDislikes =() =>{
       })
       .catch(err=>{
         dispatch(asyncgetdisLikeFailed(err))
+      })
+  }
+};
+
+export const asyncdeletefromLike = (postInfo) =>{
+  return (dispatch) => {
+    fetch(deleteLikeURI,{
+      credentials: 'include',
+      method: 'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(postInfo)
+    })
+      .then(res=>res.json())
+      .then(data=> {
+        dispatch(asyncdeleteLikeSuccess(data));
+        dispatch(asyncgetLikes());
+      })
+      .catch(err=>{
+        dispatch(asyncdeleteLikeFailed(err))
       })
   }
 };

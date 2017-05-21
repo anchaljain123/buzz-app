@@ -1,11 +1,11 @@
 const buzzService = require('./buzz.service');
 
-
 exports.saveBuzz = function (req,res,next) {
     const buzzDetails = req.body;
     buzzDetails.postCreated = new Date();
     buzzDetails.img = req.file;
     buzzDetails.userDetails = JSON.parse(buzzDetails.userDetails);
+    if(buzzDetails.img||buzzDetails.content)
     buzzService.saveBuzz(buzzDetails,res);
 };
 
@@ -19,9 +19,9 @@ exports.getBuzz = function (req,res,next) {
 exports.deleteBuzz = function (req,res,next) {
     const buzzDetails = req.body;
     buzzService.deleteBuzz(buzzDetails,res);
-}
+};
 
 exports.updateBuzz = function (req,res,next) {
     const buzzDetails = req.body;
     buzzService.updateBuzz(buzzDetails,res);
-}
+};

@@ -15,6 +15,8 @@ export const fetchCommentURI = "http://localhost:4000/getComments";
 export const disLikeBuzzURI = "http://localhost:4000/saveDislike";
 export const fetchdisLikeURI = "http://localhost:4000/getDislikes";
 export const resolveComplaintURI = "http://localhost:4000/resolveComplaint";
+export const deleteLikeURI = "http://localhost:4000/deleteLike";
+export const deletefromCommentURI = "http://localhost:4000/deleteComments";
 
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const LOADER_STARTED = "LOADER_STARTED";
@@ -33,6 +35,8 @@ export const DELETE_BUZZ_FAILED = "DELETE_BUZZ_FAILED";
 export const DELETE_BUZZ_SUCCESS = "DELETE_BUZZ_SUCCESS";
 export const DELETE_COMPLAINT_SUCCESS ="DELETE_COMPLAINT_SUCCESS";
 export const DELETE_COMPLAINT_FAILED = "DELETE_COMPLAINT_FAILED";
+export const DELETE_LIKE_FAILED = "DELETE_LIKE_FAILED";
+export const DELETE_LIKE_SUCCESS = "DELETE_LIKE_SUCCESS";
 export const SAVE_LIKE_SUCCESS = "SAVE_LIKE_SUCCESS";
 export const SAVE_LIKE_FAILED = "SAVE_LIKE_FAILED";
 export const FETCH_LIKES_SUCCESS = "FETCH_LIKES_SUCCESS";

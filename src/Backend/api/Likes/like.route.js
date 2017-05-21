@@ -10,4 +10,6 @@ module.exports = (app) => {
 
     app.get('/getDislikes',likeController.getDislikes);
 
-}
+    app.delete('/deleteLike',likeController.deletelikes);
+
+};

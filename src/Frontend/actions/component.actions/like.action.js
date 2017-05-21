@@ -9,7 +9,8 @@ import {
   SAVE_DISLIKE_SUCCESS,
   FETCH_DISLIKES_FAILED,
   FETCH_DISLIKES_SUCCESS,
-
+  DELETE_LIKE_SUCCESS,
+  DELETE_LIKE_FAILED,
 } from '../../config/constants'
 
 export const asyncStarted = () =>{
@@ -72,8 +73,14 @@ export const asyncgetdisLikeSuccess = (data) =>{
   }
 };
 
-export const dislikeloaderStarted =() =>{
+export const asyncdeleteLikeSuccess = (data) =>{
   return{
-    type: LOADER_STARTED
+    type:DELETE_LIKE_SUCCESS,data
+  }
+};
+
+export const asyncdeleteLikeFailed = (err) =>{
+  return{
+    type:DELETE_LIKE_FAILED,err
   }
 };

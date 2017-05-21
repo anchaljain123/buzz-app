@@ -14,6 +14,6 @@ const likeSchema = new mongoose.Schema({
     }
 },{
     versionKey:false,
-})
+});
 
 module.exports = mongoose.model('Like',likeSchema);

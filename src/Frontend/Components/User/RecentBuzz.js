@@ -10,6 +10,8 @@ import {
   asyncsaveComment,
   asyncgetDislikes,
   asyncgetComment,
+  asyncdeletefromLike,
+ asyncdeletefromComment,
 
 } from '../../actions'
 
@@ -64,6 +66,8 @@ class RecentBuzz extends Component {
 
   deleteBuzz = (postDetails) => {
     this.props.dispatch(asyncdeletePost(postDetails));
+    this.props.dispatch(asyncdeletefromLike(postDetails));
+    this.props.dispatch(asyncdeletefromComment(postDetails));
     //delete from like & comment
   };
 
