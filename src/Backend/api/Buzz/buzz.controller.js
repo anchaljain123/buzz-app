@@ -22,8 +22,9 @@ exports.deleteBuzz = function (req,res,next) {
 };
 
 exports.updateBuzz = function (req,res,next) {
-    const buzzDetails = req.body;
+
     req.on('data',function () {
+
       buzzService.updateBuzz(buzzDetails,res);
     });
     req.on('error',function () {

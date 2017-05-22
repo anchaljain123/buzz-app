@@ -20,7 +20,7 @@ export const asyncStarted = () =>{
 
 export const asyncSaveFailed = (err) =>{
   return{
-    type: SAVE_BUZZ_FAILED,er,
+    type: SAVE_BUZZ_FAILED,err,
   }
 };
 

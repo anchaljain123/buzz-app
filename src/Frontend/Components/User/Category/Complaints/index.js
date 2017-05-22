@@ -11,6 +11,7 @@ class Complaint extends Component {
   }
 
   render() {
+    console.log(">>>>comp", this.props.userDetails);
     return (
       <div className="">
         <ul className="nav nav-tabs">
@@ -31,10 +32,18 @@ class Complaint extends Component {
 
         <div className="tab-content">
           <div id="home" className="tab-pane fade in active">
-            <ComplaintForm userDetails={this.props.userDetails}/>
+            {
+              this.props.userDetails.length?
+              <ComplaintForm userDetails={this.props.userDetails}/>
+              :<div>Loading Complaints</div>
+            }
           </div>
           <div id="menu1" className="tab-pane fade">
-            <ComplaintsTable userDetails={this.props.userDetails}/>
+            {
+              this.props.userDetails.length?
+              <ComplaintsTable userDetails={this.props.userDetails}/>
+                :<div>Loding ComplaintsTable</div>
+            }
           </div>
         </div>
       </div>

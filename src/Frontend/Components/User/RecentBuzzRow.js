@@ -6,6 +6,7 @@ import _ from 'lodash'
 class RecentBuzzRow extends Component {
   constructor(props) {
     super(props);
+    console.log(">>>recentbuzzrowprops",this.props);
     this.state = {
       post: this.props.buzzData,
       userId: this.props.buzzData.userDetails.id, //currentuser who posted
@@ -47,7 +48,7 @@ class RecentBuzzRow extends Component {
   };
 
   render() {
-    //console.log('>>>>>>>>>>>>>>>>',this.props.userDetails[0])
+    console.log('>>>>>>>>>>>>>>>>',this.props.userDetails[0])
     const {buzzData} = this.props;
     const {likeData} = this.props;
     const {dislikeData} = this.props;
@@ -67,7 +68,8 @@ class RecentBuzzRow extends Component {
           <div className="pull-right">
             {
               (this.state.userId == this.state.currentId) ?
-                <button className="btn-sm btn-danger" onClick={this.deletePost}>delete</button> : ""
+                <button className="btn-sm btn-danger" onClick={this.deletePost}>delete</button>
+                : ""
             }
           </div>
           <h4 style={{"color": "#165ba8"}}>

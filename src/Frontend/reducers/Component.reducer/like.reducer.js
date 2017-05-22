@@ -7,6 +7,7 @@ import {
   DELETE_LIKE_FAILED,
   DELETE_LIKE_SUCCESS,
 
+
 } from '../../config/constants'
 
 const initialState = {
@@ -68,7 +69,5 @@ export const likeReducer = (state = initialState, action) => {
     }
 
   }
-
-
   return state
 };

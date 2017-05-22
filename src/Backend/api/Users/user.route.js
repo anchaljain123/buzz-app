@@ -20,7 +20,7 @@ module.exports = (app) => {
 
   app.get('/failureredirect',(req,res)=>{
     res.redirect('http://localhost:9000/');
-  })
+  });
 
   app.get('/user',userController.getUser);
 
@@ -28,7 +28,7 @@ module.exports = (app) => {
 
   app.get('/profile',(req,res) =>{
     res.redirect('http://localhost:9000/');
-  })
+  });
 
   app.get('/logout',(req,res) =>{
     req.logout();

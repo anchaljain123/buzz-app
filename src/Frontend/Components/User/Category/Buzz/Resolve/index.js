@@ -6,10 +6,12 @@ class Resolve extends Component {
     super(props)
   }
   render(){
-    let { userDetails } = this.props;
     return(
       <div>
-        <ComplaintsTable userDetails={this.props.userDetails}/>
+        {
+          this.props.userDetails.length?
+          <ComplaintsTable userDetails={this.props.userDetails}/>:""
+        }
       </div>
     )
   }

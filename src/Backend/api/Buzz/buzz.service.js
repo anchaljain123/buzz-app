@@ -12,7 +12,7 @@ exports.saveBuzz = function (buzzDetails,res) {
 
 exports.getBuzz=()=>{
   return new Promise((resolve,reject)=>{
-    Buzz.find({},null,{sort:{'postCreated':-1},limit:10},(err,data) =>{
+    Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
       if(err){
         reject({error:err})
       }else{

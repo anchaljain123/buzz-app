@@ -9,7 +9,6 @@ class Activity extends Component{
     }
 
     savePost = (postState) =>{
-
         let formData = new FormData();
         let userData = {
             id: this.props.userDetails[0].id,
@@ -25,12 +24,14 @@ class Activity extends Component{
     };
     render(){
         let { loading } = this.props.buzzReducer;
+        console.log(this.props,"activityprops");
+
         return(
             <div>
-                    <CreateBuzz savePost={this.savePost}
-                                loading={loading}
-                                userDetails={this.props.userDetails}
-                    />
+              {
+                this.props.userDetails.length?
+                <CreateBuzz savePost={this.savePost} loading={loading} userDetails={this.props.userDetails}/>:""
+              }
             </div>
         )
     }

@@ -25,8 +25,10 @@ export const commentReducer = (state=initialState,action) =>{
     }
 
     case SAVE_COMMENT_SUCCESS:{
+      let comments = state.comments.concat(action.data);
       return{
         ...state,
+        comments:comments
       }
     }
 

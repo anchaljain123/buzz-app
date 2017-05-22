@@ -11,9 +11,11 @@ import {
 
 } from '../component.actions/comment.action'
 
+/*
 import {
   asyncgetBuzz
 } from './buzz.asyncaction'
+*/
 
 import {
 
@@ -57,9 +59,9 @@ export const asyncsaveComment = (commentDetails) =>{
     })
       .then(res=>res.json())
       .then(data=>{
-        dispatch(asyncsaveCommentSuccess(data));
+        dispatch(asyncsaveCommentSuccess(data));/*
         dispatch(asyncgetBuzz());
-        dispatch(asyncgetComment())
+        dispatch(asyncgetComment())*/
       })
       .catch(err=>{
         dispatch(asyncsaveCommentFailed(err))

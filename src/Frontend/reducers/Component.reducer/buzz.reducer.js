@@ -57,7 +57,6 @@ export const buzzReducer = (state = initialState, action) => {
     case DELETE_BUZZ_SUCCESS: {
       return {
         ...state,
-        buzz: action.data
       }
     }
 

@@ -75,7 +75,6 @@ export const asyncdeletePost = (postDetails) => {
       .then(data => {
         dispatch(asyncDeleteSuccess(data));
         dispatch(asyncgetBuzz());
-
       })
       .catch(err => {
         dispatch(asyncDeleteFailed(err));

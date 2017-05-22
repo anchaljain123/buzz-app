@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect} from 'react-router-dom';
+import {Route, Redirect, Switch} from 'react-router-dom';
 import Activity from '../User/Category/Buzz/Activity';
 import LostnFound from '../User/Category/Buzz/LostnFound';
 import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
-import { asyncgetCurrentUser,asyncLogout } from '../../actions';
+import {asyncgetCurrentUser, asyncLogout} from '../../actions';
 import Navbar from './Navbar'
 import Resolve from '../User/Category/Buzz/Resolve'
 import '../Assets/Styling/logo.css'
@@ -26,6 +26,7 @@ class Profile extends Component {
 
   render() {
     let userDetails = this.props.userReducers.users;
+    console.log(this.props, ">>>>>>>>>>>>>>>>>>>>>>profileprops");
     const {match} = this.props;
     return (
       <div className="mainbody container-fluid">
@@ -122,19 +123,27 @@ class Profile extends Component {
                   }
                   <div className="media-body">
                     <Navbar userDetails={userDetails}/>
-                    <Redirect from="/profile" to="/profile/activity"/>
+                    {
+                      !(userDetails.length) && (this.props.userReducers.loading === false)?
+                       this.props.history.push('/') //no user exists
+                        :''
+                    }
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            <Route exact path={`${match.url}/activity`}
-                   render={props => <Activity {...props} userDetails={userDetails}/>}/>
-            <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
-            <Route exact path={`${match.url}/complaint`} render={props =>
-              <Complaints {...props} userDetails={userDetails}/>}/>
-            <Route path={`${match.url}/resolve`} render={props =><Resolve {...props} userDetails={userDetails} />}/>
+            <Switch>
+              <Route exact path={`${match.url}/activity`}
+                     render={props => <Activity {...props} userDetails={userDetails}/>}/>
+              <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
+              <Route exact path={`${match.url}/complaint`}
+                     render={props => <Complaints {...props} userDetails={userDetails}/>}/>
+              <Route path={`${match.url}/resolve`} render={props => <Resolve {...props} userDetails={userDetails}/>}/>
+              <Redirect from="/profile" to="/profile/activity"/>
+
+            </Switch>
           </div>
         </div>
       </div>
