@@ -10,9 +10,10 @@ exports.saveBuzz = function (buzzDetails,res) {
   })
 };
 
-exports.getBuzz=(res)=>{
+exports.getBuzz=(offset,res)=>{
+ // console.log(offset,">>>service")
   return new Promise((resolve,reject)=>{
-    Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
+    Buzz.find({},null,{sort:{'postCreated':-1},limit:10,skip:offset},(err,data) =>{
       if(err){
         reject({error:err})
       }else{
@@ -31,13 +32,19 @@ exports.deleteBuzz = function (buzzDetails,res) {
       Buzz.remove({'_id':buzzId},(err,data) =>{
         if(err) res.send({error:err});
         else{
-          res.send(data);
+          Buzz.find({},null,{sort:{'postCreated':-1}},(err,data)=>{
+            if(err) res.send({error:err});
+            else {
+              res.send(data)
+            }
+          })
         }
       })
     }
   });
 };
 
+/*
 exports.updateBuzz = function (buzzDetails,res) {
 
   Buzz.find({'_id':buzzDetails.buzzid},(err,data)=>{
@@ -60,4 +67,4 @@ exports.updateBuzz = function (buzzDetails,res) {
       })
     }
   })
-};
+};*/

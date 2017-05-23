@@ -21,7 +21,6 @@ import {
 
 import fetch from 'isomorphic-fetch'
 
-
 export const asyncSavePost = (postDetails) =>{
   return(dispatch) =>{
 
@@ -43,7 +42,7 @@ export const asyncSavePost = (postDetails) =>{
 export  const asyncgetBuzz =(offset) =>{
 
   return(dispatch) =>{
-    fetch("http://localhost:4000/buzz`?offset=${offset}`", {
+    fetch(`http://localhost:4000/buzz?offset=${offset}`, {
       credentials: 'include',
       headers: {
         'Accept': 'application/json',

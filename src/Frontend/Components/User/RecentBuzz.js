@@ -50,9 +50,10 @@ class RecentBuzz extends Component {
     window.removeEventListener('scroll', this.onWindowScroll);
   }
 */
-  /*Pagination = () => {
-    this.setState({offset: this.state.offset + 10});
-  };*/
+  Pagination = () => {
+    let Offset = this.props.buzzReducer.offset;
+    this.props.dispatch(asyncgetBuzz(Offset));
+  };
   deleteBuzz = (postDetails) => {
     this.props.dispatch(asyncdeletePost(postDetails));
     this.props.dispatch(asyncdeletefromLike(postDetails));
@@ -116,7 +117,7 @@ class RecentBuzz extends Component {
             </div>
           )):''
         }
-        {/*<button onClick={this.Pagination}>click</button>*/}
+        <button onClick={this.Pagination}>click</button>
       </div>
     )
   }

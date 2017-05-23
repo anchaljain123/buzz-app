@@ -18,12 +18,10 @@ const initialState = {
 export const buzzReducer = (state = initialState, action) => {
 
   switch (action.type) {
-
     case LOADER_STARTED :
       return {
         ...state,
         loading: true,
-
       };
     case SAVE_BUZZ_SUCCESS:
       state.buzz.unshift(action.data);
@@ -43,7 +41,6 @@ export const buzzReducer = (state = initialState, action) => {
       };
 
     case FETCH_BUZZ_SUCCESS: {
-
       return {
         ...state,
         buzz: action.data,
@@ -59,9 +56,9 @@ export const buzzReducer = (state = initialState, action) => {
     }
 
     case DELETE_BUZZ_SUCCESS: {
-
       return {
         ...state,
+        buzz:action.data,
         offset:state.offset-1,
       }
     }
@@ -73,7 +70,5 @@ export const buzzReducer = (state = initialState, action) => {
       }
     }
   }
-
-
   return state
 };

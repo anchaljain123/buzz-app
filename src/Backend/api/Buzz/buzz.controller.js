@@ -11,8 +11,8 @@ exports.saveBuzz = function (req,res,next) {
 };
 
 exports.getBuzz = function (req,res,next) {
-  let offset = parseInt(req.param('offset'));
-  console.log(offset,">>>offset")
+ let offset = parseInt(req.param('offset'));
+
     buzzService.getBuzz(offset,res)
     .then(data=>res.send(data))
       .catch(err=>res.send(err))
@@ -23,6 +23,7 @@ exports.deleteBuzz = function (req,res,next) {
     buzzService.deleteBuzz(buzzDetails,res);
 };
 
+/*
 exports.updateBuzz = function (req,res,next) {
 
     req.on('data',function () {
@@ -32,4 +33,4 @@ exports.updateBuzz = function (req,res,next) {
     req.on('error',function () {
       res.send('error')
     })
-};
+};*/

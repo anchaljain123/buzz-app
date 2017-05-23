@@ -11,7 +11,5 @@ module.exports = (app) =>{
 
     app.delete('/deleteBuzz',buzzController.deleteBuzz);
 
-    app.put('/updateBuzz',buzzController.updateBuzz);
-
 
 };

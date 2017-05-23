@@ -4,15 +4,11 @@
     <list default="true" id="23fd72fb-3490-4cd0-b6ad-91b0260525f7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js" afterPath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js" afterPath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js" afterPath="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/api/Likes/like.service.js" afterPath="$PROJECT_DIR$/src/Backend/api/Likes/like.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/Profile/index.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/Profile/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzzRow.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzzRow.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js" afterPath="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/like.asyncaction.js" afterPath="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/like.asyncaction.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" afterPath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/like.reducer.js" afterPath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/like.reducer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,49 +26,29 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="buzz.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <folding>
+                <element signature="e#91#358#0" expanded="false" />
+                <element signature="e#601#683#0" expanded="false" />
+                <element signature="e#686#893#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RecentBuzz.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="-717">
+              <caret line="53" column="47" lean-forward="false" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
               <folding>
                 <element signature="e#508#904#0" expanded="false" />
                 <element signature="e#1213#1310#0" expanded="false" />
-                <element signature="e#1313#1395#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buzz.asyncaction.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="e#368#680#0" expanded="false" />
-                <element signature="e#1178#1592#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buzz.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buzz.route.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -80,23 +56,35 @@
       <file leaf-file-name="buzz.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <state relative-caret-position="504">
+              <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
               <folding>
                 <element signature="e#85#212#0" expanded="false" />
-                <element signature="e#494#810#0" expanded="false" />
-                <element signature="e#861#1335#0" expanded="false" />
+                <element signature="e#1038#1566#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buzz.reducer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="buzz.reducer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+            <state relative-caret-position="594">
+              <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buzz.asyncaction.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#191#0" expanded="true" />
+                <element signature="e#1175#1589#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>savePost</find>
       <find>asyncsaveHitCount</find>
       <find>setState</find>
       <find>deletePost</find>
@@ -144,6 +131,7 @@
       <find>console.log(acti</find>
       <find>1</find>
       <find>asyncgetBuzz</find>
+      <find>//updateBuzz</find>
     </findStrings>
     <replaceStrings>
       <replace>,</replace>
@@ -205,16 +193,16 @@
         <option value="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/user.reducer.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Auth/index.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Profile/index.js" />
-        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzzRow.js" />
         <option value="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/like.asyncaction.js" />
         <option value="$PROJECT_DIR$/src/Backend/api/Likes/like.service.js" />
         <option value="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/like.reducer.js" />
+        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
+        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js" />
+        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js" />
         <option value="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" />
         <option value="$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js" />
-        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js" />
-        <option value="$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js" />
       </list>
     </option>
   </component>
@@ -1263,12 +1251,12 @@
       <workItem from="1495428100460" duration="22647000" />
       <workItem from="1495462957570" duration="8087000" />
       <workItem from="1495496728871" duration="6886000" />
-      <workItem from="1495514184402" duration="6041000" />
+      <workItem from="1495514184402" duration="9210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="425353000" />
+    <option name="totallyTimeSpent" value="428522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="-6" width="1313" height="774" extended-state="6" />
@@ -1344,7 +1332,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="51" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1686,7 +1674,7 @@
         <state relative-caret-position="18">
           <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding>
-            <element signature="e#0#191#0" expanded="true" />
+            <element signature="e#0#191#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1695,34 +1683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1340">
           <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/config/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="e#85#212#0" expanded="false" />
-            <element signature="e#494#810#0" expanded="false" />
-            <element signature="e#861#1335#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1737,39 +1697,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state relative-caret-position="198">
+          <caret line="11" column="56" lean-forward="false" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
+    <entry file="file://$PROJECT_DIR$/src/Frontend/config/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="195">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding>
-            <element signature="e#508#904#0" expanded="false" />
-            <element signature="e#1213#1310#0" expanded="false" />
-            <element signature="e#1313#1395#0" expanded="false" />
+            <element signature="e#91#358#0" expanded="false" />
+            <element signature="e#601#683#0" expanded="false" />
+            <element signature="e#686#893#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Frontend/actions/component.asyncactions/buzz.asyncaction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="486">
+          <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="55" />
           <folding>
-            <element signature="e#368#680#0" expanded="false" />
-            <element signature="e#1178#1592#0" expanded="false" />
+            <element signature="e#0#191#0" expanded="true" />
+            <element signature="e#1175#1589#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.controller.js">
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="-717">
+          <caret line="53" column="47" lean-forward="false" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+          <folding>
+            <element signature="e#508#904#0" expanded="false" />
+            <element signature="e#1213#1310#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/api/Buzz/buzz.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="e#85#212#0" expanded="false" />
+            <element signature="e#1038#1566#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
           <folding />
         </state>
       </provider>
