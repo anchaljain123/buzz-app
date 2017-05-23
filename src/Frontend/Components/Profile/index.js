@@ -8,6 +8,7 @@ import Complaints from '../User/Category/Complaints';
 import {asyncgetCurrentUser, asyncLogout} from '../../actions';
 import Navbar from './Navbar'
 import Auth from '../Auth'
+import isAuth from '../isAuthenticated'
 import Resolve from '../User/Category/Buzz/Resolve'
 import '../Assets/Styling/logo.css'
 import '../Assets/Styling/profile.css'
@@ -17,15 +18,9 @@ class Profile extends Component {
     super(props);
     this.state = {
       img: '',
-     // isAuthenticated: false,
     }
   }
 
-  componentWillMount() {
-    this.props.dispatch(asyncgetCurrentUser());
-    //console.log(this.props.userReducers.loading, "<<<<<<<===<<");
-   // console.log(this.props.userReducers.users, ">>>>>>>>>====>>")
-  }
 
   /*
    export default (isAuthRoute) => (NewComponent) => {
@@ -70,7 +65,6 @@ class Profile extends Component {
   render() {
     let userDetails = this.props.userReducers.users;
     let {loading} = this.props.userReducers;
-    const {match} = this.props;
     return (
       <div className="mainbody container-fluid">
         <div className="row">
@@ -88,7 +82,7 @@ class Profile extends Component {
                 <ul className="nav navbar-nav navbar-right">
                   <li className="dropdown"><a href="#" className="dropdown-toggle" data-toggle="dropdown">
                     {
-                      userDetails.map((item, i) => {
+                      userDetails && userDetails.map((item, i) => {
                         return (
                           <span key={i}>
                             <span className="user-avatar pull-left" style={{marginRight: '8px', marginTop: '-5px'}}>
@@ -107,7 +101,7 @@ class Profile extends Component {
                       <li>
                         <div className="navbar-content">
                           {
-                            userDetails.map((item, i) => {
+                            userDetails && userDetails.map((item, i) => {
                               return (
                                 <div className="row" key={i}>
                                   <div className="col-md-5">
@@ -149,7 +143,7 @@ class Profile extends Component {
               <div className="panel-body">
                 <div className="media">
                   {
-                    userDetails.map((item, i) => {
+                    userDetails && userDetails.map((item, i) => {
                       return (
                         <div key={i}>
                           <img src={item.profile.image.url}
@@ -160,12 +154,12 @@ class Profile extends Component {
                           <h1><strong>{item.userName}</strong></h1>
                           <hr/>
                         </div>
-
                       )
                     })
                   }
                   <div className="media-body">
-                    <Navbar userDetails={userDetails}/>
+
+                      <Navbar userDetails={userDetails}/>
 
                   </div>
                 </div>
@@ -184,10 +178,8 @@ class Profile extends Component {
               <Redirect from="/profile" to="/profile/activity"/>
 
             </Switch>*/}
-            { userDetails.length ?
-              <Auth userDetails={userDetails} match={match} loading={loading}
-              /> :
-              <div></div>
+            {userDetails.length?
+              <Auth userDetails={userDetails} match={this.props.match} loading={loading}/> :''
             }
           </div>
         </div>
@@ -196,5 +188,5 @@ class Profile extends Component {
   }
 }
 
-const ProfileContainer = connect(state => state)(Profile);
-export default ProfileContainer;
+
+export default connect(state => state)(isAuth(Profile));

@@ -22,7 +22,7 @@ class Auth extends Component {
     }
     else {
       this.setState({
-        isAuth: true
+        isAuth: false
       })
     }
   }
@@ -30,9 +30,10 @@ class Auth extends Component {
   render() {
     let {match} = this.props;
     let {userDetails} = this.props;
-
+    console.log(userDetails,"====>")
     return (
       <div>
+
        {/* {
           this.props.loading === false ?
             this.state.isAuth ? //user exists
@@ -67,7 +68,7 @@ class Auth extends Component {
               <Redirect from="/profile" to="/profile/activity"/>
             </Switch>
             :
-            <Redirect to="/"/>
+            ''
         }
 
       </div>
