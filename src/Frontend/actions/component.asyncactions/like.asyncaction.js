@@ -46,7 +46,6 @@ export  const asyncgetLikes =() =>{
       .then(res=>res.json())
       .then(data=> {
         dispatch(asyncgetLikeSuccess(data));
-        dispatch(asyncgetBuzz());
       })
       .catch(err=>{
         dispatch(asyncgetLikeFailed(err))
@@ -70,7 +69,6 @@ export const asyncsaveLike = (hitDetails) =>{
         dispatch(asyncLikeBuzzSuccess(data));
         dispatch(asyncgetLikes());
         dispatch(asyncgetDislikes());
-        dispatch(asyncgetBuzz())
       })
       .catch(err=>{
         dispatch(asyncLikeBuzzFailed(err))
@@ -94,7 +92,6 @@ export const asyncsaveDislike = (disLikeDetails) =>{
         dispatch(asyncdisLikeBuzzSuccess(data));
         dispatch(asyncgetLikes());
         dispatch(asyncgetDislikes());
-        dispatch(asyncgetBuzz());
       })
       .catch(err=>{
         dispatch(asyncdisLikeBuzzFailed(err))
@@ -114,7 +111,6 @@ export  const asyncgetDislikes =() =>{
       .then(res=>res.json())
       .then(data=> {
         dispatch(asyncgetdisLikeSuccess(data));
-        dispatch(asyncgetBuzz());
       })
       .catch(err=>{
         dispatch(asyncgetdisLikeFailed(err))

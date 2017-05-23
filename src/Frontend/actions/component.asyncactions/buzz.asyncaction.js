@@ -22,7 +22,6 @@ import {
 import fetch from 'isomorphic-fetch'
 
 
-
 export const asyncSavePost = (postDetails) =>{
   return(dispatch) =>{
 
@@ -34,7 +33,6 @@ export const asyncSavePost = (postDetails) =>{
       .then(res => res.json())
       .then(data => {
         dispatch(asyncSaveSuccess(data));
-        dispatch(asyncgetBuzz());
       })
       .catch(err => {
         dispatch(asyncSaveFailed(err));
@@ -42,9 +40,10 @@ export const asyncSavePost = (postDetails) =>{
   }
 };
 
-export  const asyncgetBuzz =() =>{
+export  const asyncgetBuzz =(offset) =>{
+
   return(dispatch) =>{
-    fetch(fetchBuzzURI, {
+    fetch("http://localhost:4000/buzz`?offset=${offset}`", {
       credentials: 'include',
       headers: {
         'Accept': 'application/json',
@@ -74,7 +73,7 @@ export const asyncdeletePost = (postDetails) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncDeleteSuccess(data));
-        dispatch(asyncgetBuzz());
+
       })
       .catch(err => {
         dispatch(asyncDeleteFailed(err));

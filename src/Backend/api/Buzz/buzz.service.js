@@ -32,7 +32,6 @@ exports.deleteBuzz = function (buzzDetails,res) {
         if(err) res.send({error:err});
         else{
           res.send(data);
-          //getBuzz();
         }
       })
     }

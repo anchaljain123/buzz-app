@@ -13,6 +13,7 @@ import {
 const initialState = {
   likes: [],
   isliked: false,
+
 };
 
 export const likeReducer = (state = initialState, action) => {

@@ -188,7 +188,7 @@ class Profile extends Component {
             { userDetails.length ?
               <Auth userDetails={userDetails} match={match} loading={loading}
               /> :
-              <div>Loading</div>
+              <div></div>
             }
           </div>
         </div>

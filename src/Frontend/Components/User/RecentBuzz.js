@@ -37,9 +37,10 @@ class RecentBuzz extends Component {
     }
   };*/
   componentWillMount() {
-   // this.props.dispatch(asyncgetBuzz(this.state.offset));
-   // this.props.dispatch(asyncgetCurrentUser());
-    this.props.dispatch(asyncgetBuzz())
+
+    let Offset = this.props.buzzReducer.offset;
+
+    this.props.dispatch(asyncgetBuzz(Offset));
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
     //window.addEventListener('scroll', this.onWindowScroll);
@@ -92,6 +93,7 @@ class RecentBuzz extends Component {
     let {buzz} = this.props.buzzReducer;
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
+
     let userDetails = this.props.userReducers.users;
     return(
       <div>

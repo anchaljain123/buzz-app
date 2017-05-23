@@ -6,14 +6,12 @@ import _ from 'lodash'
 class RecentBuzzRow extends Component {
   constructor(props) {
     super(props);
-    console.log(">>>recentbuzzrowprops",this.props);
     this.state = {
       post: this.props.buzzData,
       userId: this.props.buzzData.userDetails.id, //currentuser who posted
       currentId: this.props.userDetails[0].id, // loggedin user
     }
   }
-
   deletePost = () => {
     this.props.deleteBuzz(this.state);
     //deletefromlikedb & imgfolder& comment
@@ -48,7 +46,6 @@ class RecentBuzzRow extends Component {
   };
 
   render() {
-    console.log('>>>>>>>>>>>>>>>>',this.props.userDetails[0])
     const {buzzData} = this.props;
     const {likeData} = this.props;
     const {dislikeData} = this.props;

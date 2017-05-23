@@ -12,6 +12,7 @@ import {
 const initialState = {
   buzz: [],
   loading: '',
+  offset:0,
 };
 
 export const buzzReducer = (state = initialState, action) => {
@@ -25,8 +26,11 @@ export const buzzReducer = (state = initialState, action) => {
 
       };
     case SAVE_BUZZ_SUCCESS:
+      state.buzz.unshift(action.data);
+      let newBuzz = state.buzz;
       return {
         ...state,
+        buzz:newBuzz,
         loading: false,
       };
 
@@ -35,6 +39,7 @@ export const buzzReducer = (state = initialState, action) => {
         ...state,
         err: action.err,
         loading: false,
+        offset:state.offset+1,
       };
 
     case FETCH_BUZZ_SUCCESS: {
@@ -42,19 +47,22 @@ export const buzzReducer = (state = initialState, action) => {
       return {
         ...state,
         buzz: action.data,
+        offset:state.offset+10,
       }
     }
 
     case FETCH_BUZZ_FAILED: {
       return {
         ...state,
-        err: action.err
+        err: action.err,
       }
     }
 
     case DELETE_BUZZ_SUCCESS: {
+
       return {
         ...state,
+        offset:state.offset-1,
       }
     }
 
