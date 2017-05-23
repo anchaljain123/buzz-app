@@ -54,7 +54,6 @@ class Auth extends Component {
             :
             <div>Loading....</div>//if not loaded
         }*/}
-
         {
           this.state.isAuth?
             <Switch>

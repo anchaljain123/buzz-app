@@ -11,7 +11,6 @@ class Complaint extends Component {
   }
 
   render() {
-    console.log(">>>>comp", this.props.userDetails);
     return (
       <div className="">
         <ul className="nav nav-tabs">

@@ -24,8 +24,6 @@ class Activity extends Component{
     };
     render(){
         let { loading } = this.props.buzzReducer;
-        console.log(this.props,"activityprops");
-
         return(
             <div>
               {

@@ -1,7 +1,7 @@
 
 export const fetchURI = 'http://localhost:4000/user';
 export const fetchCurrentUserURI = 'http://localhost:4000/currentUser';
-export const fetchBuzzURI = "http://localhost:4000/buzz";
+export const fetchBuzzURI = "http://localhost:4000/lostnfoundbuzz";
 export const fetchComplaintsURI = "http://localhost:4000/complaints";
 export const hitBuzzURI = "http://localhost:4000/saveLike";
 export const saveComplainURI = "http://localhost:4000/saveComplain";
@@ -20,6 +20,8 @@ export const deletefromCommentURI = "http://localhost:4000/deleteComments";
 
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const LOADER_STARTED = "LOADER_STARTED";
+export const FETCH_LOSTNFOUND_FAILED = "FETCH_LOSTNFOUND_FAILED";
+export const FETCH_LOSTNFOUND_SUCCESS = "FETCH_LOSTNFOUND_SUCCESS";
 export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED';
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED';
 export const FETCH_USER_SUCCESS ="FETCH_USER_SUCCESS";

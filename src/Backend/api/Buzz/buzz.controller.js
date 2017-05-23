@@ -34,3 +34,7 @@ exports.updateBuzz = function (req,res,next) {
       res.send('error')
     })
 };*/
+
+exports.getlostnfoundBuzz = (req,res,next) => {
+  buzzService.getlostnfoundBuzz(res);
+};

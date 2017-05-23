@@ -10,6 +10,9 @@ import {
   asyncDeleteFailed,
 
   asyncStarted,
+  asynclostnfoundBuzzSuccess,
+  asyncBuzzlostnfoundFailed,
+
 } from '../component.actions/buzz.action'
 
 import {
@@ -55,6 +58,25 @@ export  const asyncgetBuzz =(offset) =>{
       })
       .catch(err=>{
         dispatch(asyncBuzzFailed(err))
+      })
+  }
+};
+
+export const asyncgetLostnFoundBuzz = () => {
+  return (dispatch)=>{
+    fetch(fetchBuzzURI, {
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res=>res.json())
+      .then(data=> {
+        dispatch(asynclostnfoundBuzzSuccess(data))
+      })
+      .catch(err=>{
+        dispatch(asyncBuzzlostnfoundFailed(err))
       })
   }
 };

@@ -22,10 +22,10 @@ class Showcomment extends Component {
                   <img
                     className="media-object img-circle"
                     src={item.userDetails.img}
-                    width="50px" height="50px"
-                    style={{marginRight: '8px', marginTop: '4px'}}
+                    width="40px" height="40px"
+                    style={{marginRight: '8px', marginTop: '4px',display:'inline-block'}}
                   />
-                  <h3 key={item._id}>{item.userDetails.userName} : {item.comment}</h3>
+                  <h4 key={item._id} style={{display:'inline-block'}} >{item.userDetails.userName} : {item.comment}</h4>
                   <div className="pull-right">
                     {
                       (item.userDetails.userid == this.props.rowData.currentId) ?

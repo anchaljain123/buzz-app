@@ -6,7 +6,8 @@ export {
 export {
   asyncgetBuzz,
   asyncSavePost,
-  asyncdeletePost
+  asyncdeletePost,
+  asyncgetLostnFoundBuzz,
 } from './component.asyncactions/buzz.asyncaction'
 
 export {

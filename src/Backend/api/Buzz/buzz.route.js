@@ -1,13 +1,14 @@
 const buzzController = require('./buzz.controller');
-//const path = require('path');
-var multer  = require('multer');
-var upload = multer({ dest: 'files/' });
+const multer  = require('multer');
+const upload = multer({ dest: 'files/' });
 
 module.exports = (app) =>{
 
     app.post('/saveBuzz',upload.single('img'), buzzController.saveBuzz);
 
     app.get('/buzz',buzzController.getBuzz);
+
+    app.get('/lostnfoundbuzz',buzzController.getlostnfoundBuzz);
 
     app.delete('/deleteBuzz',buzzController.deleteBuzz);
 

@@ -54,6 +54,7 @@ class ComplaintForm extends Component {
       userDetails: userObject,
       // img:imageState,
     };
+    if(this.state.category && (this.state.description ||this.state.title) )
     this.props.dispatch(asyncSaveComplaint(ComplainInfo));
     this.setState({
       description: "",
@@ -96,7 +97,8 @@ class ComplaintForm extends Component {
               <option value="others">Other</option>
             </select>
           </div>
-          {/*                                  <div className="form-group">>
+          {/*
+          <div className="form-group">>
            <form encType="multipart/form-data" id="myform">
            <input  type="file" name="sampleFile" onBlur={(e)=>this.saveimg} />
            </form>

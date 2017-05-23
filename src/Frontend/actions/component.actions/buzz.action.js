@@ -7,8 +7,8 @@ import {
   DELETE_BUZZ_FAILED,
   DELETE_BUZZ_SUCCESS,
   LOADER_STARTED,
-
-
+  FETCH_LOSTNFOUND_FAILED,
+  FETCH_LOSTNFOUND_SUCCESS,
 } from '../../config/constants'
 
 export const asyncStarted = () =>{
@@ -53,3 +53,14 @@ export const asyncDeleteSuccess = (data) => {
   }
 };
 
+export const asyncBuzzlostnfoundFailed =(err) =>{
+  return{
+    type:FETCH_LOSTNFOUND_FAILED,err
+  }
+};
+
+export const asynclostnfoundBuzzSuccess = (data) => {
+  return{
+    type:FETCH_LOSTNFOUND_SUCCESS,data
+  }
+};

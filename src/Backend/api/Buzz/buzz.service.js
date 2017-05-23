@@ -68,3 +68,14 @@ exports.updateBuzz = function (buzzDetails,res) {
     }
   })
 };*/
+
+
+exports.getlostnfoundBuzz = (res)=>{
+  Buzz.find({'category':'lostnfound'},null,{sort:{'postCreated':-1}},(err,data) =>{
+    if(err){
+      res.send({error:err})
+    }else{
+      res.send(data)
+    }
+  })
+};

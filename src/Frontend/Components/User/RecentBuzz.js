@@ -39,7 +39,7 @@ class RecentBuzz extends Component {
   componentWillMount() {
 
     let Offset = this.props.buzzReducer.offset;
-
+    //alert(Offset)
     this.props.dispatch(asyncgetBuzz(Offset));
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
@@ -87,6 +87,7 @@ class RecentBuzz extends Component {
       content: commentState.comment,
       userimage: this.props.userDetails[0].profile.image.url,
     };
+    if(commentState.comment)
     this.props.dispatch(asyncsaveComment(commentDetails));
   };
 
@@ -94,7 +95,6 @@ class RecentBuzz extends Component {
     let {buzz} = this.props.buzzReducer;
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
-
     let userDetails = this.props.userReducers.users;
     return(
       <div>

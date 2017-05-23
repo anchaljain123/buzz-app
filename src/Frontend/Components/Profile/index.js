@@ -70,7 +70,6 @@ class Profile extends Component {
   render() {
     let userDetails = this.props.userReducers.users;
     let {loading} = this.props.userReducers;
-    console.log(this.props.userReducers, ".profile", loading, ".loader");
     const {match} = this.props;
     return (
       <div className="mainbody container-fluid">

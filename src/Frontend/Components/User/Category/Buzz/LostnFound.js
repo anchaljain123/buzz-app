@@ -1,28 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {asyncgetBuzz} from '../../../../actions'
+import {asyncgetLostnFoundBuzz} from '../../../../actions'
 
 class LostnFound extends Component {
   constructor(props) {
     super(props)
   }
-
   componentWillMount() {
-    this.props.dispatch(asyncgetBuzz());
+    this.props.dispatch(asyncgetLostnFoundBuzz());
   }
 
   render() {
-
-    let {buzz} = this.props.buzzReducer;
-    let tempArray = [];
-    for (let j = 0; j <= buzz.length - 1; j++) {
-      tempArray.push(buzz[j])
-    }
+    let {lostnfound} = this.props.buzzReducer;
     return (
       <div>
-
         {
-          tempArray.map((item, i) => {
+          lostnfound.map((item, i) => {
             if (item.category == "lostnfound")
               return (
                 <div className="panel panel-default" key={i}>
@@ -57,15 +50,11 @@ class LostnFound extends Component {
                 </div>
               )
           })
-
         }
-
       </div>
     )
   }
 }
-
-
 const mapToState = state => state;
 const LostnFoundbuzzContainer = connect(mapToState)(LostnFound);
 
