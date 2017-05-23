@@ -29,5 +29,6 @@ export {
   asyncgetComplaints,
   asyncSaveComplaint,
   asyncCloseComplaint,
-  asyncResolveComplaint
+  asyncResolveComplaint,
+  asyncinProcessComplaint,
 } from './component.asyncactions/complaint.asyncaction'

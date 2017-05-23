@@ -17,6 +17,7 @@ export const fetchdisLikeURI = "http://localhost:4000/getDislikes";
 export const resolveComplaintURI = "http://localhost:4000/resolveComplaint";
 export const deleteLikeURI = "http://localhost:4000/deleteLike";
 export const deletefromCommentURI = "http://localhost:4000/deleteComments";
+export const inprocessComplaintURI = "http://localhost:4000/inprocessComplaint";
 
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const LOADER_STARTED = "LOADER_STARTED";
@@ -56,3 +57,5 @@ export const RESOLVE_COMPLAINT_FAILED = "RESOLVE_COMPLAINT_FAILED";
 export const RESOLVE_COMPLAINT_SUCCESS = "RESOLVE_COMPLAINT_SUCCESS";
 export const DELETE_COMMENT_SUCCESS = "DELETE_COMMENT_SUCCESS";
 export const DELETE_COMMENT_FAILED = "DELETE_COMMENT_FAILED";
+export const INPROCESS_COMPLAINT_SUCCESS = "INPROCESS_COMPLAINT_SUCCESS";
+export const INPROCESS_COMPLAINT_FAILED = "INPROCESS_COMPLAINT_FAILED";

@@ -10,4 +10,6 @@ module.exports  = (app) =>{
 
     app.put('/resolveComplaint',complaintController.resolveComplain);
 
+    app.put('/inprocessComplaint',complaintController.inprocessComplain);
+
 };

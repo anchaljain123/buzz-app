@@ -23,3 +23,8 @@ exports.resolveComplain = (req,res,next) => {
   const complainID = req.body;
   complaintService.resolveComplain(complainID,res)
 };
+
+exports.inprocessComplain = (req,res,next) =>{
+  const complainID = req.body;
+  complaintService.inprocessComplain(complainID,res)
+};

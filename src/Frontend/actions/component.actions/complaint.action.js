@@ -11,6 +11,8 @@ import {
   RESOLVE_COMPLAINT_SUCCESS,
   RESOLVE_COMPLAINT_FAILED,
 
+  INPROCESS_COMPLAINT_FAILED,
+  INPROCESS_COMPLAINT_SUCCESS,
 
 } from '../../config/constants'
 
@@ -39,8 +41,6 @@ export const asyncComplaintsSuccess = (data) =>{
   }
 };
 
-
-
 export const asyncDeleteComplaintFailed = (err) =>{
   return{
     type:DELETE_COMPLAINT_FAILED,err
@@ -63,5 +63,17 @@ export const asyncResolveComplaintFailed = (err) =>{
 
   return{
     type:RESOLVE_COMPLAINT_FAILED,err
+  }
+};
+
+export const asyncInprocessComplaintFailed = (err) =>{
+  return{
+    type:INPROCESS_COMPLAINT_FAILED,err
+  }
+};
+
+export const asyncInprocessComplaintSuccess = (data)=>{
+  return{
+    type:INPROCESS_COMPLAINT_SUCCESS,data
   }
 };

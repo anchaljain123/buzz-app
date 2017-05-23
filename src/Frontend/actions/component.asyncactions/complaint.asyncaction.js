@@ -12,7 +12,8 @@ import {
   asyncResolveComplaintSuccess,
   asyncResolveComplaintFailed,
 
-
+  asyncInprocessComplaintSuccess,
+  asyncInprocessComplaintFailed
 
 } from '../component.actions/complaint.action'
 
@@ -26,7 +27,7 @@ import {
   fetchComplaintsURI,
   deleteComplaintURI,
   resolveComplaintURI,
-
+  inprocessComplaintURI,
 
 } from '../../config/constants'
 
@@ -73,9 +74,6 @@ export  const asyncgetComplaints =() =>{
   }
 };
 
-
-
-
 export const asyncCloseComplaint = (complaintId) => {
   return(dispatch) =>{
     fetch(deleteComplaintURI,{
@@ -116,6 +114,28 @@ export const asyncResolveComplaint = (complaintId) => {
       })
       .catch(err => {
         dispatch(asyncResolveComplaintFailed(err));
+      })
+  }
+};
+
+export const asyncinProcessComplaint = (complaintId) => {
+  return(dispatch) =>{
+    fetch(inprocessComplaintURI,{
+      method:'put',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(complaintId),
+    })
+      .then(res => res.json())
+      .then(data => {
+        dispatch(asyncInprocessComplaintSuccess(data));
+        dispatch(asyncgetComplaints());
+
+      })
+      .catch(err => {
+        dispatch(asyncInprocessComplaintFailed(err));
       })
   }
 };

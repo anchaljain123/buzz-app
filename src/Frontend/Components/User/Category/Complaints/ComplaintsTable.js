@@ -1,7 +1,12 @@
 import React,{ Component } from 'react'
 import ComplaintsRow from './ComplaintsRow'
 import { connect } from 'react-redux'
-import { asyncgetComplaints,asyncCloseComplaint,asyncResolveComplaint } from  '../../../../actions'
+import {
+  asyncgetComplaints,
+  asyncCloseComplaint,
+  asyncResolveComplaint,
+  asyncinProcessComplaint
+} from  '../../../../actions'
 
 class ComplaintsTable extends Component{
   constructor(){
@@ -20,13 +25,28 @@ class ComplaintsTable extends Component{
   };
 
   resolveComplain = (complainRefID) =>{
-
     let complainData = {
       id:complainRefID
     };
     this.props.dispatch(asyncResolveComplaint(complainData));
   };
 
+  inprocessComplain = (complainRefID) =>{
+    let complainData = {id:complainRefID};
+    this.props.dispatch(asyncinProcessComplaint(complainData));
+  };
+
+  updateCategory = (categoryState,complainID) => {
+    if(categoryState === 'resolve'){
+      this.resolveComplain(complainID)
+    }
+    if(categoryState === 'close'){
+      this.closeComplain(complainID)
+    }
+    else
+      this.inprocessComplain(complainID)
+
+  };
   render(){
     let { userDetails } = this.props;
     let { complaints } = this.props.complaintReducer;
@@ -64,10 +84,12 @@ class ComplaintsTable extends Component{
 
                   complaints.map(item => {
                       if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
-                        return <ComplaintsRow item={item} closeComplain={this.closeComplain}
-                                              userDetails={this.props.userDetails} />
+                        return <ComplaintsRow item={item} updateCategory={this.updateCategory}
+                                              userDetails={this.props.userDetails}
+                        />
                       else if((userDetails) && (userDetails[0].role == 'Admin'))
-                        return <ComplaintsRow item={item} resolveComplain={this.resolveComplain}
+                        return <ComplaintsRow item={item}
+                                              updateCategory={this.updateCategory}
                                               userDetails={this.props.userDetails} />
                     }
                   )

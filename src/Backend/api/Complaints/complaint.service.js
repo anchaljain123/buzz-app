@@ -47,3 +47,14 @@ exports.resolveComplain = (complainID,res) => {
     }
   })
 };
+
+exports.inprocessComplain = (complainID,res) => {
+  Complain.update({'_id':complainID.id},{$set:{'status':'Inprocess'}},(err,data)=>{
+    if(err){
+      res.send({msg:err});
+    }
+    else{
+      res.send(data)
+    }
+  })
+};

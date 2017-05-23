@@ -7,6 +7,8 @@ import {
   DELETE_COMPLAINT_SUCCESS,
   RESOLVE_COMPLAINT_FAILED,
   RESOLVE_COMPLAINT_SUCCESS,
+  INPROCESS_COMPLAINT_FAILED,
+  INPROCESS_COMPLAINT_SUCCESS,
 
 } from '../../config/constants'
 
@@ -61,6 +63,18 @@ export const complaintReducer = (state = initialState,action) =>{
         ...state
       }
     }
+    case INPROCESS_COMPLAINT_SUCCESS:{
+      return{
+        ...state
+      }
+    }
+    case INPROCESS_COMPLAINT_FAILED:{
+      return{
+        ...state,
+        err:action.err
+      }
+    }
+
   }
   return state;
 };
