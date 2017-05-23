@@ -3,7 +3,7 @@ import '../Assets/Styling/style2.css'
 import '../Assets/Styling/demo.css'
 import gplus from '../Assets/images/gplus.jpg'
 
-const LandingPg = () =>{
+const LandingPg = (props) =>{
     return(
         <div>
             <ul className="cb-slideshow">

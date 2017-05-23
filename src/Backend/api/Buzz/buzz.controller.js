@@ -11,6 +11,8 @@ exports.saveBuzz = function (req,res,next) {
 };
 
 exports.getBuzz = function (req,res,next) {
+/*  let offset = req.param('offsetVal');
+  console.log(offset,">>>>>>")*/
     buzzService.getBuzz(res)
     .then(data=>res.send(data))
       .catch(err=>res.send(err))

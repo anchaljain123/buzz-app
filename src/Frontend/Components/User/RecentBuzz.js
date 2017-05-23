@@ -37,8 +37,9 @@ class RecentBuzz extends Component {
     }
   };*/
   componentWillMount() {
-    this.props.dispatch(asyncgetBuzz());
+   // this.props.dispatch(asyncgetBuzz(this.state.offset));
    // this.props.dispatch(asyncgetCurrentUser());
+    this.props.dispatch(asyncgetBuzz())
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
     //window.addEventListener('scroll', this.onWindowScroll);
@@ -48,23 +49,15 @@ class RecentBuzz extends Component {
     window.removeEventListener('scroll', this.onWindowScroll);
   }
 */
+  /*Pagination = () => {
+    this.setState({offset: this.state.offset + 10});
+  };*/
   deleteBuzz = (postDetails) => {
     this.props.dispatch(asyncdeletePost(postDetails));
     this.props.dispatch(asyncdeletefromLike(postDetails));
     this.props.dispatch(asyncdeletefromComment(postDetails))
   };
-/*
-  getState = () => {
-    return{
-      userName: this.props.userDetails[0].userName,
-      buzzid: hitState.buzzid,
-      uid: hitState.currentId,
-    };
-
-  };*/
   hitLike = (hitState) => {
-
-    console.log(this.props.userDetails[0],"===like")
     let likeDetails = {
       userName: this.props.userDetails[0].userName,
       buzzid: hitState.buzzid,
@@ -75,8 +68,6 @@ class RecentBuzz extends Component {
 
   };
   hitdisLike = (disLikeState) => {
-
-    console.log(this.props.userDetails[0],"===dislikes")
     let dislikeDetails = {
       userName: this.props.userDetails[0].userName,
       buzzid: disLikeState.buzzid,
@@ -87,7 +78,6 @@ class RecentBuzz extends Component {
   };
 
   saveComment = (commentState) => {
-    console.log(this.props.userReducers.users,"===savecmnt")
     let commentDetails = {
       userName: this.props.userDetails[0].userName,
       buzzid: commentState.buzzid,
@@ -103,7 +93,6 @@ class RecentBuzz extends Component {
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
     let userDetails = this.props.userReducers.users;
-    console.log(">>>>>>>>>>>recentbuzzprops",this.props);
     return(
       <div>
         {
@@ -125,6 +114,7 @@ class RecentBuzz extends Component {
             </div>
           )):''
         }
+        {/*<button onClick={this.Pagination}>click</button>*/}
       </div>
     )
   }

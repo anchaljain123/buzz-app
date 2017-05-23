@@ -7,26 +7,70 @@ import Logout from '../Logout'
 import Complaints from '../User/Category/Complaints';
 import {asyncgetCurrentUser, asyncLogout} from '../../actions';
 import Navbar from './Navbar'
+import Auth from '../Auth'
 import Resolve from '../User/Category/Buzz/Resolve'
 import '../Assets/Styling/logo.css'
 import '../Assets/Styling/profile.css'
 import '../Assets/Styling/colors.css'
-
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       img: '',
+     // isAuthenticated: false,
     }
   }
 
   componentWillMount() {
     this.props.dispatch(asyncgetCurrentUser());
+    //console.log(this.props.userReducers.loading, "<<<<<<<===<<");
+   // console.log(this.props.userReducers.users, ">>>>>>>>>====>>")
   }
+
+  /*
+   export default (isAuthRoute) => (NewComponent) => {
+   class Auth extends React.Component {
+   render() {
+   const { props } = this;
+   if (props.sessionCreate.loading) {
+   return <div>loading...</div>
+   }
+   if (isAuthRoute){
+   if(props.sessionCreate.sessionData) {
+   return <NewComponent {...this.props} />
+   } else {
+   return <Redirect to="/"/>
+   }
+   }else if(props.sessionCreate.sessionData) {
+   return <Redirect to='/home'/>
+   } else {
+   return <NewComponent {...this.props}/>
+   }
+   }
+   }
+   const mapStateToProps = state => {
+   return state;
+   };
+   return connect(mapStateToProps)(Auth);
+   }
+   */
+/*  componentWillReceiveProps(newprops) {
+    console.log(newprops.userReducers, "---newprops>>>>>>>>>>");
+    if (!(newprops.userReducers.users.length) && newprops.userReducers.loading === false) {//failed
+      console.log("invaliduser");
+     // this.setState({isAuthenticated: false,});
+      this.props.history.push('/');//no user exists
+    }
+    if (newprops.userReducers.users.length && newprops.userReducers.loading === false) {//success
+      console.log("valid user");
+      //this.setState({isAuthenticated: true,})
+    }
+  }*/
 
   render() {
     let userDetails = this.props.userReducers.users;
-    console.log(this.props, ">>>>>>>>>>>>>>>>>>>>>>profileprops");
+    let {loading} = this.props.userReducers;
+    console.log(this.props.userReducers, ".profile", loading, ".loader");
     const {match} = this.props;
     return (
       <div className="mainbody container-fluid">
@@ -123,27 +167,29 @@ class Profile extends Component {
                   }
                   <div className="media-body">
                     <Navbar userDetails={userDetails}/>
-                    {
-                      !(userDetails.length) && (this.props.userReducers.loading === false)?
-                       this.props.history.push('/') //no user exists
-                        :''
-                    }
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            <Switch>
+{/*            <Switch>
               <Route exact path={`${match.url}/activity`}
                      render={props => <Activity {...props} userDetails={userDetails}/>}/>
               <Route exact path={`${match.url}/lostnfound`} component={LostnFound}/>
               <Route exact path={`${match.url}/complaint`}
                      render={props => <Complaints {...props} userDetails={userDetails}/>}/>
-              <Route path={`${match.url}/resolve`} render={props => <Resolve {...props} userDetails={userDetails}/>}/>
+              <Route path={`${match.url}/resolve`}
+                     render={props => <Resolve {...props} userDetails={userDetails}/>}/>
               <Redirect from="/profile" to="/profile/activity"/>
 
-            </Switch>
+            </Switch>*/}
+            { userDetails.length ?
+              <Auth userDetails={userDetails} match={match} loading={loading}
+              /> :
+              <div>Loading</div>
+            }
           </div>
         </div>
       </div>

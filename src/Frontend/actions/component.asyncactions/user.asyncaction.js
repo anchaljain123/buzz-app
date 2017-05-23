@@ -3,6 +3,7 @@ import {
   asyncFetchFailed,
   asyncCurrentUserSuccess,
   asyncCurrentUserFailed,
+  asyncloaderStarted,
 } from '../component.actions/user.action'
 
 import {
@@ -29,7 +30,8 @@ export const asyncAction = () => { //get users
 
 export  const asyncgetCurrentUser =() =>{
   return(dispatch) =>{
-    fetch(fetchCurrentUserURI, {
+    dispatch(asyncloaderStarted());
+    return fetch(fetchCurrentUserURI, {
       credentials: 'include',
       headers: {
         'Accept': 'application/json',

@@ -4,10 +4,15 @@ import {
   FETCH_USER_SUCCESS,
   FETCH_USER_FAILED,
   LOADER_STARTED,
+  SET_LOADING_TRUE,
 
 } from '../../config/constants'
 
-
+export const asyncloaderStarted = () =>{
+  return{
+    type:SET_LOADING_TRUE
+  }
+};
 export const asyncFetchSuccess = (data) =>{
   return {
     type:FETCH_USERS_SUCCESS,data,

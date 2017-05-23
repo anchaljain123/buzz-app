@@ -6,8 +6,6 @@ import {
   DELETE_BUZZ_FAILED,
   DELETE_BUZZ_SUCCESS,
   LOADER_STARTED,
-  HIT_BUZZ_FAILED,
-  HIT_BUZZ_SUCCESS,
 
 } from '../../config/constants'
 
@@ -66,21 +64,8 @@ export const buzzReducer = (state = initialState, action) => {
         err: action.err,
       }
     }
-    case HIT_BUZZ_FAILED: {
-      return {
-        ...state, err: action.err
-      }
-    }
-
-    case HIT_BUZZ_SUCCESS: {
-      //const buzz = state.buzz.concat(action.data);
-      return {
-        ...state,
-        buzz: action.data
-      }
-    }
   }
 
 
   return state
-}
+};

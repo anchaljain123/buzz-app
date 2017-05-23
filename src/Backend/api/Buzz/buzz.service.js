@@ -10,7 +10,7 @@ exports.saveBuzz = function (buzzDetails,res) {
   })
 };
 
-exports.getBuzz=()=>{
+exports.getBuzz=(res)=>{
   return new Promise((resolve,reject)=>{
     Buzz.find({},null,{sort:{'postCreated':-1}},(err,data) =>{
       if(err){
@@ -31,7 +31,8 @@ exports.deleteBuzz = function (buzzDetails,res) {
       Buzz.remove({'_id':buzzId},(err,data) =>{
         if(err) res.send({error:err});
         else{
-          res.send(data)
+          res.send(data);
+          //getBuzz();
         }
       })
     }
