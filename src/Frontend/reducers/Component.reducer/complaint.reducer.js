@@ -45,7 +45,7 @@ export const complaintReducer = (state = initialState,action) =>{
       }
     }
     case DELETE_COMPLAINT_SUCCESS:{
-      console.log("---reducer",action.data);
+      console.log("---reducer",action.data,'...delete...',state.complaints.length);
       return{
         ...state,
       }
@@ -59,11 +59,13 @@ export const complaintReducer = (state = initialState,action) =>{
     }
 
     case RESOLVE_COMPLAINT_SUCCESS:{
+      console.log(state.complaints,'...resolve..',action.data)
       return{
         ...state
       }
     }
     case INPROCESS_COMPLAINT_SUCCESS:{
+      console.log(state.complaints,'...inprocess..',action.data)
       return{
         ...state
       }

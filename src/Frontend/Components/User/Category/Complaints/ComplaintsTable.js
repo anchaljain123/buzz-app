@@ -17,22 +17,17 @@ class ComplaintsTable extends Component{
   /*  this.props.dispatch(asyncAction())*/
   }
   closeComplain = (complainRefID) =>{
-    let complainData = {
-      id:complainRefID
-    };
+    let complainData = { id: complainRefID };
     this.props.dispatch(asyncCloseComplaint(complainData));
-
   };
 
   resolveComplain = (complainRefID) =>{
-    let complainData = {
-      id:complainRefID
-    };
+    let complainData = { id: complainRefID };
     this.props.dispatch(asyncResolveComplaint(complainData));
   };
 
   inprocessComplain = (complainRefID) =>{
-    let complainData = {id:complainRefID};
+    let complainData = { id: complainRefID };
     this.props.dispatch(asyncinProcessComplaint(complainData));
   };
 
@@ -60,6 +55,7 @@ class ComplaintsTable extends Component{
             <div className="table-responsive">
               {<table className="table table-bordred table-striped">
                 <thead>
+                <th>ReferenceId</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Category</th>

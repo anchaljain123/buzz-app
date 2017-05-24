@@ -117,7 +117,9 @@ class RecentBuzz extends Component {
             </div>
           )):''
         }
-        <button onClick={this.Pagination}>click</button>
+        <button onClick={this.Pagination}  className="glyphicon glyphicon-forward">
+
+        </button>
       </div>
     )
   }

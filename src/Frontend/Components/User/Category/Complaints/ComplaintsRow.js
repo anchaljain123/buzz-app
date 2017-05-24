@@ -1,23 +1,27 @@
 import React from 'react'
-
+import Showdetails from './Showdetails'
 
 class ComplaintsRow extends React.Component {
   constructor() {
     super();
     this.state = {
-      category: 'Pending'
+      category: 'Pending',
+      isClicked: false,
     }
   }
+
   handleChange = (event, key) => {
     this.setState({
-      [key]: event.target.value,
-    },()=>{
-      let {item} = this.props;
-      this.props.updateCategory(this.state.category,item._id)
-    });
-    this.setState({
-      category:'Pending'
-    })
+        [key]: event.target.value,
+      },
+      () => {
+        let {item} = this.props;
+        console.log('>>>>categorystate', this.state.category);
+        this.props.updateCategory(this.state.category, item._id);
+        this.setState({
+          category: 'Pending'
+        })
+      });
   };
 
   render() {
@@ -27,6 +31,9 @@ class ComplaintsRow extends React.Component {
     // let { users } = this.props;
     return (
       <tr key={item._id}>
+        <td><a href="#"  data-toggle="modal" data-target="#myModal" onClick={() => {
+          this.setState({isClicked: true})
+        }}>{item._id}</a></td>
         <td>{item.title}</td>
         <td>{item.description}</td>
         <td>{item.category}</td>
@@ -41,30 +48,20 @@ class ComplaintsRow extends React.Component {
             <td>{item.userDetails.assignedTo}</td> : ""
 
         }
-        {
-          userDetails[0].role == 'Admin' ?
-            <td>
-              {/*<button onClick={(event) => this.props.resolveComplain(item._id)}
-              className="glyphicon glyphicon-remove">
-                Resolve
-              </button>*/}
-              <select name="complaints" value={this.state.category}
-                      onChange={(e) => this.handleChange(e, 'category')}>
-                <option value="inprogress">Inprogress</option>
-                <option value="resolve">Resolve</option>
-                <option value="close">Close</option>
-              </select>
-
-            </td> :
-
-            <td>
+        <td>
           <select name="complaints" value={this.state.category}
-          onChange={(e) =>this.handleChange(e, 'category')}>
-          <option value="inprogress">Inprogress</option>
-          <option value="close">Close</option>
+                  onChange={(e) => this.handleChange(e, 'category')}>
+            <option value="inprogress">Inprogress</option>
+            <option value="close">Close</option>
+            {
+              userDetails[0].role == 'Admin' ?
+                <option value="resolve">Resolve</option> : ''
+            }
           </select>
-          </td>
-
+        </td>
+        {
+          this.state.isClicked ?
+            <Showdetails item={item} userDetails={userDetails}/> : ''
         }
       </tr>
 
