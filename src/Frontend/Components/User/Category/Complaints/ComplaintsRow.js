@@ -1,5 +1,5 @@
 import React from 'react'
-import Showdetails from './Showdetails'
+
 
 class ComplaintsRow extends React.Component {
   constructor() {
@@ -19,9 +19,21 @@ class ComplaintsRow extends React.Component {
         console.log('>>>>categorystate', this.state.category);
         this.props.updateCategory(this.state.category, item._id);
         this.setState({
-          category: 'Pending'
+          category: 'Pending',
+          isClicked: false,
         })
       });
+  };
+  updateState = () =>{
+    let {item} = this.props;
+    this.setState({
+      isClicked: true,
+    },()=>{
+      this.props.updateState(this.state.isClicked,item);
+      this.setState({
+        isClicked: false,
+      })
+    })
   };
 
   render() {
@@ -31,9 +43,8 @@ class ComplaintsRow extends React.Component {
     // let { users } = this.props;
     return (
       <tr key={item._id}>
-        <td><a href="#"  data-toggle="modal" data-target="#myModal" onClick={() => {
-          this.setState({isClicked: true})
-        }}>{item._id}</a></td>
+        <td><a href="#"  data-toggle="modal" data-target="#myModal" onClick={this.updateState}>
+          {item._id}</a></td>
         <td>{item.title}</td>
         <td>{item.description}</td>
         <td>{item.category}</td>
@@ -59,10 +70,6 @@ class ComplaintsRow extends React.Component {
             }
           </select>
         </td>
-        {
-          this.state.isClicked ?
-            <Showdetails item={item} userDetails={userDetails}/> : ''
-        }
       </tr>
 
     )

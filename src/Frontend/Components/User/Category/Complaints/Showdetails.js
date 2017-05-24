@@ -1,13 +1,9 @@
 import React, {Component} from 'react'
 
 export default class Showdetails extends Component {
-  render() {
-    let {item} = this.props;
-    let {userDetails} = this.props;
 
-    const divStyle = {
-      border: '2px solid blue'
-    };
+  render() {
+    let {item, userDetails} = this.props;
 
     return (
 
@@ -20,7 +16,7 @@ export default class Showdetails extends Component {
               <h4 className="modal-title">Complain Details</h4>
             </div>
             <div className="modal-body">
-              {userDetails[0].userName} {item._id}
+              {userDetails[0].userName} -  {item._id} - {item.category}
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

@@ -9,7 +9,7 @@ const Container = () => {
 
   return (
     <div>
-      <Router history={ browserHistory }>
+      <Router history={ browserHistory } onUpdate={() => window.scrollTo(0, 0)} >
         <App/>
       </Router>
     </div>

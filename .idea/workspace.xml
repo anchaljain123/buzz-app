@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23fd72fb-3490-4cd0-b6ad-91b0260525f7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" afterPath="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/Container.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/Container.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js" afterPath="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,15 +32,44 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RecentBuzz.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
+      <file leaf-file-name="ComplaintsTable.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-212">
-              <caret line="95" column="41" lean-forward="false" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
+            <state relative-caret-position="205">
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding>
-                <element signature="e#508#904#0" expanded="false" />
-                <element signature="e#1232#1329#0" expanded="false" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComplaintsRow.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Showdetails.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Container.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Frontend/Components/Container.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="11" column="80" lean-forward="false" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Comment/index.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/Comment/CommentForm.js" />
         <option value="$PROJECT_DIR$/src/Frontend/actions/component.actions/comment.action.js" />
         <option value="$PROJECT_DIR$/src/Frontend/actions/component.actions/like.action.js" />
@@ -162,11 +192,12 @@
         <option value="$PROJECT_DIR$/src/Backend/api/Complaints/complaint.service.js" />
         <option value="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/complaint.reducer.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/Auth/index.js" />
-        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" />
-        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js" />
-        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js" />
         <option value="$PROJECT_DIR$/src/Frontend/reducers/Component.reducer/buzz.reducer.js" />
         <option value="$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js" />
+        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js" />
+        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js" />
+        <option value="$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js" />
+        <option value="$PROJECT_DIR$/src/Frontend/Components/Container.js" />
       </list>
     </option>
   </component>
@@ -232,54 +263,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buzz-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buzz-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reducers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buzz-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buzz-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reducers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Component.reducer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1069,12 +1052,12 @@
       <workItem from="1495496728871" duration="6886000" />
       <workItem from="1495514184402" duration="22367000" />
       <workItem from="1495554032579" duration="3109000" />
-      <workItem from="1495601289746" duration="5183000" />
+      <workItem from="1495601289746" duration="7611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="449971000" />
+    <option name="totallyTimeSpent" value="452399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="52" y="-11" width="1315" height="780" extended-state="6" />
@@ -1377,6 +1360,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="27" column="67" lean-forward="false" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,6 +1376,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="4" />
+          <folding>
+            <element signature="e#475#669#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1484,42 +1471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/Container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Frontend/Components/App/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1567,12 +1518,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/RecentBuzz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="95" column="41" lean-forward="false" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
+        <state relative-caret-position="1800">
+          <caret line="117" column="11" lean-forward="false" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
           <folding>
+            <element signature="e#0#39#0" expanded="true" />
             <element signature="e#508#904#0" expanded="false" />
             <element signature="e#1232#1329#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/ComplaintsTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/User/Category/Complaints/Showdetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frontend/Components/Container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="80" lean-forward="false" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>

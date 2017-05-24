@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
 import ComplaintsRow from './ComplaintsRow'
+import Showdetails from './Showdetails'
 import { connect } from 'react-redux'
 import {
   asyncgetComplaints,
@@ -10,7 +11,11 @@ import {
 
 class ComplaintsTable extends Component{
   constructor(){
-    super()
+    super();
+    this.state = {
+      clicked:false,
+      item:{}
+    }
   }
   componentWillMount(){
     this.props.dispatch(asyncgetComplaints());
@@ -40,8 +45,24 @@ class ComplaintsTable extends Component{
     }
     else
       this.inprocessComplain(complainID)
-
   };
+
+  updateState = (changeState,item) =>{
+    if(changeState === true)
+    {
+      this.setState({
+        clicked:true,
+        item:item
+      })
+    }
+    else {
+      this.setState({
+        clicked:false,
+        item:{}
+      })
+    }
+  };
+
   render(){
     let { userDetails } = this.props;
     let { complaints } = this.props.complaintReducer;
@@ -80,11 +101,14 @@ class ComplaintsTable extends Component{
 
                   complaints.map(item => {
                       if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
-                        return <ComplaintsRow item={item} updateCategory={this.updateCategory}
+                        return <ComplaintsRow item={item}
+                                              updateState={this.updateState}
+                                              updateCategory={this.updateCategory}
                                               userDetails={this.props.userDetails}
                         />
                       else if((userDetails) && (userDetails[0].role == 'Admin'))
                         return <ComplaintsRow item={item}
+                                              updateState={this.updateState}
                                               updateCategory={this.updateCategory}
                                               userDetails={this.props.userDetails} />
                     }
@@ -95,6 +119,12 @@ class ComplaintsTable extends Component{
               </table>
 
               }
+              <div>
+              {
+                this.state.clicked ?
+                  <Showdetails item={this.state.item} userDetails={userDetails}/> : ''
+              }
+              </div>
             </div>
 
     )
