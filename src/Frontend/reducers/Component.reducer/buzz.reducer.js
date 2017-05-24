@@ -16,6 +16,7 @@ const initialState = {
   loading: '',
   offset:0,
   lostnfound:[],
+  isMaxlen:false,
 };
 
 export const buzzReducer = (state = initialState, action) => {
@@ -44,10 +45,15 @@ export const buzzReducer = (state = initialState, action) => {
       };
 
     case FETCH_BUZZ_SUCCESS: {
+      let newbuzz =  state.buzz.concat(action.data);
+      if(state.buzz.length === newbuzz.length){
+       var maxlength = true
+      }
       return {
         ...state,
-        buzz: state.buzz.concat(action.data),
+        buzz: newbuzz,
         offset:state.offset+10,
+        isMaxlen: maxlength,
       }
     }
 

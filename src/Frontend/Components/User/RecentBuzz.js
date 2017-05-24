@@ -92,17 +92,19 @@ class RecentBuzz extends Component {
   };
 
   render() {
-    let {buzz} = this.props.buzzReducer;
+    let { buzz } = this.props.buzzReducer;
+    let { isMaxlen } = this.props.buzzReducer;
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
     let userDetails = this.props.userReducers.users;
+    console.log(buzz.length,">>>>",isMaxlen)
     return(
       <div>
         {
-          userDetails.length?
-          buzz.map(item => (
-            <div key={item._id}>
-              {
+          userDetails.length ?
+            buzz.map(item => (
+              <div key={item._id}>
+                {
 
                   <RecentBuzzRow buzzData={item}
                                  deleteBuzz={this.deleteBuzz}
@@ -113,13 +115,15 @@ class RecentBuzz extends Component {
                                  dislikeData={dislikes}
                                  saveComment={this.saveComment}
                   />
-              }
-            </div>
-          )):''
+                }
+              </div>
+            )) : ''
         }
-        <button onClick={this.Pagination}  className="glyphicon glyphicon-forward">
-
-        </button>
+        {
+         isMaxlen?'':
+          <button onClick={this.Pagination}  className="glyphicon glyphicon-forward">
+          </button>
+        }
       </div>
     )
   }
