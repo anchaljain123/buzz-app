@@ -11,8 +11,6 @@ const App = () => {
             cloud to build disruptive web and mobile products and enable digital transformation for
             businesses.
 
-
-
             TO THE NEW practices Agile methodologies to develop innovative products with a faster time
             to market. With a team of 750+ passionate technologists, TO THE NEW constantly challenges
             the status quo to empower Fortune 500 companies as well as startups across the globe.

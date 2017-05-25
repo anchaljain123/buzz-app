@@ -3,7 +3,8 @@ const categoryType = ['lostnfound', 'activity'];
 
 const buzzSchema = new mongoose.Schema({
     content: {
-      type: String
+      type: String,
+       // index:text,
     },
     img: {},
     postCreated: {
@@ -14,6 +15,7 @@ const buzzSchema = new mongoose.Schema({
       type: String,
       default: 'activity',
       enum: categoryType,
+        index:true,
 
     },
     userDetails: {

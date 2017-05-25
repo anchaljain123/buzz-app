@@ -6,14 +6,7 @@ import Resolve from '../User/Category/Buzz/Resolve'
 import Complaints from '../User/Category/Complaints';
 
 class Auth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAuth: false,
-    }
-  }
-
-  componentWillMount() {
+/*  componentWillMount() {
     let {userDetails} = this.props;
     if (userDetails.length && this.props.loading === false) {
       this.setState({
@@ -25,16 +18,13 @@ class Auth extends Component {
         isAuth: false
       })
     }
-  }
+  }*/
 
   render() {
     let {match} = this.props;
     let {userDetails} = this.props;
     return (
       <div>
-
-        {
-          this.state.isAuth?
             <Switch>
               <Route exact path={`${match.url}/activity`}
                      render={props => <Activity {...props} userDetails={userDetails}/>}/>
@@ -45,11 +35,7 @@ class Auth extends Component {
                      render={props => <Resolve {...props} userDetails={userDetails}/>}/>
               <Redirect from="/profile" to="/profile/activity"/>
             </Switch>
-            :
-            ''
-        }
-
-      </div>
+       </div>
     )
   }
 }

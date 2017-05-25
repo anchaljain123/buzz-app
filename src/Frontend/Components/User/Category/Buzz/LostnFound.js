@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {asyncgetLostnFoundBuzz} from '../../../../actions'
+import '../../../Assets/Styling/lostnfoundStyle.css'
 
 class LostnFound extends Component {
 
@@ -13,16 +14,14 @@ class LostnFound extends Component {
       <div>
         {
           lostnfound.map((item, i) => {
-            if (item.category == "lostnfound")
+            if (item.category === "lostnfound")
               return (
                 <div className="panel panel-default" key={i}>
                   <div className="panel-body">
                     <div className="pull-left">
                       <img
-                        className="media-object img-circle"
+                        className="media-object img-circle lostnfoundstyle"
                         src={item.userDetails.img}
-                        width="50px" height="50px"
-                        style={{marginRight: '8px', marginTop: '-5px'}}
                       />
                     </div>
                     <div className="pull-right">

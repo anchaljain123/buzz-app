@@ -28,7 +28,6 @@ class Profile extends Component {
               <div className="navbar-collapse collapse">
                 <ul className="nav navbar-nav navbar-right">
                   <li className="dropdown"><a href="#" className="dropdown-toggle" data-toggle="dropdown">
-
                     <span className="user-avatar pull-left" style={{marginRight: '8px', marginTop: '-5px'}}>
                       <img src={userDetails[0].profile.image.url}
                            className="img-responsive img-circle" width="30px" height="30px"/>

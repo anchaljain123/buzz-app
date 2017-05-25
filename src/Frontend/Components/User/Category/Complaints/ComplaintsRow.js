@@ -28,6 +28,7 @@ class ComplaintsRow extends React.Component {
 
   render() {
     let {item,userDetails} = this.props;
+    console.log(userDetails[0].userName,'>>',item.userDetails.uname,'<<');
     return (
       <tr key={item._id}>
         <td>
@@ -46,7 +47,11 @@ class ComplaintsRow extends React.Component {
             <option value="select">Select</option>
             <option value="inprocess">Inprocess</option>
             <option value="close">Close</option>
-            <option value="resolve">{userDetails[0].role == 'Admin'?'Resolve':''}</option>
+                {
+                    (userDetails[0].userName === item.userDetails.assignedTo)
+                    &&(userDetails[0].role === 'Admin')
+                        ? <option value="resolve">Resolve</option>:''
+                }
           </select>
         </td>
       </tr>
