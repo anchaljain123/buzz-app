@@ -1,53 +1,33 @@
 import React, {Component} from 'react'
 import ComplaintForm from './ComplaintForm'
 import ComplaintsTable from './ComplaintsTable'
+import '../../../Assets/Styling/complaintStyling.css'
 
-class Complaint extends Component {
-  constructor() {
-    super();
-    this.state = {
-      newComplaint: false,
-    }
-  }
+const Complaint = (props) => {
 
-  render() {
     return (
       <div className="">
         <ul className="nav nav-tabs">
           <li className="active">
             <a data-toggle="tab" href="#home">
-              <button style={{border: 'none', 'background': 'none'}}
-                      onClick={(e) => this.setState({newComplaint: true,})}>
-                Form
-              </button>
+              <button>Form</button>
             </a></li>
           <li><a data-toggle="tab" href="#menu1">
-            <button style={{border: 'none', 'background': 'none'}}
-                    onClick={(e) => this.setState({newComplaint: false,})}>
-              Complaints
-            </button>
-          </a></li>
+            <button >Complaints</button>
+          </a>
+          </li>
         </ul>
-
         <div className="tab-content">
           <div id="home" className="tab-pane fade in active">
-            {
-              this.props.userDetails.length?
-              <ComplaintForm userDetails={this.props.userDetails}/>
-              :<div>Loading Complaints</div>
-            }
+              <ComplaintForm userDetails={props.userDetails}/>
           </div>
           <div id="menu1" className="tab-pane fade">
-            {
-              this.props.userDetails.length?
-              <ComplaintsTable userDetails={this.props.userDetails}/>
-                :<div>Loding ComplaintsTable</div>
-            }
+              <ComplaintsTable userDetails={props.userDetails}/>
           </div>
         </div>
       </div>
     )
-  }
-}
+
+};
 
 export default Complaint;

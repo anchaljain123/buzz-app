@@ -7,18 +7,13 @@ class Options extends Component{
   saveLike = (e) => {
     e.preventDefault();
     this.props.postLike();
-   // this.refs.btn.setAttribute("disabled", "disabled");
-
   };
-
   savedisLike = (e) =>{
     e.preventDefault();
     this.props.postdisLike();
   };
-
   render(){
-    const { likeData } = this.props;
-    const { dislikeData } = this.props;
+    const { likeData,dislikeData } = this.props;
     let isLike = false;
     likeData.map(item=> {
       if (this.props.uid == item.userDetails.userid

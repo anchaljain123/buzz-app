@@ -11,7 +11,6 @@ class CreateBuzz extends React.Component {
       content: "",
       category: "activity",
       img: "", //postimage
-
     }
   }
 
@@ -37,7 +36,6 @@ class CreateBuzz extends React.Component {
       })
     }
   };
-
   render() {
     // let { loading } = this.props.buzzReducer;
     return (

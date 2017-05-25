@@ -9,29 +9,19 @@ class Imageupload extends React.Component {
     };
     this.saveimg = this.saveimg.bind(this);
   }
-
   saveimg = (event) => {
     event.preventDefault();
     let file = event.target.files[0];
-    this.setState({
-      file: {
-        file
-      },
-    }, () => {
+    this.setState({ file: {file} }, () => {
       this.props.saveState(this.state.file);
     })
-
   };
-
   render() {
-
     return (
       <div>
-
         <form encType="multipart/form-data" id="myform">
           <input type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*"/>
         </form>
-
       </div>
     )
   }

@@ -13,7 +13,6 @@ class ComplaintForm extends Component {
       file: '',
     }
   }
-
   handleChange = (event, key) => {
     this.setState({
       [key]: event.target.value,
@@ -33,7 +32,7 @@ class ComplaintForm extends Component {
 
   saveComplaint = (e) => {
     e.preventDefault();
-    let {userDetails} = this.props;
+    let { userDetails } = this.props;
     let admin;
     if (this.state.category === 'hardware')
       admin = "Anchal Jain";
@@ -54,7 +53,7 @@ class ComplaintForm extends Component {
       userDetails: userObject,
       // img:imageState,
     };
-    if(this.state.category && (this.state.description ||this.state.title) )
+    if((this.state.category!='select') && (this.state.description ||this.state.title) )
     this.props.dispatch(asyncSaveComplaint(ComplainInfo));
     this.setState({
       description: "",
@@ -66,7 +65,7 @@ class ComplaintForm extends Component {
 
   render() {
     return (
-      <div className="">
+      <div>
         <br/>
         <h2>Complaint Form</h2>
         <form className="">
@@ -75,7 +74,6 @@ class ComplaintForm extends Component {
             <input type="text"
                    value={this.state.title}
                    className="form-control"
-                   id="exampleInputName2"
                    onChange={(event) => this.handleChange(event, 'title')}
             />
           </div>
@@ -104,10 +102,7 @@ class ComplaintForm extends Component {
            </form>
            </div>*/}
           <div className="form-group">
-            <button
-              value="submit"
-              className="btn btn-default"
-              onClick={this.saveComplaint}>
+            <button value="submit" className="btn btn-default" onClick={this.saveComplaint}>
               Submit
             </button>
           </div>
@@ -116,8 +111,5 @@ class ComplaintForm extends Component {
     )
   }
 }
-
-const maptoState = state => state;
-const ComplaintFormContainer = connect(maptoState)(ComplaintForm)
-
+const ComplaintFormContainer = connect(state => state)(ComplaintForm);
 export default ComplaintFormContainer;

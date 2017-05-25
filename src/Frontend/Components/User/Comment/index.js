@@ -2,14 +2,14 @@ import React, {Component} from 'react'
 import ShowComment from './Showcomment'
 import {asyncgetComment,asyncdeleteComment} from '../../../actions'
 import {connect} from 'react-redux'
+import '../../Assets/Styling/commentStyles.css'
 import CommentForm from './CommentForm'
 
 class Comment extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
+  constructor(){
+    super();
+      this.state = {}
+}
   componentWillMount() {
     this.props.dispatch(asyncgetComment());
   }
@@ -17,9 +17,7 @@ class Comment extends Component {
     this.props.postComment(commentState);
   };
   deleteComment = (commentState) =>{
-    let commentobject = {
-      id:commentState
-    };
+    let commentobject = { id:commentState };
     this.props.dispatch(asyncdeleteComment(commentobject))
   };
   render() {
@@ -31,8 +29,7 @@ class Comment extends Component {
                      comments={comments}
                      deleteComment={this.deleteComment}
         />
-        <button onClick={(e) => this.setState({show: !this.state.show})}
-                style={{'background': 'none', 'border': 'none', color: 'white', 'background': 'black'}}>
+        <button onClick={(e) => this.setState({show: !this.state.show})} className="buttonclss">
           <i className="fa fa-comment" aria-hidden="true"></i>Comment
         </button>
         {
@@ -46,7 +43,5 @@ class Comment extends Component {
     )
   }
 }
-
-const mapTostate = state => state;
-const CommentContainer = connect(mapTostate)(Comment);
+const CommentContainer = connect(state => state)(Comment);
 export default CommentContainer;

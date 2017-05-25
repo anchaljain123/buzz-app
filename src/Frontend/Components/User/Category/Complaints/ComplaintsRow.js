@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class ComplaintsRow extends React.Component {
   constructor() {
     super();
@@ -9,15 +8,10 @@ class ComplaintsRow extends React.Component {
       isClicked: false,
     }
   }
-
   handleChange = (event) => {
-    this.setState({
-        category: event.target.value,
-      },
+    this.setState({ category: event.target.value, },
       () => {
-        let {item} = this.props;
-        console.log('>>>>categorystate', this.state.category);
-        this.props.updateCategory(this.state.category, item._id);
+        this.props.updateCategory(this.state.category,this.props.item._id);
         this.setState({
           category: 'Pending',
           isClicked: false,
@@ -26,13 +20,9 @@ class ComplaintsRow extends React.Component {
   };
   updateState = () =>{
     let {item} = this.props;
-    this.setState({
-      isClicked: true,
-    },()=>{
+    this.setState({ isClicked: true, },()=>{
       this.props.updateState(this.state.isClicked,item);
-      this.setState({
-        isClicked: false,
-      })
+      this.setState({ isClicked: false, })
     })
   };
 
@@ -41,7 +31,7 @@ class ComplaintsRow extends React.Component {
     return (
       <tr key={item._id}>
         <td>
-          <a href="#"  data-toggle="modal" data-target="#myModal" onClick={this.updateState}>
+          <a href="#" data-toggle="modal" data-target="#myModal" onClick={this.updateState}>
           {item._id}
           </a>
         </td>
@@ -49,25 +39,14 @@ class ComplaintsRow extends React.Component {
         <td>{item.description}</td>
         <td>{item.category}</td>
         <td>{item.status}</td>
-        {
-          userDetails[0].role == 'Admin' ?
-            <td>{item.userDetails.uname}</td>
-            : ""
-        }
-        {
-          userDetails[0].role == 'Admin' ?
-            <td>{item.userDetails.assignedTo}</td> : ""
-
-        }
+        <td>{userDetails[0].role == 'Admin' ? item.userDetails.uname : ""}</td>
+        <td>{userDetails[0].role == 'Admin' ?item.userDetails.assignedTo: ""}</td>
         <td>
           <select name="complaints" value={this.state.category} onChange={this.handleChange}>
             <option value="select">Select</option>
             <option value="inprocess">Inprocess</option>
             <option value="close">Close</option>
-            {
-              userDetails[0].role == 'Admin' ?
-                <option value="resolve">Resolve</option> : ''
-            }
+            <option value="resolve">{userDetails[0].role == 'Admin'?'Resolve':''}</option>
           </select>
         </td>
       </tr>

@@ -1,0 +1,28 @@
+.buttonclss{
+background: none;
+border: none;
+color: white;
+background: black
+}
+
+.showcmntclss{
+marginRight: 8px;
+    marginTop: 4px;
+    display:inline-block;
+    width:40px;
+    height:40px
+}
+
+.cmntformclss{
+width:35px;
+    height:35px;
+marginLeft:3px;
+marginRight:-5px;
+}
+
+.cmntformbtn{
+background: none ;
+    border: none;
+    color:white;
+    background:black;
+}

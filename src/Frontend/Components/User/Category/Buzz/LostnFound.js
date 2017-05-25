@@ -3,13 +3,10 @@ import {connect} from 'react-redux'
 import {asyncgetLostnFoundBuzz} from '../../../../actions'
 
 class LostnFound extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   componentWillMount() {
     this.props.dispatch(asyncgetLostnFoundBuzz());
   }
-
   render() {
     let {lostnfound} = this.props.buzzReducer;
     return (

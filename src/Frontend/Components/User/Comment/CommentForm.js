@@ -26,10 +26,8 @@ class CommentForm extends Component{
                 <div className="pull-left">
                     <a href="#">
                         <img
-                            className="media-object img-circle"
+                            className="media-object img-circle cmntformclss"
                             src={this.props.userDetails[0].profile.image.url}
-                            width="35px" height="35px"
-                            style={{"marginLeft":"3px", "marginRight":"-5px"}}
                         />
                     </a>
                 </div>
@@ -41,13 +39,12 @@ class CommentForm extends Component{
                                       onChange={this.handleChange}
                                       placeholder="Comment..">
                             </textarea>
-
-                    <button onClick={this.postComment} style={{'background': 'none', 'border': 'none',color:'white','background':'black'}}>
+                    <button onClick={this.postComment}  className="cmntformbtn">
                       Post Comment
                     </button>
                 </div>
             </div>
-              )
+        )
         }
  }
 

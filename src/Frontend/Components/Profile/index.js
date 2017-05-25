@@ -10,14 +10,8 @@ import ttnlogo from '../Assets/images/ttn.png'
 import '../Assets/Styling/logo.css'
 import '../Assets/Styling/profile.css'
 import '../Assets/Styling/colors.css'
-class Profile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      img: '',
-    }
-  }
 
+class Profile extends Component {
   render() {
     let userDetails = this.props.userReducers.users;
     let {loading} = this.props.userReducers;
@@ -94,13 +88,12 @@ class Profile extends Component {
                       <Navbar userDetails={userDetails}/>
                   </div>
                 </div>
+                <a href="http://localhost:9000/aboutus">Aboutus</a>
               </div>
             </div>
           </div>
           <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            {userDetails.length?
-              <Auth userDetails={userDetails} match={this.props.match} loading={loading}/> :''
-            }
+              <Auth userDetails={userDetails} match={this.props.match} loading={loading}/>
           </div>
         </div>
       </div>

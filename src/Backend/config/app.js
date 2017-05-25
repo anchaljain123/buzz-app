@@ -10,7 +10,6 @@ const complainRoute = routing.complainRoute;
 const likeRoute = routing.likeRoute;
 const commentRoute = routing.commentRoute;
 
-
 module.exports.appStarted=(app)=>{
     app.use(session({secret:'6786476467'}),passport.initialize(),passport.session());
     app.use(bodyParser());

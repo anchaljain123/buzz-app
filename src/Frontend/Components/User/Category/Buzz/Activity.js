@@ -7,7 +7,6 @@ class Activity extends Component{
     constructor(props){
         super(props);
     }
-
     savePost = (postState) =>{
         let formData = new FormData();
         let userData = {
@@ -28,7 +27,10 @@ class Activity extends Component{
             <div>
               {
                 this.props.userDetails.length?
-                <CreateBuzz savePost={this.savePost} loading={loading} userDetails={this.props.userDetails}/>:""
+                <CreateBuzz savePost={this.savePost}
+                            loading={loading}
+                            userDetails={this.props.userDetails}
+                />:""
               }
             </div>
         )

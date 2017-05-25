@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Comment from  './Comment'
 import Options from './Options'
+import '../Assets/Styling/recentbuzzstyle.css'
 import _ from 'lodash'
 
 class RecentBuzzRow extends Component {
@@ -14,7 +15,6 @@ class RecentBuzzRow extends Component {
   }
   deletePost = () => {
     this.props.deleteBuzz(this.state);
-    //deletefromlikedb & imgfolder& comment
     this.setState({
       post: "",
       userId: "",
@@ -46,21 +46,15 @@ class RecentBuzzRow extends Component {
   };
 
   render() {
-    const {buzzData} = this.props;
-    const {likeData} = this.props;
-    const {dislikeData} = this.props;
-
+    const {buzzData,likeData,dislikeData} = this.props;
     let likecount = 0, dislikecount = 0;
     return (
       <div className="panel panel-default">
         <div className="panel-body">
           <div className="pull-left">
             <img
-              className="media-object img-circle"
-              src={buzzData.userDetails.img}
-              width="50px" height="50px"
-              style={{marginRight: '8px', marginTop: '-5px'}}
-            />
+              className="media-object img-circle imgclss"
+              src={buzzData.userDetails.img}/>
           </div>
           <div className="pull-right">
             {
@@ -110,7 +104,8 @@ class RecentBuzzRow extends Component {
                 }
                 <div style={{display: 'inline-block',}}>{likecount}</div></i>
               </span>
-                <span style={{color: "blue"}}><i className="fa fa-thumbs-o-down">
+                <span style={{color: "blue"}}>
+                  <i className="fa fa-thumbs-o-down">
                 {
                   _.map(dislikeData,dislikeitem => {
                     if (dislikeitem.postId === buzzData._id)

@@ -65,11 +65,6 @@ class ComplaintsTable extends Component{
   render(){
     let { userDetails } = this.props;
     let { complaints } = this.props.complaintReducer;
-   // let { users } = this.props.userReducers;
-    let tempArray =[];
-    for (let j = complaints.length-1; j >= 0; j--){
-      tempArray.push(complaints[j])
-    }
     return(
 
             <div className="table-responsive">
@@ -82,30 +77,25 @@ class ComplaintsTable extends Component{
                 <th>Status</th>
                 {
                   this.props.userDetails[0].role == 'Admin'?
-                    (
-                      <th>FilledBy</th>
-                    ):""
+                    <th>FilledBy</th> :""
                 }
                 {
                   this.props.userDetails[0].role == 'Admin'?
-                    (
-                        <th>AssignedTo</th>
-                    ):""
+                    <th>AssignedTo</th> :""
                 }
-
                 <th>Actions</th>
                 </thead>
                 <tbody>
                 {
 
                   complaints.map(item => {
-                      if ((userDetails)&&(item.userDetails.uid == this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
+                      if ((item.userDetails.uid === this.props.userDetails[0].id)&&(userDetails[0].role == 'User'))
                         return <ComplaintsRow item={item}
                                               updateState={this.updateState}
                                               updateCategory={this.updateCategory}
                                               userDetails={this.props.userDetails}
                         />
-                      else if((userDetails) && (userDetails[0].role == 'Admin'))
+                      else if((userDetails) && (userDetails[0].role === 'Admin'))
                         return <ComplaintsRow item={item}
                                               updateState={this.updateState}
                                               updateCategory={this.updateCategory}
@@ -114,9 +104,7 @@ class ComplaintsTable extends Component{
                   )
                 }
                 </tbody>
-
               </table>
-
               }
               <div>
               {

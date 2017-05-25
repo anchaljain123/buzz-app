@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import RecentBuzzRow from './RecentBuzzRow'
-import { asyncgetCurrentUser } from '../../actions';
 import {
   asyncgetBuzz,
   asyncdeletePost,
@@ -9,18 +8,12 @@ import {
   asyncgetLikes,
   asyncsaveComment,
   asyncgetDislikes,
-  asyncgetComment,
   asyncdeletefromLike,
   asyncdeletefromComment,
 } from '../../actions'
 
 class RecentBuzz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      offset: 0,
-    };
-  }
+
 /*  fetchData = () => {
     this.props.dispatch(asyncgetBuzz(this.state.offset))
 
@@ -39,7 +32,6 @@ class RecentBuzz extends Component {
   componentWillMount() {
 
     let Offset = this.props.buzzReducer.offset;
-    //alert(Offset)
     this.props.dispatch(asyncgetBuzz(Offset));
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
@@ -97,7 +89,6 @@ class RecentBuzz extends Component {
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
     let userDetails = this.props.userReducers.users;
-    console.log(buzz.length,">>>>",isMaxlen)
     return(
       <div>
         {
