@@ -13,14 +13,13 @@ class ComplaintsTable extends Component{
   constructor(){
     super();
     this.state = {
-      clicked:false,
-      item:{}
+      clicked: false,
+      item: {},
     }
   }
   componentWillMount(){
     this.props.dispatch(asyncgetComplaints());
-  /*  this.props.dispatch(asyncAction())*/
-  }
+    }
   closeComplain = (complainRefID) =>{
     let complainData = { id: complainRefID };
     this.props.dispatch(asyncCloseComplaint(complainData));
@@ -43,10 +42,10 @@ class ComplaintsTable extends Component{
     if(categoryState === 'close'){
       this.closeComplain(complainID)
     }
-    else
-      this.inprocessComplain(complainID)
+      if(categoryState === 'inprocess') {
+          this.inprocessComplain(complainID)
+      }
   };
-
   updateState = (changeState,item) =>{
     if(changeState === true)
     {
@@ -94,7 +93,7 @@ class ComplaintsTable extends Component{
                     ):""
                 }
 
-                <th>Close</th>
+                <th>Actions</th>
                 </thead>
                 <tbody>
                 {
@@ -126,7 +125,6 @@ class ComplaintsTable extends Component{
               }
               </div>
             </div>
-
     )
   }
 }

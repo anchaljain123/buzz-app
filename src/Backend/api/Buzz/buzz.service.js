@@ -13,7 +13,7 @@ exports.saveBuzz = function (buzzDetails,res) {
 exports.getBuzz=(offset,res)=>{
  // console.log(offset,">>>service")
   return new Promise((resolve,reject)=>{
-    Buzz.find({},null,{sort:{'postCreated':-1},limit:10,skip:offset},(err,data) =>{
+    Buzz.find({},null,{sort:{'postCreated':-1},skip:offset,limit:10},(err,data) =>{
       if(err){
         reject({error:err})
       }else{

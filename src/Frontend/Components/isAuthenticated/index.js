@@ -3,22 +3,6 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {asyncgetCurrentUser} from '../../actions'
 
-/*export default function isAuth (NewComponent) {
-  class isAuthC extends React.Component{
-
-  }
-  return (props) => {
-    console.log(props.userReducers,">>props>>");
-
-    if (props.userReducers.users.length && props.userReducers.loading === false) {
-      return <NewComponent {...props}/>
-    }
-    else {
-      return <Redirect to="/" />
-    }
-  }
-}*/
-
 export default (NewComponent) => {
   class AuthHOC extends React.Component {
     componentWillMount () {
@@ -26,7 +10,7 @@ export default (NewComponent) => {
     }
     render() {
       const { props } = this;
-      console.log(props)
+
       if (props.userReducers.loading) {
         return <div>loading...</div>
       }

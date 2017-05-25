@@ -21,10 +21,12 @@ exports.deleteComplain = function (req,res,next) {
 
 exports.resolveComplain = (req,res,next) => {
   const complainID = req.body;
+  console.log('resolvecontroller')
   complaintService.resolveComplain(complainID,res)
 };
 
 exports.inprocessComplain = (req,res,next) =>{
   const complainID = req.body;
+  console.log('inprocesscontroller')
   complaintService.inprocessComplain(complainID,res)
 };

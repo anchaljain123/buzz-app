@@ -17,12 +17,7 @@ import {
 
 } from '../component.actions/complaint.action'
 
-
 import {
-  asyncgetBuzz
-} from './buzz.asyncaction'
-import {
-
   saveComplainURI ,
   fetchComplaintsURI,
   deleteComplaintURI,
@@ -109,7 +104,6 @@ export const asyncResolveComplaint = (complaintId) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncResolveComplaintSuccess(data));
-        dispatch(asyncgetComplaints());
 
       })
       .catch(err => {
@@ -131,7 +125,7 @@ export const asyncinProcessComplaint = (complaintId) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncInprocessComplaintSuccess(data));
-        dispatch(asyncgetComplaints());
+        //dispatch(asyncgetComplaints());
 
       })
       .catch(err => {

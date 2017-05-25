@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('../api/Users/user.model');
+const sendMail = require('../config/sendMail');
 const GoogleStrategy   = require('passport-google-oauth2').Strategy;
 const Constants = require('../config/constant');
 const GOOGLE_CLIENT_ID = Constants.GOOGLE_CLIENT_ID;
@@ -26,18 +27,16 @@ module.exports.googleauth = () =>{
                     newUser.userName = profile.displayName;
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
-                    newUser.role = 'User'
-
-
+                    newUser.role = 'User';
                     if(newUser.emailID.includes('@tothenew.com')){
                         newUser.save((err) => {
                             if (err){
                                 return done(err);
                             }
+                            sendMail.send(newUser.emailID);
                             return done(null, newUser.id);
                         });
                     }
-
                     else
                     {
                         return done(err)
@@ -47,7 +46,6 @@ module.exports.googleauth = () =>{
         }
     ));
 
-
     passport.serializeUser(function(user, done) {
         done(null, user);
     });
@@ -55,6 +53,6 @@ module.exports.googleauth = () =>{
     passport.deserializeUser(function(obj, done) {
         done(null,obj);
     });
-}
+};
 
 

@@ -10,9 +10,9 @@ class ComplaintsRow extends React.Component {
     }
   }
 
-  handleChange = (event, key) => {
+  handleChange = (event) => {
     this.setState({
-        [key]: event.target.value,
+        category: event.target.value,
       },
       () => {
         let {item} = this.props;
@@ -22,7 +22,7 @@ class ComplaintsRow extends React.Component {
           category: 'Pending',
           isClicked: false,
         })
-      });
+      })
   };
   updateState = () =>{
     let {item} = this.props;
@@ -37,14 +37,14 @@ class ComplaintsRow extends React.Component {
   };
 
   render() {
-
-    let {item} = this.props;
-    let {userDetails} = this.props;
-    // let { users } = this.props;
+    let {item,userDetails} = this.props;
     return (
       <tr key={item._id}>
-        <td><a href="#"  data-toggle="modal" data-target="#myModal" onClick={this.updateState}>
-          {item._id}</a></td>
+        <td>
+          <a href="#"  data-toggle="modal" data-target="#myModal" onClick={this.updateState}>
+          {item._id}
+          </a>
+        </td>
         <td>{item.title}</td>
         <td>{item.description}</td>
         <td>{item.category}</td>
@@ -60,9 +60,9 @@ class ComplaintsRow extends React.Component {
 
         }
         <td>
-          <select name="complaints" value={this.state.category}
-                  onChange={(e) => this.handleChange(e, 'category')}>
-            <option value="inprogress">Inprogress</option>
+          <select name="complaints" value={this.state.category} onChange={this.handleChange}>
+            <option value="select">Select</option>
+            <option value="inprocess">Inprocess</option>
             <option value="close">Close</option>
             {
               userDetails[0].role == 'Admin' ?
@@ -71,10 +71,7 @@ class ComplaintsRow extends React.Component {
           </select>
         </td>
       </tr>
-
     )
   }
 }
-
-
 export default ComplaintsRow;
