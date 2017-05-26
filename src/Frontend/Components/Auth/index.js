@@ -6,19 +6,6 @@ import Resolve from '../User/Category/Buzz/Resolve'
 import Complaints from '../User/Category/Complaints';
 
 class Auth extends Component {
-/*  componentWillMount() {
-    let {userDetails} = this.props;
-    if (userDetails.length && this.props.loading === false) {
-      this.setState({
-        isAuth: true
-      })
-    }
-    else {
-      this.setState({
-        isAuth: false
-      })
-    }
-  }*/
 
   render() {
     let {match} = this.props;

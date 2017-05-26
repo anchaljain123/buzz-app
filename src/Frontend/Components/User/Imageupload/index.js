@@ -20,7 +20,7 @@ class Imageupload extends React.Component {
     return (
       <div>
         <form encType="multipart/form-data" id="myform">
-          <input type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*"/>
+          <input type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*,video/*"/>
         </form>
       </div>
     )
