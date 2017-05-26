@@ -11,9 +11,12 @@ exports.saveBuzz = function (buzzDetails,res) {
 };
 
 exports.getBuzz=(offset,res)=>{
- // console.log(offset,">>>service")
   return new Promise((resolve,reject)=>{
-    Buzz.find({},null,{sort:{'postCreated':-1},skip:offset,limit:10},(err,data) =>{
+    Buzz.find({})
+      .sort({'postCreated':-1})
+      .skip(offset)
+      .limit(10)
+      .exec((err,data) => {
       if(err){
         reject({error:err})
       }else{
@@ -23,52 +26,27 @@ exports.getBuzz=(offset,res)=>{
   })
 };
 
-exports.deleteBuzz = function (buzzDetails,res) {
+exports.deleteBuzz =  (buzzDetails,res) => {
   const buzzId = buzzDetails.post._id;
-
+return new Promise((resolve,reject)=>{
   Buzz.find({'userDetails.id':buzzDetails.currentId},(err,data) => {
-    if(err) res.send({error:err});
+    if(err) reject({error:err});
     else {
       Buzz.remove({'_id':buzzId},(err,data) =>{
-        if(err) res.send({error:err});
+        if(err) reject({error:err});
         else{
           Buzz.find({},null,{sort:{'postCreated':-1}},(err,data)=>{
-            if(err) res.send({error:err});
+            if(err) reject({error:err});
             else {
-              res.send(data)
+              resolve(data)
             }
           })
         }
       })
     }
   });
+})
 };
-
-/*
-exports.updateBuzz = function (buzzDetails,res) {
-
-  Buzz.find({'_id':buzzDetails.buzzid},(err,data)=>{
-    if(err) res.send({error:err});
-    else
-    {
-      Buzz.update({'_id':buzzDetails.buzzid},
-        { $set:{likescount:buzzDetails.like}},(err,data)=>{
-        if(err) res.send({error:err});
-        else
-        {
-          Buzz.find({},(err,data) => {
-            if(err) res.send({error:err});
-            else
-            {
-              res.send(data)
-            }
-          })
-        }
-      })
-    }
-  })
-};*/
-
 
 exports.getlostnfoundBuzz = (res)=>{
   Buzz.find({'category':'lostnfound'},null,{sort:{'postCreated':-1}},(err,data) =>{

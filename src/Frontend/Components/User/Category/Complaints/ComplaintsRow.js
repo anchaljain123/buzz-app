@@ -28,7 +28,7 @@ class ComplaintsRow extends React.Component {
 
   render() {
     let {item,userDetails} = this.props;
-    console.log(userDetails[0].userName,'>>',item.userDetails.uname,'<<');
+    //console.log(item,">>>>>>>>>>>>>>>>>>>>item");
     return (
       <tr key={item._id}>
         <td>

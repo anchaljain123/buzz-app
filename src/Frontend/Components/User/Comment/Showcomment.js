@@ -12,7 +12,7 @@ class Showcomment extends Component {
           this.props.comments.map((item) => {
             if (item.postId == this.props.buzzid) {
               return (
-                <div key={item._id}>
+                <div style={{"margin":"1%"}} key={item._id}>
                   <img
                     className="media-object img-circle showcmntclss"
                     src={item.userDetails.img}/>

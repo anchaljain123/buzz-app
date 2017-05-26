@@ -82,8 +82,6 @@ export const asyncCloseComplaint = (complaintId) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncDeleteComplaintSuccess(data));
-        dispatch(asyncgetComplaints());
-
       })
       .catch(err => {
         dispatch(asyncDeleteComplaintFailed(err));

@@ -45,8 +45,16 @@ export const complaintReducer = (state = initialState,action) =>{
       }
     }
     case DELETE_COMPLAINT_SUCCESS:{
+      let newComplaints = [];
+   state.complaints.filter((item) => {
+    if( action.data._id !== item._id){
+     return newComplaints.push(item);
+    }
+   });
+
        return{
         ...state,
+         complaints:newComplaints,
       }
     }
 
@@ -65,9 +73,16 @@ export const complaintReducer = (state = initialState,action) =>{
       }
     }
     case INPROCESS_COMPLAINT_SUCCESS:{
+      console.log(action.data,">>>")
+      state.complaints.forEach((item,i)=>{
+        if(item._id === action.data._id) {
+          state.complaints[i] = action.data;
+          console.log(state.complaints,">>>>>>>>>>")
+        }
+      });
+
       return{
         ...state,
-          complaints:action.data,
       }
     }
     case INPROCESS_COMPLAINT_FAILED:{

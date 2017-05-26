@@ -14,18 +14,19 @@ exports.saveComplain = function (complainDetails, res) {
 
 exports.getComplain = function (res) {
 
-    Complain.find({}, (err, data) => {
+    Complain.find({},{'complainCreated':0,'complainUpdated':0}, (err, data) => {
         if (err) {
             res.send({msg: err});
         }
         else {
-            res.send(data);
+          res.send(data);
         }
     })
 };
 
 exports.deleteComplain = function (complainID, res) {
-    Complain.remove({'_id': complainID.id}, (err, data) => {
+
+    Complain.findByIdAndRemove({'_id': complainID.id}, (err, data) => {
         if (err) {
             res.send({msg: err});
         }
@@ -41,25 +42,25 @@ exports.resolveComplain = (complainID, res) => {
             res.send({msg: err});
         }
         else {
-            Complain.find({}, (err, data) => {
-                if (err) {
-                    res.send({msg: err});
-                }
-                else {
-                    res.send(data);
-                }
-            })
+          this.getComplain(res)
         }
     })
 };
 
 exports.inprocessComplain = (complainID, res) => {
-    Complain.update({'_id': complainID.id}, {$set: {'status': 'Inprocess'}}, (err, data) => {
+  Complain.find({'_id': complainID.id},(err,data)=> {
+    if (err) res.send({err: err});
+    else {
+      let findData = data;
+      Complain.update({'_id': complainID.id}, {$set: {'status': 'Inprocess'}}, (err, data) => {
         if (err) {
-            res.send({msg: err});
+          res.send({msg: err});
         }
         else {
-            this.getComplain(res)
+          findData[0].status = 'Inprocess'
+          res.send(findData[0]);
         }
-    })
+      })
+    }
+  })
 };

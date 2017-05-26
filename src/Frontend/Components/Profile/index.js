@@ -40,15 +40,13 @@ class Profile extends Component {
                       <li>
                         <div className="navbar-content">
                           <div className="row" >
-                            <div className="col-md-5">
+                            <div className="col-md-3">
                               <img src={userDetails[0].profile.image.url}/>
                             </div>
                             <div className="col-md-7">
                               <span>{userDetails[0].userName}</span>
                               <p className="text-muted small">
                                 {userDetails[0].emailID}</p>
-                              <div className="divider">
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -87,7 +85,12 @@ class Profile extends Component {
                       <Navbar userDetails={userDetails}/>
                   </div>
                 </div>
-                <a href="http://localhost:9000/aboutus">Aboutus</a>
+
+              </div>
+            </div>
+            <div className="panel panel-default" style={{"backgroundColor":"#6ccfd4"}}>
+              <div className="panel-body">
+                <a href="http://localhost:9000/aboutus" style={{"color":"white"}}>Aboutus</a>
               </div>
             </div>
           </div>

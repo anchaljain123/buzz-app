@@ -1,14 +1,11 @@
 const mongoose  = require('mongoose');
 
 const complaintSchema = new mongoose.Schema({
-    title:{
-        type:String,
-    },
-    description:{
-        type:String,
-    },
+    title:String,
+    description:String,
     category:{
         type:String,
+      index:true,
     },
     complainCreated:{
         type:Date,

@@ -3,6 +3,7 @@ const likeSchema = new mongoose.Schema({
     postId:{
         type:String,
         required:true,
+        index:true,
     },
     userDetails:{
         type:Object,
@@ -10,7 +11,6 @@ const likeSchema = new mongoose.Schema({
     },
     like:{
         type:Boolean,
-       // default:true,
     }
 },{
     versionKey:false,

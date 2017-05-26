@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 const categoryType = ['lostnfound', 'activity'];
 
 const buzzSchema = new mongoose.Schema({
-    content: {
-      type: String,
-       // index:text,
-    },
+    content: String,
     img: {},
     postCreated: {
       type: Date,
@@ -15,20 +12,20 @@ const buzzSchema = new mongoose.Schema({
       type: String,
       default: 'activity',
       enum: categoryType,
-        index:true,
+      index:true,
 
     },
     userDetails: {
       type: Object,
       required: true,
     },
-
-
   },
   {
     versionKey: false,
+    timestamp:true
   }
 );
 
+buzzSchema.index({content:'text'});
 module.exports = mongoose.model('Buzz', buzzSchema);
 
