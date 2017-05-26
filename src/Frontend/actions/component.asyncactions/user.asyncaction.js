@@ -36,6 +36,7 @@ export  const asyncgetCurrentUser =() =>{
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
       },
     })
       .then(res=>res.json())

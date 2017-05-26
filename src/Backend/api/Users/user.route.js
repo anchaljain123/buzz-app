@@ -39,9 +39,20 @@ module.exports = (app) => {
         res.redirect('http://localhost:9000/');
     });
     app.get('/logout' ,(req, res) => {
-       // req.session.destroy();
-        req.logout();
-            res.redirect('http://localhost:9000/');
+     /* req.logOut();
+      req.session.destroy(function (err) {
+        res.redirect('http://localhost:9000/');
+      });
+      cookie = req.cookies;
+      for (var prop in cookie) {
+        if (!cookie.hasOwnProperty(prop)) {
+          continue;
+        }
+        res.cookie(prop, '', {expires: new Date(0)});
+      }
+      res.redirect('http://localhost:9000/');*/
+      req.logout();
+      res.redirect('http://localhost:9000/');
     })
 };
 

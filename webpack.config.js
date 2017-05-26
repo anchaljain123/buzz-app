@@ -27,7 +27,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/Frontend/index.html',
             filename: 'index.html'
-        })
+        }),
+    /*  new webpack.optimize.UglifyJsPlugin({
+        include: /\.min\.js$/,
+        minimize: true
+      })*/
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

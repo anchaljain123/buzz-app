@@ -8,7 +8,8 @@
     "start": "webpack --progress --colors",
     "dev-server": "nodemon ./src/Backend",
     "dev-client": "webpack-dev-server",
-    "dev-start": "concurrently \"npm run dev-server\" \"npm run dev-client\""
+    "dev-start": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "build": "webpack && uglifyjs ./dst/bundle.js -c -m -o ./dst/bundle.min.js --source-map ./dst/bundle.min.js.map"
   },
   "keywords": [],
   "author": {
@@ -44,6 +45,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
+    "uglify-js": "^3.0.11",
     "webpack": "^2.4.1"
   },
   "devDependencies": {
@@ -57,6 +59,7 @@
     "html-webpack-plugin": "^2.28.0",
     "image-webpack-loader": "^3.3.0",
     "style-loader": "^0.16.1",
+    "uglify-js": "^3.0.11",
     "webpack-dev-server": "^2.4.4"
   }
 }
