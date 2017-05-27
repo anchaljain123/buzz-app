@@ -20,8 +20,15 @@ class Imageupload extends React.Component {
     return (
       <div>
         <form encType="multipart/form-data" id="myform">
-          <input type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*,video/*"/>
-        </form>
+          <div class="image-upload">
+            <label htmlFor="file-input" style={{cursor:"pointer"}}>
+              <i className="fa fa-camera" style={{fontSize:"190%"}}></i>
+            </label>
+            <div style={{opacity:"-0.1"}}>
+            <input id="file-input" style={{position:"absolute"}} type="file" name="sampleFile" onBlur={this.saveimg} accept="image/*,video/*"/>
+            </div>
+          </div>
+          </form>
       </div>
     )
   }

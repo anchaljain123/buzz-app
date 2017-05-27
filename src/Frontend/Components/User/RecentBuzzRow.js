@@ -95,7 +95,7 @@ class RecentBuzzRow extends Component {
                 buzzid={this.props.buzzData._id}
               />
               <div className="pull-left">
-              <span style={{color: "blue"}}><i className="fa fa-thumbs-o-up">
+              <span style={{color: "blue","fontSize":"140%"}}><i className="fa fa-thumbs-o-up">
                 {
                   _.map(likeData,function(likeitem) {
                     if (likeitem.postId === buzzData._id)
@@ -104,7 +104,7 @@ class RecentBuzzRow extends Component {
                 }
                 <div style={{display: 'inline-block',}}>{likecount}</div></i>
               </span>
-                <span style={{color: "blue"}}>
+                <span style={{color: "blue","fontSize":"140%"}}>
                   <i className="fa fa-thumbs-o-down">
                 {
                   _.map(dislikeData,dislikeitem => {

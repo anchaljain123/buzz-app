@@ -23,7 +23,7 @@ class Comment extends Component {
   render() {
     let {comments} = this.props.commentReducer;
     return (
-      <div>
+      <div style={{"background" : "aliceblue",borderRadius: "12px",padding:"9px"}}>
         <ShowComment buzzid={this.props.buzzid}
                      rowData = {this.props.rowData}
                      comments={comments}

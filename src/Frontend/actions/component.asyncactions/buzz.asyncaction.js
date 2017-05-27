@@ -16,7 +16,6 @@ import {
 } from '../component.actions/buzz.action'
 
 import {
-
   savePostURI,
   fetchBuzzURI,
   deletePostURI,
@@ -26,7 +25,6 @@ import fetch from 'isomorphic-fetch'
 
 export const asyncSavePost = (postDetails) =>{
   return(dispatch) =>{
-
     dispatch(asyncStarted());
     fetch(savePostURI,{
       method:'post',

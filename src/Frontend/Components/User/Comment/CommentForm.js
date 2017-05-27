@@ -32,14 +32,14 @@ class CommentForm extends Component{
                     </a>
                 </div>
                 <div className="media-body">
-                            <textarea style={{height:"0%"}}
+                            <textarea style={{height:"0%",marginBottom:"1%",borderRadius:"10px"}}
                                       className="form-control"
                                       rows="1"
                                       value={this.state.comment}
                                       onChange={this.handleChange}
                                       placeholder="Comment..">
                             </textarea>
-                    <button onClick={this.postComment}  className="cmntformbtn">
+                    <button onClick={this.postComment}  className="cmntformbtn pull-right">
                       Post Comment
                     </button>
                 </div>

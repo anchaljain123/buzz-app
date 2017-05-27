@@ -1,16 +1,6 @@
 const passport = require('passport');
 const userController = require('./users.controller');
 
-
-/*removeCache = (req, res, next) =>{
-    if (!req.user) {
-        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-        res.header('Expires', '-1');
-        res.header('Pragma', 'no-cache');
-    }
-    next();
-};*/
-
 module.exports = (app) => {
 
     app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
@@ -22,8 +12,7 @@ module.exports = (app) => {
     app.get('/redirecturl', (req, res) => {
         if (req.isAuthenticated()) {
             res.redirect('http://localhost:9000/profile');
-        }
-        else {
+        } else {
             res.redirect('http://localhost:9000/');
         }
     });
@@ -39,21 +28,10 @@ module.exports = (app) => {
         res.redirect('http://localhost:9000/');
     });
     app.get('/logout' ,(req, res) => {
-     /* req.logOut();
-      req.session.destroy(function (err) {
-        res.redirect('http://localhost:9000/');
-      });
-      cookie = req.cookies;
-      for (var prop in cookie) {
-        if (!cookie.hasOwnProperty(prop)) {
-          continue;
-        }
-        res.cookie(prop, '', {expires: new Date(0)});
-      }
-      res.redirect('http://localhost:9000/');*/
       req.logout();
       res.redirect('http://localhost:9000/');
-    })
+    });
+
 };
 
 
