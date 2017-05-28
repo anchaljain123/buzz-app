@@ -1,5 +1,5 @@
 export {
-  asyncAction,
+  //asyncAction,
   asyncgetCurrentUser,
 } from './component.asyncactions/user.asyncaction'
 

@@ -10,7 +10,9 @@ import ttnlogo from '../Assets/images/ttn.png'
 import '../Assets/Styling/logo.css'
 import '../Assets/Styling/profile.css'
 import '../Assets/Styling/colors.css'
-
+/*
+Component displayed when user logged in - Dashboard
+ */
 class Profile extends Component {
   render() {
     let userDetails = this.props.userReducers.users;
@@ -104,4 +106,4 @@ class Profile extends Component {
 }
 
 
-export default connect(state => state)(isAuth(Profile));
+export default connect(state => state)(isAuth(Profile)); //Validation before Mounting the Component

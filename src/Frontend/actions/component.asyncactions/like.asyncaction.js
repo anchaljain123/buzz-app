@@ -118,7 +118,7 @@ export  const asyncgetDislikes =() =>{
   }
 };
 
-export const asyncdeletefromLike = (postInfo) =>{
+export const asyncdeletefromLike = (postInfo) =>{ //deleteLikes of deletedPost
   return (dispatch) => {
     fetch(deleteLikeURI,{
       credentials: 'include',

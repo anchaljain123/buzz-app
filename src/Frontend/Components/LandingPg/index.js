@@ -2,7 +2,9 @@ import React,{Component} from 'react'
 import '../Assets/Styling/style2.css'
 import '../Assets/Styling/demo.css'
 import gplus from '../Assets/images/gplus.jpg'
-
+/*
+Presentation Component : Landing page of app
+ */
 const LandingPg = (props) =>{
     return(
         <div>

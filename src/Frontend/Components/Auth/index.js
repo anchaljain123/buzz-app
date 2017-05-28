@@ -5,6 +5,9 @@ import LostnFound from '../User/Category/Buzz/LostnFound';
 import Resolve from '../User/Category/Buzz/Resolve'
 import Complaints from '../User/Category/Complaints';
 
+/*
+Component consists of routes when user logged in
+ */
 class Auth extends Component {
 
   render() {

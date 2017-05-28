@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
-
+/*
+Class containing many options eg:like,dislike
+ */
 class Options extends Component{
   constructor(){
     super();
@@ -16,7 +18,7 @@ class Options extends Component{
     const { likeData,dislikeData } = this.props;
     let isLike = false;
     likeData.map(item=> {
-      if (this.props.uid == item.userDetails.userid
+      if (this.props.uid == item.userDetails.userid //checking currentuser&postlikedbyuser is same or not
         && this.props.buzzid == item.postId) {
         isLike = true;
       }

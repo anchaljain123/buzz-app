@@ -11,12 +11,6 @@ import {
 
 } from '../component.actions/comment.action'
 
-/*
-import {
-  asyncgetBuzz
-} from './buzz.asyncaction'
-*/
-
 import {
 
   saveCommentURI,
@@ -59,9 +53,7 @@ export const asyncsaveComment = (commentDetails) =>{
     })
       .then(res=>res.json())
       .then(data=>{
-        dispatch(asyncsaveCommentSuccess(data));/*
-        dispatch(asyncgetBuzz());
-        dispatch(asyncgetComment())*/
+        dispatch(asyncsaveCommentSuccess(data));
       })
       .catch(err=>{
         dispatch(asyncsaveCommentFailed(err))
@@ -89,7 +81,7 @@ export const asyncdeleteComment = (commentData) => {
   }
 };
 
-export const asyncdeletefromComment = (postData) => {
+export const asyncdeletefromComment = (postData) => { //deltecomments of deleted post
   return(dispatch) =>{
     fetch(deletefromCommentURI,{
       method:'delete',

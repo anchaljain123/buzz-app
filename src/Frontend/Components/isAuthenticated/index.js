@@ -7,12 +7,12 @@ import gearimg from '../Assets/images/gear.gif'
 export default (NewComponent) => {
   class AuthHOC extends React.Component {
     componentWillMount () {
-      this.props.dispatch(asyncgetCurrentUser());
+      this.props.dispatch(asyncgetCurrentUser()); //currentloggin user
     }
     render() {
       const { props } = this;
 
-      if (props.userReducers.loading) {
+      if (props.userReducers.loading) { //request is processing
         return <div>Loading...<img src={gearimg}/></div>
       }
       if (props.userReducers.users && props.userReducers.users.length && props.userReducers.loading === false) {

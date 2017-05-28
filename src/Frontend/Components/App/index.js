@@ -4,7 +4,9 @@ import LandingPage from '../LandingPg'
 import '../Assets/Styling/app.css'
 import About from '../About'
 import Profile from  '../Profile'
-
+/*
+Stateless Component
+ */
 const App = () => {
     return (
         <div id="wrap">

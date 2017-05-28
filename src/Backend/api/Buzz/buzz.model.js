@@ -27,5 +27,9 @@ const buzzSchema = new mongoose.Schema({
 );
 
 buzzSchema.index({content:'text'});
+
+buzzSchema.pre('find', function() { //hooks
+  console.log('finding..')
+});
 module.exports = mongoose.model('Buzz', buzzSchema);
 

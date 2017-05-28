@@ -102,7 +102,6 @@ export const asyncResolveComplaint = (complaintId) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncResolveComplaintSuccess(data));
-
       })
       .catch(err => {
         dispatch(asyncResolveComplaintFailed(err));
@@ -123,9 +122,7 @@ export const asyncinProcessComplaint = (complaintId) => {
       .then(res => res.json())
       .then(data => {
         dispatch(asyncInprocessComplaintSuccess(data));
-        //dispatch(asyncgetComplaints());
-
-      })
+        })
       .catch(err => {
         dispatch(asyncInprocessComplaintFailed(err));
       })

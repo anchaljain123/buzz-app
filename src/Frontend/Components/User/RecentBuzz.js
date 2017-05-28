@@ -88,7 +88,7 @@ class RecentBuzz extends Component {
     let { isMaxlen } = this.props.buzzReducer;
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
-    let userDetails = this.props.userReducers.users;
+    let userDetails = this.props.userReducers.users;//currentUser
     return(
       <div>
         {

@@ -18,17 +18,6 @@ class ComplaintForm extends Component {
       [key]: event.target.value,
     })
   };
-  /*
-   saveimg = (event) =>{
-   event.preventDefault();
-   let file = event.target.files[0];
-   this.setState({
-   file:{file},
-   },()=>{
-   this.props.saveState(this.state.file);
-   })
-
-   };*/
 
   saveComplaint = (e) => {
     e.preventDefault();
@@ -51,7 +40,6 @@ class ComplaintForm extends Component {
       category: this.state.category,
       title: this.state.title,
       userDetails: userObject,
-      // img:imageState,
     };
     if((this.state.category!='select') && (this.state.description ||this.state.title) )
     this.props.dispatch(asyncSaveComplaint(ComplainInfo));
@@ -95,12 +83,6 @@ class ComplaintForm extends Component {
               <option value="others">Other</option>
             </select>
           </div>
-          {/*
-          <div className="form-group">>
-           <form encType="multipart/form-data" id="myform">
-           <input  type="file" name="sampleFile" onBlur={(e)=>this.saveimg} />
-           </form>
-           </div>*/}
           <div className="form-group">
             <button value="submit" className="btn btn-default" onClick={this.saveComplaint}>
               Submit

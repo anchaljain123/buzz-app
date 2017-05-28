@@ -15,7 +15,7 @@ import {
 
 import fetch from 'isomorphic-fetch'
 
-export const asyncAction = () => { //get users
+/*export const asyncAction = () => { //get users
   return (dispatch) => {
     fetch(fetchURI)
       .then(response => response.json())
@@ -26,7 +26,7 @@ export const asyncAction = () => { //get users
         dispatch(asyncFetchFailed(err));
       });
   }
-};
+};*/
 
 export  const asyncgetCurrentUser =() =>{
   return(dispatch) =>{

@@ -11,6 +11,7 @@ exports.saveBuzz =  (req,res,next) => {
 
 exports.getBuzz =  (req,res,next)=> {
  let offset = parseInt(req.param('offset'));
+ //console.log(req.query.offset,">>>>>>>>>>>")
     buzzService.getBuzz(offset,res)
     .then(data=>res.send(data))
       .catch(err=>res.send(err))

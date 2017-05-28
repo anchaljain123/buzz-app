@@ -43,7 +43,7 @@ export const asyncSavePost = (postDetails) =>{
 export  const asyncgetBuzz =(offset) =>{
 
   return(dispatch) =>{
-    fetch(`http://localhost:4000/buzz?offset=${offset}`, {
+    fetch(`http://localhost:4000/buzz?offset=${offset}`, { //dynamicURL
       credentials: 'include',
       headers: {
         'Accept': 'application/json',
