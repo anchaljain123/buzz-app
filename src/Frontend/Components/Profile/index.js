@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect, Switch} from 'react-router-dom';
 import Logout from '../Logout'
 import {asyncLogout} from '../../actions';
 import Navbar from './Navbar'
@@ -56,8 +55,6 @@ class Profile extends Component {
                           <div className="navbar-footer-content">
                             <div className="row">
                               <div className="col-md-6">
-                              </div>
-                              <div className="col-md-6">
                                 <Logout/>
                               </div>
                             </div>
@@ -75,7 +72,6 @@ class Profile extends Component {
             <div className="panel panel-default">
               <div className="panel-body">
                 <div className="media">
-
                   <img src={userDetails[0].profile.image.url}
                        className="thumbnail img-responsive"
                        width="100px"
@@ -87,7 +83,6 @@ class Profile extends Component {
                       <Navbar userDetails={userDetails}/>
                   </div>
                 </div>
-
               </div>
             </div>
             <div className="panel panel-default" style={{"backgroundColor":"#6ccfd4"}}>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 
 class ShowOptions extends Component {
   constructor(props) {
@@ -23,5 +24,8 @@ class ShowOptions extends Component {
   }
 }
 
+ShowOptions.PropTypes = {
+  likecounter:PropTypes.number,
+};
 
 export default ShowOptions;
