@@ -22,7 +22,7 @@ class ComplaintsTable extends Component{
     }
   closeComplain = (item) =>{
 
-    let complainData = { id: item._id , admin : iitem.userDetails.assignedTo };
+    let complainData = { id: item._id , admin : item.userDetails.assignedTo };
     this.props.dispatch(asyncCloseComplaint(complainData));
   };
 

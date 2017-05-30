@@ -13,7 +13,7 @@ export default (NewComponent) => {
       const { props } = this;
 
       if (props.userReducers.loading) { //request is processing
-        return <div>Loading...<img src={gearimg}/></div>
+        return <img style={{width:'100%'}} src={gearimg}/>
       }
       if (props.userReducers.users && props.userReducers.users.length && props.userReducers.loading === false) {
         return <NewComponent {...props} />

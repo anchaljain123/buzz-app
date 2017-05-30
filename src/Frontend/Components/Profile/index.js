@@ -54,7 +54,7 @@ class Profile extends Component {
                         <div className="navbar-footer">
                           <div className="navbar-footer-content">
                             <div className="row">
-                              <div className="col-md-6">
+                              <div className="col-md-12">
                                 <Logout/>
                               </div>
                             </div>

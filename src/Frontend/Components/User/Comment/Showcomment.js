@@ -6,11 +6,18 @@ class Showcomment extends Component {
     this.props.deleteComment(commentid);
   };
   render() {
-    return (
+    let count=0;
+    this.props.comments.map((item) => {
+      if (item.postId === this.props.buzzid){
+        count++;
+      }
+        });
+        return (
       <div>
+         {count!=0?<div>Comments :{count}</div>:''}
         {
           this.props.comments.map((item) => {
-            if (item.postId == this.props.buzzid) {
+            if (item.postId === this.props.buzzid) {
               return (
                 <div style={{"margin":"1%"}} key={item._id}>
                   <img
