@@ -11,7 +11,7 @@ class ComplaintsRow extends React.Component {
   handleChange = (event) => {
     this.setState({ category: event.target.value, },
       () => {
-        this.props.updateCategory(this.state.category,this.props.item._id);
+        this.props.updateCategory(this.state.category,this.props.item);
         this.setState({
           category: 'Pending',
           isClicked: false,

@@ -37,14 +37,22 @@ exports.deleteComplain = function (complainID, res) {
 };
 
 exports.resolveComplain = (complainID, res) => {
+
+  Complain.find({'userDetails.assignedTo':complainID.admin},(err,data)=>{
+    if(err) res.send({msg:'invalid Admin',error:err});
+
     Complain.update({'_id': complainID.id}, {$set: {'status': 'Resolved'}}, (err, data) => {
-        if (err) {
-            res.send({msg: err});
-        }
-        else {
-          this.getComplain(res)
-        }
+      if (err) {
+        res.send({msg: err});
+      }
+      else {
+        this.getComplain(res)
+      }
     })
+
+
+  });
+
 };
 
 exports.inprocessComplain = (complainID, res) => {

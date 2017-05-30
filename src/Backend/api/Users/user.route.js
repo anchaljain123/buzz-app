@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     app.get('/redirecturl', (req, res) => {
         if (req.isAuthenticated()) {
-            res.redirect('http://localhost:9000/profile');
+            res.status(401).redirect('http://localhost:9000/profile');
         } else {
             res.redirect('http://localhost:9000/');
         }

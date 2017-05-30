@@ -20,7 +20,7 @@ class Imageupload extends React.Component {
     return (
       <div>
         <form encType="multipart/form-data" id="myform">
-          <div class="image-upload">
+          <div className="image-upload">
             <label htmlFor="file-input" style={{cursor:"pointer"}}>
               <i className="fa fa-camera" style={{fontSize:"190%"}}></i>
             </label>

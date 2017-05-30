@@ -21,8 +21,8 @@ class Comment extends Component {
     this.props.dispatch(asyncdeleteComment(commentobject))
   };
   render() {
-    console.log(this.props,">>>")
-    let {comments} = this.props.commentReducer;
+
+    let {comments} = this.props.commentState;
     return (
       <div style={{"background" : "aliceblue",borderRadius: "12px",padding:"9px"}}>
         <ShowComment buzzid={this.props.buzzid}
@@ -45,13 +45,13 @@ class Comment extends Component {
   }
 }
 
-/*
+
 const mapStateToProps =  (state) => {
   return {
-    commentState:state.comments
+    commentState:state.commentReducer
   }
 };
-*/
 
-const CommentContainer = connect(state=>state)(Comment);
+
+const CommentContainer = connect(mapStateToProps,null)(Comment);
 export default CommentContainer;

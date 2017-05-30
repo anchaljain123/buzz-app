@@ -14,8 +14,8 @@ exports.getBuzz=(offset,res)=>{
   return new Promise((resolve,reject)=>{
     Buzz.find({})
       .sort({'postCreated':-1})
-      .skip(offset)
       .limit(10)
+      .skip(offset)
       .exec((err,data) => {
       if(err){
         reject({error:err})

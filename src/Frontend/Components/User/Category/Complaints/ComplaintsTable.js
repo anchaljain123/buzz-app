@@ -20,30 +20,34 @@ class ComplaintsTable extends Component{
   componentWillMount(){
     this.props.dispatch(asyncgetComplaints());
     }
-  closeComplain = (complainRefID) =>{
-    let complainData = { id: complainRefID };
+  closeComplain = (item) =>{
+
+    let complainData = { id: item._id , admin : iitem.userDetails.assignedTo };
     this.props.dispatch(asyncCloseComplaint(complainData));
   };
 
-  resolveComplain = (complainRefID) =>{
-    let complainData = { id: complainRefID };
+  resolveComplain = (item) =>{
+
+    let complainData = { id: item._id , admin : item.userDetails.assignedTo };
     this.props.dispatch(asyncResolveComplaint(complainData));
   };
 
-  inprocessComplain = (complainRefID) =>{
-    let complainData = { id: complainRefID };
+  inprocessComplain = (item) =>{
+
+    let complainData = { id: item._id , admin : item.userDetails.assignedTo };
     this.props.dispatch(asyncinProcessComplaint(complainData));
   };
 
-  updateCategory = (categoryState,complainID) => {
+  updateCategory = (categoryState,item) => {
+
     if(categoryState === 'resolve'){
-      this.resolveComplain(complainID)
+      this.resolveComplain(item)
     }
     if(categoryState === 'close'){
-      this.closeComplain(complainID)
+      this.closeComplain(item)
     }
       if(categoryState === 'inprocess') {
-          this.inprocessComplain(complainID)
+          this.inprocessComplain(item)
       }
   };
   updateState = (changeState,item) =>{

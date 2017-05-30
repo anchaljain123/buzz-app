@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-
+const fs = require('fs');
  send = (emailId) =>{
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
@@ -17,6 +17,10 @@ const nodemailer = require('nodemailer');
         subject: 'Welcome mail', // Subject line
         text: 'Hello Newer', // plain text body
         html: '<h3>Welcome to TTN Buzz</h3>' ,// html body
+      attachments: [
+        {'filename': 'WelcomeMail',
+          'content': fs.createReadStream('/home/ttn/Desktop/buzz-app/src/Frontend/Components/Assets/images/welcome.jpg')}
+          ]
 
     };
 
