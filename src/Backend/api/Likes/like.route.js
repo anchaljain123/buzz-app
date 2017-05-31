@@ -6,8 +6,6 @@ module.exports = (app) => {
 
     app.get('/getLikes',likeController.getLikes);
 
-   // app.put('/saveDislike',likeController.saveDislike);
-
     app.get('/getDislikes',likeController.getDislikes);
 
     app.delete('/deleteLike',likeController.deletelikes);

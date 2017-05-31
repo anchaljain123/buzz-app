@@ -65,7 +65,7 @@ exports.inprocessComplain = (complainID, res) => {
           res.send({msg: err});
         }
         else {
-          findData[0].status = 'Inprocess'
+          findData[0].status = 'Inprocess';
           res.send(findData[0]);
         }
       })

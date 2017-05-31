@@ -4,8 +4,7 @@ const constants  = require('./config/constant');
 
 const appConfig = require('./config/app');
 const PORT =  constants.PORT ;
-//const PORT = process.env.PORT;
-console.log(process.env.PORT,"..>>>>>>>>>>>....")
+
 const app = express();
 
 app.use('/files', express.static('files'));

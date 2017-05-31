@@ -19,7 +19,7 @@ const fs = require('fs');
         html: '<h3>Welcome to TTN Buzz</h3>' ,// html body
       attachments: [
         {'filename': 'WelcomeMail',
-          'content': fs.createReadStream('/home/ttn/Desktop/buzz-app/src/Frontend/Components/Assets/images/welcome.jpg')}
+          'content': fs.createReadStream('/home/ttn/Desktop/buzz-app/src/Frontend/Components/Assets/images/mail.jpg')}
           ]
 
     };
