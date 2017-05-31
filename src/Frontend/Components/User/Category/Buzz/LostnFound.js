@@ -21,8 +21,7 @@ class LostnFound extends Component {
                     <div className="pull-left">
                       <img
                         className="media-object img-circle lostnfoundstyle"
-                        src={item.userDetails.img}
-                      />
+                        src={item.userDetails.img}/>
                     </div>
                     <div className="pull-right">
                       <span className="label label-info">{item.category}</span>
@@ -32,9 +31,7 @@ class LostnFound extends Component {
                         <strong>{item.userDetails.name}</strong>
                       </h4>
                       <hr/>
-                      <div className="post-content">
-                        {item.content}
-                      </div>
+                      <div className="post-content">{item.content}</div>
                       <div className="post-content">
                         {
                           item.img ?

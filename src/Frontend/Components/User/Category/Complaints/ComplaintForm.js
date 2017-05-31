@@ -93,5 +93,6 @@ class ComplaintForm extends Component {
     )
   }
 }
+
 const ComplaintFormContainer = connect(state => state)(ComplaintForm);
 export default ComplaintFormContainer;

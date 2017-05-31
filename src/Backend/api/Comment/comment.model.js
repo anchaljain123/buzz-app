@@ -19,5 +19,7 @@ const commentSchema = new mongoose.Schema({
     versionKey:false,
 });
 
-
+commentSchema.post('remove',() => {
+  console.log('comments has been removed');
+});
 module.exports = mongoose.model('Comment',commentSchema);
