@@ -16,7 +16,8 @@ const buzzSchema = new mongoose.Schema({
 
     },
     userDetails: {
-      type: Object,
+      type: String,
+      ref:'User',
       required: true,
     },
   },
@@ -28,8 +29,15 @@ const buzzSchema = new mongoose.Schema({
 
 buzzSchema.index({content:'text'});
 
-buzzSchema.pre('find', function() { //hooks
-  console.log('finding..')
+buzzSchema.pre('save', function(next) { //hooks
+  console.log('saving..',this.content.length);
+  if(this.content.length<=100)
+  next();
+  else{
+    let err = new Error('Content Validation Failed');
+    next(err)
+  }
 });
+
 module.exports = mongoose.model('Buzz', buzzSchema);
 

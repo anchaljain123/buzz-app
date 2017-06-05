@@ -24,7 +24,8 @@ import {
 import fetch from 'isomorphic-fetch'
 
 export const asyncSavePost = (postDetails) =>{
-  return(dispatch) =>{
+  console.log(postDetails,"--async")
+  return(dispatch, getStore) =>{
     dispatch(asyncStarted());
     fetch(savePostURI,{
       method:'post',
@@ -32,6 +33,9 @@ export const asyncSavePost = (postDetails) =>{
     })
       .then(res => res.json())
       .then(data => {
+        const store = getStore();
+        data.userDetails = store.userReducers.users[0];
+        console.log(data, '######################')
         dispatch(asyncSaveSuccess(data));
       })
       .catch(err => {

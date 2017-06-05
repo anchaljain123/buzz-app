@@ -9,8 +9,8 @@ class RecentBuzzRow extends Component {
     super(props);
     this.state = {
       post: this.props.buzzData,
-      userId: this.props.buzzData.userDetails.id, //currentuser who posted
-      currentId: this.props.userDetails[0].id, // loggedin user
+      userId: this.props.buzzData.userDetails._id, //currentuser who posted
+      currentId: this.props.userDetails[0]._id, // loggedin user
     }
   }
   deletePost = () => {
@@ -48,13 +48,14 @@ class RecentBuzzRow extends Component {
   render() {
     const {buzzData,likeData,dislikeData} = this.props;
     let likecount = 0, dislikecount = 0;
+    console.log(buzzData,">>>recentbuzzrow")
     return (
       <div className="panel panel-default">
         <div className="panel-body">
           <div className="pull-left">
             <img
               className="media-object img-circle imgclss"
-              src={buzzData.userDetails.img}/>
+              src={buzzData.userDetails.profile.image.url}/>
           </div>
           <div className="pull-right">
             {
@@ -64,7 +65,7 @@ class RecentBuzzRow extends Component {
             }
           </div>
           <h4 style={{"color": "#165ba8"}}>
-            <strong>{buzzData.userDetails.name}</strong>
+            <strong>{buzzData.userDetails.userName}</strong>
           </h4>
           <hr/>
           <div className="post-content">
@@ -80,7 +81,7 @@ class RecentBuzzRow extends Component {
           <div>
             <div className="pull-right">
               {
-                buzzData.category == 'activity' ?
+                buzzData.category === 'activity' ?
                   <span className="label label-warning">Activity</span> :
                   <span className="label label-info">LostnFound</span>
               }

@@ -30,7 +30,7 @@ const fs = require('fs');
             console.log("Not able to send mail");
            // res.send("Not able to send mail");
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
+        console.log('Message %s sent: %s', info);
         //res.send("mail send successfully")
     });
 };

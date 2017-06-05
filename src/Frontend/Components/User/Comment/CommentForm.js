@@ -21,6 +21,7 @@ class CommentForm extends Component{
     };
 
     render(){
+      console.log(this.props.userDetails)
         return(
             <div className="media">
                 <div className="pull-left">

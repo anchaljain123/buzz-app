@@ -10,6 +10,7 @@ class LostnFound extends Component {
   }
   render() {
     let {lostnfound} = this.props.buzzReducer;
+    console.log(lostnfound,"==lostnfound")
     return (
       <div>
         {

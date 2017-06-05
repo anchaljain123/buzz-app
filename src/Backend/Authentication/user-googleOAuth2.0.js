@@ -14,27 +14,28 @@ module.exports.googleauth = () =>{
             callbackURL: GOOGLE_CALLBACK_URL,
         },
         (token,refreshToken,profile,done)=>{
-            User.findOne({'id':profile.id},(err,user) => {
+            User.findOne({'_id':profile.id},(err,user) => {
                 if(err){
                     done(err);
                 }
                 if(user) {
-                    return done(null,user.id);
+                    return done(null,user._id);
                 }
                 else{
                     let newUser = new User();
-                    newUser.id = profile.id;
+
+                    newUser._id = profile.id;
                     newUser.userName = profile.displayName;
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
-                    newUser.role = 'User';
+                    newUser.role = 'Admin';
                     if(newUser.emailID.includes('@tothenew.com')){
                         newUser.save((err) => {
                             if (err){
                                 return done(err);
                             }
-                            sendMail.send(newUser.emailID);
-                            return done(null, newUser.id);
+                           //sendMail.send(newUser.emailID);
+                            return done(null,newUser._id);
                         });
                     }
                     else

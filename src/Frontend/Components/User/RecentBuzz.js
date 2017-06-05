@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import RecentBuzzRow from './RecentBuzzRow'
+import Getbuzz from './Getbuzz'
 import {
   asyncgetBuzz,
   asyncdeletePost,
@@ -29,15 +30,33 @@ class RecentBuzz extends Component {
       this.fetchData();
     }
   };*/
+constructor(){
+  super();
+  this.state = {
+    getbuzz:true,
+  }
+}
   componentWillMount() {
-
     let Offset = this.props.buzzReducer.offset;
+    console.log("dispathcing..........")
     this.props.dispatch(asyncgetBuzz(Offset));
     this.props.dispatch(asyncgetLikes());
     this.props.dispatch(asyncgetDislikes());
+    console.log("this.props",this.props)
     //window.addEventListener('scroll', this.onWindowScroll);
    // this.fetchData(); // 0-10
   }
+
+/*componentWillReceiveProps(newprops){
+  let newArrayLen= newprops.buzzReducer.buzz.length;
+  let oldArrayLen = this.props.buzzReducer.buzz.length;
+  console.log(newArrayLen,"==len",oldArrayLen)
+  if(newArrayLen>oldArrayLen){
+    console.log(newArrayLen,"==iflen")
+        this.Pagination();
+  }
+}*/
+
  /* componentWillUnmount() {
     window.removeEventListener('scroll', this.onWindowScroll);
   }
@@ -70,7 +89,6 @@ class RecentBuzz extends Component {
     };
     this.props.dispatch(asyncsaveLike(dislikeDetails));
   };
-
   saveComment = (commentState) => {
     let commentDetails = {
       userName: this.props.userDetails[0].userName,
@@ -89,6 +107,7 @@ class RecentBuzz extends Component {
     let {likes} = this.props.likeReducer;
     let {dislikes} = this.props.dislikeReducer;
     let userDetails = this.props.userReducers.users;//currentUser
+    console.log(buzz,">>>recentbuzz",buzz.length)
     return(
       <div>
         {
@@ -111,7 +130,7 @@ class RecentBuzz extends Component {
             )) : ''
         }
         {
-         isMaxlen?'':
+         isMaxlen ?'':
           <button onClick={this.Pagination}  className="glyphicon glyphicon-forward">
           </button>
         }

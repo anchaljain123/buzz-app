@@ -31,7 +31,7 @@ class ComplaintForm extends Component {
       admin = "Puja Goyal";
 
     let userObject = {
-      uid: userDetails[0].id,
+      uid: userDetails[0]._id,
       uname: userDetails[0].userName,
       assignedTo: admin,
     };

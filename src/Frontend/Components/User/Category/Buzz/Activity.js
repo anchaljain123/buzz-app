@@ -10,10 +10,11 @@ class Activity extends Component{
     savePost = (postState) =>{
         let formData = new FormData();//to save multipart formatted data
         let userData = {
-            id: this.props.userDetails[0].id,
-            img:this.props.userDetails[0].profile.image.url,
-            name:this.props.userDetails[0].userName,
+            id: this.props.userDetails[0]._id,
+/*            img:this.props.userDetails[0].profile.image.url,
+            name:this.props.userDetails[0].userName,*/
         };
+        console.log(userData,"==savebuzz")
         let details = JSON.stringify(userData);
         formData.append('content', postState.content);
         formData.append('category', postState.category);
@@ -23,6 +24,7 @@ class Activity extends Component{
     };
     render(){
         let { loading } = this.props.buzzReducer;
+        console.log(this.props.userDetails," activity")
         return(
             <div>
               {

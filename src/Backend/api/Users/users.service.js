@@ -13,7 +13,7 @@ exports.getUser = function (res) {
 
 exports.getCurrentUser = function (userId,res) {
 
-    const userID = {id:userId};
+    const userID = {_id:userId};
 
     User.find(userID,(err,user)=>{
         if(err){

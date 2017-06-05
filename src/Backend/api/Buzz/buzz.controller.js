@@ -4,7 +4,9 @@ exports.saveBuzz =  (req,res,next) => {
     const buzzDetails = req.body;
     buzzDetails.postCreated = new Date();
     buzzDetails.img = req.file;
-    buzzDetails.userDetails = JSON.parse(buzzDetails.userDetails);
+    let userID=  JSON.parse(buzzDetails.userDetails).id;
+    buzzDetails.userDetails = userID;
+     console.log(buzzDetails,">>//////..........id////>");
     if(buzzDetails.img||buzzDetails.content)
     buzzService.saveBuzz(buzzDetails,res);
 };
