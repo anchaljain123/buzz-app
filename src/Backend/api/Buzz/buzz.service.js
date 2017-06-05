@@ -4,11 +4,9 @@ exports.saveBuzz = function (buzzDetails, res) {
   const newBuzz = new Buzz(buzzDetails);
   newBuzz.save(buzzDetails, (err, data) => {
     if (err){
-      console.log(err,"==savedberr")
       res.send({error: err});
     }
     else {
-      console.log(data,"==savedb")
       res.send(data);
     }
   })
@@ -23,10 +21,8 @@ exports.getBuzz = (offset, res) => {
       .skip(offset)
       .exec((err, data) => {
         if (err) {
-          console.log(err,"==geterr")
           reject({error: err})
         } else {
-          console.log(data,"==getdb")
           resolve(data)
         }
       })
@@ -42,12 +38,7 @@ exports.deleteBuzz = (buzzDetails, res) => {
         Buzz.remove({'_id': buzzId}, (err, data) => {
           if (err) reject({error: err});
           else {
-            Buzz.find({}, null, {sort: {'postCreated': -1}}, (err, data) => {
-              if (err) reject({error: err});
-              else {
-                resolve(data)
-              }
-            })
+          this.getBuzz(0,res)
           }
         })
       }
@@ -56,7 +47,10 @@ exports.deleteBuzz = (buzzDetails, res) => {
 };
 
 exports.getlostnfoundBuzz = (res) => {
-  Buzz.find({'category': 'lostnfound'}, null, {sort: {'postCreated': -1}}, (err, data) => {
+  Buzz.find({'category': 'lostnfound'})
+    .populate('userDetails',{userName:1, 'profile.image.url':1})
+    .sort({'postCreated': -1})
+    .exec((err, data) => {
     if (err) {
       res.send({error: err})
     } else {

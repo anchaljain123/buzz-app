@@ -10,7 +10,6 @@ class LostnFound extends Component {
   }
   render() {
     let {lostnfound} = this.props.buzzReducer;
-    console.log(lostnfound,"==lostnfound")
     return (
       <div>
         {
@@ -22,14 +21,14 @@ class LostnFound extends Component {
                     <div className="pull-left">
                       <img
                         className="media-object img-circle lostnfoundstyle"
-                        src={item.userDetails.img}/>
+                        src={item.userDetails.profile.image.url}/>
                     </div>
                     <div className="pull-right">
                       <span className="label label-info">{item.category}</span>
                     </div>
                     <div key={item._id}>
                       <h4 style={{"color": "#165ba8"}}>
-                        <strong>{item.userDetails.name}</strong>
+                        <strong>{item.userDetails.userName}</strong>
                       </h4>
                       <hr/>
                       <div className="post-content">{item.content}</div>

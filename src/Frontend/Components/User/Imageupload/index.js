@@ -5,18 +5,35 @@ class Imageupload extends React.Component {
   constructor() {
     super();
     this.state = {
-      file: '',
+      imagePreviewUrl: '',
+      imgpreview:false,
     };
-    this.saveimg = this.saveimg.bind(this);
   }
   saveimg = (event) => {
     event.preventDefault();
+    let reader = new FileReader();
     let file = event.target.files[0];
-    this.setState({ file: {file} }, () => {
-      this.props.saveState(this.state.file);
+    if(file) {
+      reader.readAsDataURL(file)
+    }
+    reader.onloadend = () => {
+      this.setState({
+        imagePreviewUrl: reader.result,
+        imgpreview:true,
+      });
+      this.props.saveState(file);
+    };
+    this.setState({
+      imgpreview:false
     })
   };
   render() {
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} />);
+    }
+    const showbtn = this.state.imgpreview ? {'visibility': 'visible'} : {'visibility': 'hidden'};
     return (
       <div>
         <form encType="multipart/form-data" id="myform">
@@ -29,6 +46,9 @@ class Imageupload extends React.Component {
             </div>
           </div>
           </form>
+        {this.state.imgpreview?$imagePreview:<p></p>}
+        <button style={showbtn} onClick={(e)=>this.setState({imgpreview:false})}>
+          <i className="fa fa-times" aria-hidden="true"></i></button>
       </div>
     )
   }

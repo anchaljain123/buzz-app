@@ -84,6 +84,7 @@ export const asyncgetLostnFoundBuzz = () => {
 };
 
 export const asyncdeletePost = (postDetails) => {
+  console.log(postDetails,"asyncdel")
   return(dispatch) =>{
     fetch(deletePostURI,{
       method:'delete',

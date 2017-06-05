@@ -21,6 +21,7 @@ exports.getBuzz =  (req,res,next)=> {
 
 exports.deleteBuzz =  (req,res,next) =>{
     const buzzDetails = req.body;
+    console.log(buzzDetails,">>>del")
   buzzService.deleteBuzz(buzzDetails,res)
     .then(data=>res.send(data))
     .catch(err=>res.send(err))

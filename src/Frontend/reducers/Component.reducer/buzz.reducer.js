@@ -28,7 +28,6 @@ export const buzzReducer = (state = initialState, action) => {
         loading: true,
       };
     case SAVE_BUZZ_SUCCESS:
-      console.log(action.data,'savesuccess')
       state.buzz.unshift(action.data);
       let newBuzz = state.buzz;
       return {
@@ -38,7 +37,6 @@ export const buzzReducer = (state = initialState, action) => {
       };
 
     case SAVE_BUZZ_FAILED:
-      console.log(action.err,'savefailed')
       return {
         ...state,
         err: action.err,
@@ -47,7 +45,6 @@ export const buzzReducer = (state = initialState, action) => {
       };
 
     case FETCH_BUZZ_SUCCESS: {
-      console.log(action.data, state.buzz,"fetchsuccess")
       let newbuzz =  state.buzz.concat(action.data);
       if(state.buzz.length === newbuzz.length){
        var maxlength = true

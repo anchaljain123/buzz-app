@@ -14,12 +14,12 @@ class RecentBuzzRow extends Component {
     }
   }
   deletePost = () => {
+    console.log(this.state,">>>state")
     this.props.deleteBuzz(this.state);
     this.setState({
       post: "",
       userId: "",
       currentId: "",
-      comment: '',
     })
   };
   postLike = () => {
@@ -48,7 +48,7 @@ class RecentBuzzRow extends Component {
   render() {
     const {buzzData,likeData,dislikeData} = this.props;
     let likecount = 0, dislikecount = 0;
-    console.log(buzzData,">>>recentbuzzrow")
+
     return (
       <div className="panel panel-default">
         <div className="panel-body">

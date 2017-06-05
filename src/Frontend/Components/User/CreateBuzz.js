@@ -22,7 +22,7 @@ class CreateBuzz extends React.Component {
 
   saveState = (imageState) => {
     this.setState({
-      img: imageState.file,
+      img: imageState,
     })
   };
 
