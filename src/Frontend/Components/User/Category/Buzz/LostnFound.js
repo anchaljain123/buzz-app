@@ -35,7 +35,7 @@ class LostnFound extends Component {
                       <div className="post-content">
                         {
                           item.img ?
-                            <img src={'http://localhost:4000/' + item.img.path}/> : ""
+                            <img src={'http://localhost:9000/' + item.img.path}/> : ""
                         }
                       </div>
                     </div>

@@ -11,7 +11,7 @@ export default (NewComponent) => {
     }
     render() {
       const { props } = this;
-
+      console.log("isAuth===>")
       if (props.userReducers.loading) { //request is processing
         return <img style={{width:'100%'}} src={gearimg}/>
       }

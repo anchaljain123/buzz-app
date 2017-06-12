@@ -1,5 +1,6 @@
 const passport = require('passport');
 const userController = require('./users.controller');
+const path = require('path');
 
 module.exports = (app) => {
 
@@ -11,7 +12,8 @@ module.exports = (app) => {
 
     app.get('/redirecturl', (req, res) => {
         if (req.isAuthenticated()) {
-            res.status(401).redirect('http://localhost:9000/profile');
+          console.log('authenticated---');
+            res.redirect('http://localhost:9000/profile');
         } else {
             res.redirect('http://localhost:9000/');
         }
@@ -24,9 +26,9 @@ module.exports = (app) => {
 
     app.get('/currentUser', userController.getCurrentUser);
 
-    app.get('/profile', (req, res) => {
+   /* app.get('/profile', (req, res) => {
         res.redirect('http://localhost:9000/');
-    });
+    });*/
     app.get('/logout' ,(req, res) => {
       req.logout();
       res.redirect('http://localhost:9000/');

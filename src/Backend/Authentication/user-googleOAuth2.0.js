@@ -16,9 +16,11 @@ module.exports.googleauth = () =>{
         (token,refreshToken,profile,done)=>{
             User.findOne({'id':profile.id},(err,user) => {
                 if(err){
+                  console.log(err,"error===")
                     done(err);
                 }
                 if(user) {
+                  console.log(user.id,"++++user")
                     return done(null,user.id);
                 }
                 else{
@@ -27,13 +29,13 @@ module.exports.googleauth = () =>{
                     newUser.userName = profile.displayName;
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
-                    newUser.role = 'User';
+                    newUser.role = 'Admin';
                     if(newUser.emailID.includes('@tothenew.com')){
                         newUser.save((err) => {
                             if (err){
                                 return done(err);
                             }
-                            sendMail.send(newUser.emailID);
+                            //sendMail.send(newUser.emailID);
                             return done(null, newUser.id);
                         });
                     }

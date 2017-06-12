@@ -73,7 +73,7 @@ class RecentBuzzRow extends Component {
           <div className="post-content">
             {
               buzzData.img ?
-                <img src={'http://localhost:4000/' + buzzData.img.path}/> : ""
+                <img src={'http://localhost:9000/' + buzzData.img.path}/> : ""
             }
           </div>
           <hr/>

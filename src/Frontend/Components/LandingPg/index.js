@@ -18,7 +18,7 @@ const LandingPg = (props) =>{
                     <div className="headtext">
                         <h1>TTN BUZZAPP</h1>
                         <div className="google-button">
-                            <a className="google-button" href="http://localhost:4000/auth/google">
+                            <a className="google-button" href="http://localhost:9000/auth/google">
                                 <img src={gplus}/>
                             </a>
                         </div>
