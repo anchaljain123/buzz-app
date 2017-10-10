@@ -6,10 +6,11 @@ It is a web-based project which is made for is implemented in MEAN stack. Main a
 -----------------------------------
 
 ## Installation
+```bash
 $ npm install
 $ npm run dev-server
 $ npm run dev-client
-
+```
 ## To run : 
 * Application server - localhost:9000
 * Web server - localhost:4000
