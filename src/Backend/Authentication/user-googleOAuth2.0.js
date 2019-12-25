@@ -28,7 +28,7 @@ module.exports.googleauth = () =>{
                     newUser.emailID = profile.emails[0].value;
                     newUser.profile = profile._json;
                     newUser.role = 'User';
-                    if(newUser.emailID.includes('@tothenew.com')){
+                    // if(newUser.emailID.includes('@tothenew.com')){
                         newUser.save((err) => {
                             if (err){
                                 return done(err);
@@ -36,11 +36,11 @@ module.exports.googleauth = () =>{
                             sendMail.send(newUser.emailID);
                             return done(null, newUser.id);
                         });
-                    }
-                    else
-                    {
-                        return done(err)
-                    }
+                    // }
+                    // else
+                    // {
+                    //     return done(err)
+                    // }
                 }
             })
         }

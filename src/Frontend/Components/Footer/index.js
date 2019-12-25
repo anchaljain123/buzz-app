@@ -13,8 +13,8 @@ const Footer = () =>{
 
 
             <div className="copyrights" style={footerStyling.marginSet}>
-                <span>To The New© 2017, All Rights Reserved</span>
-                <span>Web Design By: Anchal Jain</span>
+                {/* <span>To The New© 2017, All Rights Reserved</span> */}
+                <span>Web Design By: Aditya Jain</span>
             </div>
 
     )
